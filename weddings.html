@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Shagun, Invitation Bhaji &amp; Return Favors | SweetBliss</title>
+  <meta name="description" content="Opulent wedding invitation sweet boxes, royal velvet trunks, and custom monogram mithai hampers handcrafted with pure A2 cow ghee and Kashmiri saffron." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              DEFAULT: '#7B263A',
+              50: '#FDF2F4',
+              100: '#FBE8EC',
+              600: '#9C324B',
+              700: '#7B263A',
+              800: '#581928',
+              900: '#3D0E19'
+            },
+            gold: {
+              DEFAULT: '#D6A653',
+              50: '#FDF9F2',
+              100: '#F9F0DF',
+              400: '#E8C482',
+              500: '#D6A653',
+              600: '#B58434',
+              700: '#8C6321'
+            },
+            cream: '#FFF8F0'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#FFF8F0] dark:bg-[#171717] text-neutral-800 dark:text-neutral-100 transition-colors duration-300">
+
+  <!-- Header & Navigation -->
+  <header class="sticky-header sticky top-0 z-40 bg-white/95 dark:bg-[#1C1819]/95 backdrop-blur-md transition-all duration-300 border-b border-amber-100 dark:border-neutral-800">
+    <div class="container mx-auto px-4 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between transition-all duration-300">
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2 shrink-0" aria-label="SweetBliss Homepage">
+        <img src="assets/logo.svg" alt="SweetBliss Logo" class="h-10 sm:h-11 lg:h-12 w-auto transition-all duration-300" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8 font-semibold text-[13px] xl:text-[14px] text-neutral-700 dark:text-neutral-200">
+        <div class="relative group">
+          <a href="index.html" class="hover:text-burgundy dark:hover:text-gold flex items-center gap-1.5 py-1 whitespace-nowrap">
+            Home <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute top-full left-0 w-48 bg-white dark:bg-[#201B1D] rounded-xl shadow-xl py-2 hidden group-hover:block border border-amber-100 dark:border-neutral-800 z-50">
+            <a href="index.html" class="block px-4 py-2.5 text-xs text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800">Classic Home</a>
+            <a href="home-2.html" class="block px-4 py-2.5 text-xs text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800">Festive Showcase</a>
+          </div>
+        </div>
+        <a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Products</a>
+        <a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Festival Specials</a>
+        <a href="weddings.html" class="text-burgundy dark:text-gold font-bold py-1 whitespace-nowrap">Wedding Shagun</a>
+        <a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Bulk &amp; Corporate</a>
+        <a href="track-order.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Track Order</a>
+        <a href="about.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">About Us</a>
+        <a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Contact</a>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 shrink-0">
+        <button onclick="toggleRTL()" class="rtl-toggle-btn hidden sm:inline-flex text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition">RTL</button>
+
+        <button onclick="toggleDarkMode()" class="theme-toggle-btn w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold hover:scale-105 transition flex items-center justify-center text-xs sm:text-sm shadow-sm" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <a href="services.html" class="relative hidden sm:inline-flex w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold hover:scale-105 transition flex items-center justify-center text-sm shadow-sm" title="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="wishlist-count-badge absolute -top-1 -right-1 w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full items-center justify-center" style="display: none;">0</span>
+        </a>
+
+        <button onclick="openCartDrawer()" class="relative bg-burgundy text-white hover:bg-burgundy-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 transition shadow-md whitespace-nowrap">
+          <i class="fa-solid fa-bag-shopping text-gold text-xs sm:text-sm"></i>
+          <span>Bag</span>
+          <span class="cart-count-badge w-4 h-4 sm:w-4.5 sm:h-4.5 bg-gold text-neutral-900 font-extrabold text-[10px] rounded-full flex items-center justify-center ml-0.5" style="display: none;">0</span>
+        </button>
+
+        <button id="mobileMenuToggle" class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-700 dark:text-neutral-200 hover:text-burgundy transition" aria-label="Open mobile menu">
+          <i class="fa-solid fa-bars text-sm sm:text-base"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu Navigation -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <aside id="mobileMenu" class="fixed top-0 left-0 bottom-0 w-80 max-w-[85%] bg-white dark:bg-[#1C1819] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-5 sm:p-6 overflow-y-auto">
+    <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
+      <img src="assets/logo.svg" alt="SweetBliss" class="h-8 sm:h-9 w-auto" />
+      <button class="mobile-menu-close w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Quick Utilities Row for Mobile -->
+    <div class="flex items-center gap-2 py-3 border-b border-neutral-100 dark:border-neutral-800">
+      <button onclick="toggleRTL()" class="rtl-toggle-btn text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5">
+        <i class="fa-solid fa-language text-gold"></i> RTL Mode
+      </button>
+      <a href="services.html" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5">
+        <i class="fa-regular fa-heart text-burgundy dark:text-gold"></i> Wishlist
+        <span class="wishlist-count-badge w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full inline-flex items-center justify-center" style="display: none;">0</span>
+      </a>
+    </div>
+
+    <div class="py-4 space-y-3 font-semibold text-sm">
+      <a href="index.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Classic Home</a>
+      <a href="home-2.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Festive Showcase</a>
+      <a href="services.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Products (Sweets &amp; Snacks)</a>
+      <a href="festivals.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">🪔 Festival Specials</a>
+      <a href="weddings.html" class="block text-burgundy dark:text-gold font-bold">💍 Wedding Shagun</a>
+      <a href="pricing.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Bulk &amp; Corporate</a>
+      <a href="track-order.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">📦 Track Order</a>
+      <a href="about.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">About Us</a>
+      <a href="contact.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Contact &amp; Enquiry</a>
+      <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800 space-y-2.5">
+        <a href="weddings.html#monogramStudio" class="btn-primary w-full text-xs text-center py-2.5">Custom Monogram Studio</a>
+        <a href="contact.html" class="btn-outline w-full text-xs text-center py-2.5">Wedding Consultation</a>
+      </div>
+    </div>
+    <div class="mt-auto pt-4 border-t border-neutral-100 dark:border-neutral-800 text-xs text-neutral-400">
+      <p>© 2026 SweetBliss Traditional Mithai.</p>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Royal Wedding Hero Section -->
+    <section class="py-16 sm:py-24 bg-gradient-to-r from-burgundy via-[#681829] to-burgundy-900 text-white relative overflow-hidden">
+      <div class="absolute inset-0 ornament-pattern opacity-10 pointer-events-none"></div>
+      <div class="absolute -top-32 -right-32 w-96 h-96 bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 lg:px-8 text-center max-w-4xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/20 border border-gold/40 text-gold text-xs font-bold uppercase tracking-widest mb-4">
+          <i class="fa-solid fa-gem"></i> Royal Shagun &amp; Wedding Bhaji Collection
+        </div>
+        
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
+          Honor Your Auspicious Union with <br class="hidden sm:inline" />
+          <span class="gold-gradient-text gold-sweep-text">Imperial Mithai Trunks</span>
+        </h1>
+        
+        <p class="text-xs sm:text-sm md:text-base text-neutral-200 max-w-2xl mx-auto leading-relaxed mb-8">
+          The wedding invitation box is the first cherished glimpse of your grand celebration. We curate bespoke royal velvet trunks, handcrafted silver vark confections, and personalized bride-groom monogram stamps.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3.5">
+          <a href="#tastingBox" class="btn-gold text-xs sm:text-sm py-3.5 px-7 shadow-xl">
+            <i class="fa-solid fa-spoon mr-1"></i> Order ₹299 Tasting Sample Box
+          </a>
+          <a href="#monogramStudio" class="btn-outline-gold text-xs sm:text-sm py-3.5 px-6">
+            <i class="fa-solid fa-stamp mr-1"></i> Preview Your Monogram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Monogram Preview Studio -->
+    <section id="monogramStudio" class="py-16 md:py-20 bg-white dark:bg-[#1C1819] border-b border-amber-100 dark:border-neutral-800">
+      <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <span class="text-xs font-bold text-burgundy dark:text-gold uppercase tracking-wider block mb-1">Live Customizer Studio</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-white">Preview Your Royal Box Seal</h2>
+          <p class="text-xs text-neutral-500 mt-1">See how your couple monogram looks hot-foil stamped in metallic gold or rose gold.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-[#FFF8F0] dark:bg-[#201B1D] p-6 sm:p-10 rounded-3xl border border-amber-200 dark:border-neutral-800 shadow-lg">
+          <!-- Left: Input Controls -->
+          <div class="md:col-span-6 space-y-4">
+            <div>
+              <label class="block text-xs font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Bride &amp; Groom Names</label>
+              <input type="text" id="weddingCoupleNames" value="Ananya &amp; Rohan" oninput="updateMonogramPreview()" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:border-burgundy dark:focus:border-gold outline-none" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Wedding Date</label>
+              <input type="text" id="weddingDateInput" value="December 12, 2026" oninput="updateMonogramPreview()" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:border-burgundy dark:focus:border-gold outline-none" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Choose Keepsake Box Texture</label>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" onclick="selectBoxTexture('burgundy', this)" class="box-tex-btn active p-2.5 rounded-xl border-2 border-burgundy bg-burgundy/10 text-xs font-bold text-neutral-800 dark:text-neutral-200 text-center">
+                  Royal Velvet
+                </button>
+                <button type="button" onclick="selectBoxTexture('ivory', this)" class="box-tex-btn p-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 text-xs font-bold text-neutral-800 dark:text-neutral-200 text-center">
+                  Ivory &amp; Gold
+                </button>
+                <button type="button" onclick="selectBoxTexture('emerald', this)" class="box-tex-btn p-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 text-xs font-bold text-neutral-800 dark:text-neutral-200 text-center">
+                  Emerald Green
+                </button>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <span class="text-[11px] text-neutral-400 block mb-2">Includes complimentary calligraphed invitation note card inside.</span>
+              <a href="#weddingEnquiry" class="btn-primary w-full text-xs text-center py-3">
+                Request Quote with This Design
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Visual Box Lid Preview -->
+          <div class="md:col-span-6 flex justify-center">
+            <div id="monogramBoxLid" class="w-full max-w-sm aspect-square bg-[#7B263A] rounded-3xl shadow-2xl p-8 border-4 border-[#D6A653] flex flex-col items-center justify-center text-center relative transition-colors duration-500">
+              <div class="w-28 h-28 rounded-full border-2 border-[#D6A653] flex flex-col items-center justify-center mb-4 bg-black/20 shadow-inner">
+                <i class="fa-solid fa-crown text-[#D6A653] text-xl mb-1"></i>
+                <span id="previewInitials" class="text-2xl font-serif font-bold text-[#D6A653] tracking-widest">A &amp; R</span>
+              </div>
+              <h4 id="previewCouple" class="text-xl font-serif font-bold text-[#FFF8F0] tracking-wide mb-1">Ananya &amp; Rohan</h4>
+              <span class="text-[11px] text-[#E8C482] uppercase tracking-widest font-semibold">Shubh Vivah</span>
+              <span id="previewDate" class="text-[10px] text-neutral-200 mt-2 tracking-wider">December 12, 2026</span>
+              <span class="absolute bottom-3 text-[9px] text-[#E8C482]/80 uppercase tracking-widest font-medium">SweetBliss Artisan Confections</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Luxury Wedding Box Styles Showcase -->
+    <section class="py-16 md:py-24 bg-[#FFF8F0] dark:bg-[#151112]">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-burgundy dark:text-gold block mb-2">Heirloom Keepsakes</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white">
+            Curated Wedding Box Collections
+          </h2>
+          <p class="text-xs sm:text-sm text-neutral-500 mt-2">
+            Designed to be cherished forever as heirloom jewelry or keepsake trunks long after the celebration.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          
+          <!-- Box Style 1 -->
+          <div class="bg-white dark:bg-[#201B1D] rounded-3xl border border-amber-100 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div class="h-64 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" alt="The Maharaja Velvet Trunk" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <span class="absolute top-3 left-3 bg-burgundy text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
+                Most Chosen
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-gold">Velvet &amp; Brass Clasp</span>
+                <h3 class="text-lg font-bold text-neutral-900 dark:text-white mt-1">The Royal Velvet Keepsake Trunk</h3>
+                <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
+                  Hand-stitched plush velvet exterior with antique brass lock. Contains 6 compartments for Kaju Katli, Anjeer Barfi, Pista Roll, and Afghani roasted nuts.
+                </p>
+                <div class="my-4 pt-3 border-t border-neutral-100 dark:border-neutral-800 text-xs space-y-1 text-neutral-600 dark:text-neutral-300">
+                  <div>• Box Weight: 1.5 kg / 2.0 kg</div>
+                  <div>• Min. Order: 25 Boxes</div>
+                  <div>• Custom Gold Foil Initials Included</div>
+                </div>
+              </div>
+              <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-neutral-400 block">From</span>
+                  <span class="text-xl font-black text-burgundy dark:text-gold">₹1,850</span>
+                  <span class="text-[10px] text-neutral-400">/ box</span>
+                </div>
+                <a href="#weddingEnquiry" class="btn-primary text-xs py-2 px-4">
+                  Request Samples
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box Style 2 -->
+          <div class="bg-white dark:bg-[#201B1D] rounded-3xl border border-amber-100 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div class="h-64 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80" alt="Meenakari Brass Platter" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
+                Artisanal Handcraft
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-gold">Meenakari Enamel</span>
+                <h3 class="text-lg font-bold text-neutral-900 dark:text-white mt-1">Rajasthani Meenakari Brass Platter</h3>
+                <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
+                  Solid brass container with hand-painted peacock and lotus motifs by Jaipur artisans. Sealed with vacuum-packed motichoor and pure saffron barfis.
+                </p>
+                <div class="my-4 pt-3 border-t border-neutral-100 dark:border-neutral-800 text-xs space-y-1 text-neutral-600 dark:text-neutral-300">
+                  <div>• Box Weight: 1.0 kg Platter</div>
+                  <div>• Min. Order: 20 Boxes</div>
+                  <div>• Keepsake Diya Pair Included</div>
+                </div>
+              </div>
+              <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-neutral-400 block">From</span>
+                  <span class="text-xl font-black text-burgundy dark:text-gold">₹2,450</span>
+                  <span class="text-[10px] text-neutral-400">/ box</span>
+                </div>
+                <a href="#weddingEnquiry" class="btn-primary text-xs py-2 px-4">
+                  Request Samples
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box Style 3 -->
+          <div class="bg-white dark:bg-[#201B1D] rounded-3xl border border-amber-100 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div class="h-64 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" alt="Silk Brocade Potlis" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <span class="absolute top-3 left-3 bg-emerald-700 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
+                Mehendi &amp; Sangeet
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-gold">Banarasi Silk</span>
+                <h3 class="text-lg font-bold text-neutral-900 dark:text-white mt-1">Banarasi Brocade Shagun Potlis</h3>
+                <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
+                  Zari-embroidered woven silk drawstrings filled with slow-roasted Himalayan salted cashews, Afghani jumbo raisins, and dry fruit bites. Perfect for Mehendi favors.
+                </p>
+                <div class="my-4 pt-3 border-t border-neutral-100 dark:border-neutral-800 text-xs space-y-1 text-neutral-600 dark:text-neutral-300">
+                  <div>• Weight: 350g per Potli</div>
+                  <div>• Min. Order: 50 Potlis</div>
+                  <div>• Choice of 4 Silk Colors</div>
+                </div>
+              </div>
+              <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-neutral-400 block">From</span>
+                  <span class="text-xl font-black text-burgundy dark:text-gold">₹650</span>
+                  <span class="text-[10px] text-neutral-400">/ potli</span>
+                </div>
+                <a href="#weddingEnquiry" class="btn-primary text-xs py-2 px-4">
+                  Request Samples
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Tasting Sample Box Order Area -->
+    <section id="tastingBox" class="py-16 bg-white dark:bg-[#1A1617] border-t border-amber-100 dark:border-neutral-800">
+      <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+        <div class="bg-gradient-to-r from-amber-500/10 via-amber-100/40 to-amber-500/10 dark:from-[#251B1E] dark:via-[#1F191B] dark:to-[#251B1E] p-8 sm:p-10 rounded-3xl border-2 border-gold/40 shadow-xl flex flex-col md:flex-row items-center gap-8">
+          <div class="w-36 h-36 shrink-0 rounded-2xl bg-amber-50 dark:bg-neutral-800 flex items-center justify-center text-5xl text-gold shadow-inner border border-gold/30">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <div class="flex-1 text-center md:text-left">
+            <span class="text-xs font-bold text-burgundy dark:text-gold uppercase tracking-wider block mb-1">Taste Before You Decide</span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">Order Your Wedding Mithai Tasting Box</h3>
+            <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
+              We deliver a freshly prepared box of 5 signature confections (Kaju Katli, Kashmiri Motichoor, Ghee Mysore Pak, Anjeer Barfi &amp; Roasted Cashews) directly to the bride or groom family doorstep for just ₹299 (fully adjusted against your final bulk wedding order).
+            </p>
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+              <button onclick="addToCart('sb-14', '250g', 1)" class="btn-primary text-xs py-3 px-6 shadow-md">
+                Order Tasting Box for ₹299
+              </button>
+              <span class="text-[11px] text-neutral-400 flex items-center gap-1">
+                <i class="fa-solid fa-truck-fast text-gold"></i> Delivered in 24-48 Hours
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wedding Order & Consultation Form -->
+    <section id="weddingEnquiry" class="py-16 md:py-24 bg-[#FFF8F0] dark:bg-[#151112]">
+      <div class="container mx-auto px-4 lg:px-8 max-w-3xl">
+        <div class="bg-white dark:bg-[#201B1D] p-8 sm:p-12 rounded-3xl border border-amber-200 dark:border-neutral-800 shadow-xl">
+          <div class="text-center mb-8">
+            <span class="text-xs font-bold text-burgundy dark:text-gold uppercase tracking-wider block mb-1">Dedicated Wedding Concierge</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-neutral-900 dark:text-white">Plan Your Wedding Shagun</h2>
+            <p class="text-xs text-neutral-500 mt-1">Our master wedding concierge will connect with you via phone or WhatsApp within 2 hours.</p>
+          </div>
+
+          <form onsubmit="handleContactSubmit(event)" class="space-y-4 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Bride / Groom / Planner Name *</label>
+                <input type="text" required placeholder="e.g. Ananya Kapoor" class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+              </div>
+              <div>
+                <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">WhatsApp / Contact Number *</label>
+                <input type="tel" required placeholder="+91 98765 43210" class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Wedding Date *</label>
+                <input type="date" required class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+              </div>
+              <div>
+                <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Estimated Quantity of Boxes *</label>
+                <select class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold">
+                  <option value="25-50">25 to 50 Boxes (Intimate Wedding)</option>
+                  <option value="51-150">51 to 150 Boxes (Grand Wedding)</option>
+                  <option value="151-500">151 to 500 Boxes (VIP Wedding Invitation Bhaji)</option>
+                  <option value="500+">500+ Boxes (Royal Mega Celebration)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">City / Destination Venue *</label>
+                <input type="text" required placeholder="e.g. Udaipur / Delhi / Mumbai" class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+              </div>
+              <div>
+                <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Preferred Keepsake Box Style</label>
+                <select class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold">
+                  <option value="velvet">The Royal Velvet Trunk (Custom Initials)</option>
+                  <option value="meenakari">Rajasthani Meenakari Brass Platter</option>
+                  <option value="potli">Banarasi Silk Brocade Potlis</option>
+                  <option value="custom">Completely Bespoke Architectural Box</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Special Notes or Sweet Preferences</label>
+              <textarea rows="3" placeholder="Tell us if you also need live Jalebi/Rabri counters for Sangeet or delivery across multiple cities..." class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full py-3.5 text-xs font-bold shadow-lg">
+              <i class="fa-solid fa-gem mr-1.5"></i> Request Wedding Proposal &amp; Catalog
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Master Footer -->
+  <footer class="bg-white dark:bg-[#120F10] text-neutral-700 dark:text-neutral-300 border-t border-amber-100 dark:border-neutral-800 pt-16 pb-8">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div class="lg:col-span-2 space-y-4">
+          <img src="assets/logo.svg" alt="SweetBliss" class="h-10 w-auto" />
+          <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm">
+            SweetBliss is a celebrated heritage confectionery committed to pure ingredients, 100% A2 cow desi ghee, and authentic Indian mithai &amp; savory namkeen recipes handcrafted since 1974.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-burgundy dark:text-gold">
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="YouTube"><i class="fa-brands fa-youtube text-xs"></i></a>
+            <a href="https://wa.me/919876543210" target="_blank" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-burgundy dark:hover:text-gold transition">Classic Home</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Products (Sweets &amp; Snacks)</a></li>
+            <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Festival Specials</a></li>
+            <li><a href="weddings.html" class="text-burgundy dark:text-gold font-bold transition">Wedding Shagun</a></li>
+            <li><a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition">Bulk &amp; Corporate</a></li>
+            <li><a href="track-order.html" class="hover:text-burgundy dark:hover:text-gold transition">Track Your Order</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Wedding Services</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="weddings.html" class="hover:text-burgundy dark:hover:text-gold transition">Royal Velvet Trunks</a></li>
+            <li><a href="weddings.html" class="hover:text-burgundy dark:hover:text-gold transition">Meenakari Brass Platters</a></li>
+            <li><a href="weddings.html" class="hover:text-burgundy dark:hover:text-gold transition">Silk Brocade Potlis</a></li>
+            <li><a href="weddings.html#tastingBox" class="hover:text-burgundy dark:hover:text-gold transition">Doorstep Tasting Box</a></li>
+            <li><a href="weddings.html#monogramStudio" class="hover:text-burgundy dark:hover:text-gold transition">Custom Monogram Foil</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Stay Sweet</h4>
+          <p class="text-xs text-neutral-500 mb-3">Subscribe for festival discounts and recipe stories.</p>
+          <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2">
+            <input type="email" placeholder="Your email address" required class="w-full px-3 py-2 text-xs rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+            <button type="submit" class="btn-primary w-full text-xs py-2">Join SweetBliss Club</button>
+          </form>
+          <div class="mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-800 text-[11px] text-neutral-500">
+            <i class="fa-regular fa-clock mr-1 text-gold"></i> Open Daily: 8:00 AM – 10:30 PM
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-amber-100 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-3">
+        <p>© 2026 SweetBliss Confectionery Private Limited. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="404.html" class="hover:underline">404 Demo</a>
+          <a href="coming-soon.html" class="hover:underline">Coming Soon</a>
+          <a href="maintenance.html" class="hover:underline">Maintenance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Quick Order -->
+  <a href="https://wa.me/919876543210?text=Hi%20SweetBliss,%20I%20would%20like%20to%20enquire%20about%20wedding%20invitation%20mithai%20boxes!" target="_blank" class="fixed bottom-6 right-6 z-40 bg-emerald-500 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 hover:bg-emerald-600 transition" title="Order on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Master JavaScript Application -->
+  <script src="js/app.js"></script>
+  <script>
+    function updateMonogramPreview() {
+      const couple = document.getElementById('weddingCoupleNames').value || 'Ananya & Rohan';
+      const date = document.getElementById('weddingDateInput').value || 'December 12, 2026';
+      
+      const coupleEl = document.getElementById('previewCouple');
+      const dateEl = document.getElementById('previewDate');
+      const initialsEl = document.getElementById('previewInitials');
+
+      if (coupleEl) coupleEl.textContent = couple;
+      if (dateEl) dateEl.textContent = date;
+
+      // Extract initials (e.g. "Ananya & Rohan" -> "A & R")
+      const parts = couple.split('&').map(s => s.trim());
+      if (parts.length >= 2 && parts[0] && parts[1]) {
+        if (initialsEl) initialsEl.textContent = `${parts[0][0].toUpperCase()} & ${parts[1][0].toUpperCase()}`;
+      } else {
+        if (initialsEl) initialsEl.textContent = couple.slice(0, 3).toUpperCase();
+      }
+    }
+
+    function selectBoxTexture(texture, btn) {
+      document.querySelectorAll('.box-tex-btn').forEach(b => {
+        b.className = 'box-tex-btn p-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 text-xs font-bold text-neutral-800 dark:text-neutral-200 text-center';
+      });
+      if (btn) {
+        btn.className = 'box-tex-btn active p-2.5 rounded-xl border-2 border-burgundy bg-burgundy/10 text-xs font-bold text-neutral-800 dark:text-neutral-200 text-center';
+      }
+
+      const lid = document.getElementById('monogramBoxLid');
+      if (!lid) return;
+
+      if (texture === 'burgundy') {
+        lid.style.backgroundColor = '#7B263A';
+        lid.style.borderColor = '#D6A653';
+      } else if (texture === 'ivory') {
+        lid.style.backgroundColor = '#FFF8F0';
+        lid.style.borderColor = '#D6A653';
+        const couple = document.getElementById('previewCouple');
+        if (couple) couple.style.color = '#2D2325';
+      } else if (texture === 'emerald') {
+        lid.style.backgroundColor = '#164E3F';
+        lid.style.borderColor = '#D6A653';
+      }
+    }
+  </script>
+</body>
+</html>

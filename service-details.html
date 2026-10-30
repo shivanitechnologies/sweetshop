@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details — Handcrafted Delicacies | SweetBliss</title>
+  <meta name="description" content="View detailed ingredients, shelf life, weight variants, allergen info, and order handcrafted sweets & snacks directly from SweetBliss." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              DEFAULT: '#7B263A',
+              50: '#FDF2F4',
+              100: '#FBE8EC',
+              600: '#9C324B',
+              700: '#7B263A',
+              800: '#581928',
+              900: '#3D0E19'
+            },
+            gold: {
+              DEFAULT: '#D6A653',
+              50: '#FDF9F2',
+              100: '#F9F0DF',
+              400: '#E8C482',
+              500: '#D6A653',
+              600: '#B58434',
+              700: '#8C6321'
+            },
+            cream: '#FFF8F0'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#FFF8F0] dark:bg-[#171717] text-neutral-800 dark:text-neutral-100 transition-colors duration-300">
+
+  <!-- Header & Navigation -->
+  <header class="sticky-header sticky top-0 z-40 bg-white/95 dark:bg-[#1C1819]/95 backdrop-blur-md transition-all duration-300 border-b border-amber-100 dark:border-neutral-800">
+    <div class="container mx-auto px-4 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between transition-all duration-300">
+      <a href="index.html" class="flex items-center gap-2 shrink-0" aria-label="SweetBliss Homepage">
+        <img src="assets/logo.svg" alt="SweetBliss Logo" class="h-11 lg:h-12 w-auto transition-all duration-300" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-3.5 xl:gap-5 2xl:gap-7 font-semibold text-[13px] xl:text-[14px] text-neutral-700 dark:text-neutral-200">
+        <div class="relative group">
+          <a href="index.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-1.5 py-1 whitespace-nowrap">
+            Home <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute top-full left-0 w-48 bg-white dark:bg-[#201B1D] rounded-xl shadow-xl py-2 hidden group-hover:block border border-amber-100 dark:border-neutral-800 z-50">
+            <a href="index.html" class="block px-4 py-2.5 text-xs text-neutral-700 dark:text-neutral-300 hover:bg-amber-50 dark:hover:bg-neutral-800">Classic Home</a>
+            <a href="home-2.html" class="block px-4 py-2.5 text-xs text-neutral-700 dark:text-neutral-300 hover:bg-amber-50 dark:hover:bg-neutral-800">Festive Showcase</a>
+          </div>
+        </div>
+        <a href="services.html" class="text-burgundy dark:text-gold font-semibold py-1 whitespace-nowrap">Products</a>
+        <a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span> Festival Specials
+        </a>
+        <a href="weddings.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Wedding Shagun</a>
+        <a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Bulk &amp; Corporate</a>
+        <a href="track-order.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Track Order</a>
+        <a href="about.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">About Us</a>
+        <a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Contact</a>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 shrink-0">
+        <!-- RTL Toggle (Desktop / Tablet) -->
+        <button onclick="toggleRTL()" class="rtl-toggle-btn hidden sm:inline-flex text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition">RTL</button>
+
+        <!-- Theme Toggle -->
+        <button onclick="toggleDarkMode()" class="theme-toggle-btn w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold hover:scale-105 transition flex items-center justify-center text-xs sm:text-sm shadow-sm" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Wishlist Indicator (Desktop / Tablet) -->
+        <a href="services.html" class="relative hidden sm:inline-flex w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold hover:scale-105 transition flex items-center justify-center text-sm shadow-sm" title="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="wishlist-count-badge absolute -top-1 -right-1 w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full items-center justify-center" style="display: none;">0</span>
+        </a>
+
+        <!-- Cart Bag Button -->
+        <button onclick="openCartDrawer()" class="relative bg-burgundy text-white hover:bg-burgundy-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 transition shadow-md whitespace-nowrap">
+          <i class="fa-solid fa-bag-shopping text-gold text-xs sm:text-sm"></i>
+          <span>Bag</span>
+          <span class="cart-count-badge w-4 h-4 sm:w-4.5 sm:h-4.5 bg-gold text-neutral-900 font-extrabold text-[10px] rounded-full flex items-center justify-center ml-0.5" style="display: none;">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuToggle" class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-700 dark:text-neutral-200 hover:text-burgundy transition" aria-label="Open mobile menu">
+          <i class="fa-solid fa-bars text-sm sm:text-base"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu Navigation -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <aside id="mobileMenu" class="fixed top-0 left-0 bottom-0 w-80 max-w-[85%] bg-white dark:bg-[#1C1819] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-5 sm:p-6 overflow-y-auto">
+    <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
+      <img src="assets/logo.svg" alt="SweetBliss" class="h-8 sm:h-9 w-auto" />
+      <button class="mobile-menu-close w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Quick Utilities Row for Mobile -->
+    <div class="flex items-center gap-2 py-3 border-b border-neutral-100 dark:border-neutral-800">
+      <button onclick="toggleRTL()" class="rtl-toggle-btn text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5">
+        <i class="fa-solid fa-language text-gold"></i> RTL Mode
+      </button>
+      <a href="services.html" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5">
+        <i class="fa-regular fa-heart text-burgundy dark:text-gold"></i> Wishlist
+        <span class="wishlist-count-badge w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full inline-flex items-center justify-center" style="display: none;">0</span>
+      </a>
+    </div>
+
+    <div class="py-4 space-y-3 font-semibold text-sm">
+      <a href="index.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Classic Home</a>
+      <a href="home-2.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Festive Showcase</a>
+      <a href="services.html" class="block text-burgundy dark:text-gold font-bold">Products (Mithai &amp; Namkeen)</a>
+      <a href="festivals.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy flex items-center justify-between">
+        <span>Festival Specials</span>
+        <span class="text-[10px] bg-gold/20 text-gold px-2 py-0.5 rounded-full font-bold">2026</span>
+      </a>
+      <a href="weddings.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Wedding Shagun &amp; Favors</a>
+      <a href="pricing.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Bulk &amp; Corporate Hampers</a>
+      <a href="track-order.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Track Fresh Order</a>
+      <a href="about.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">About Us</a>
+      <a href="contact.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Contact &amp; Enquiry</a>
+      <a href="blog.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Mithai Journal</a>
+      <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800 space-y-2.5">
+        <a href="services.html" class="btn-primary w-full text-xs text-center py-2.5">Explore All Delicacies</a>
+        <a href="contact.html" class="btn-outline w-full text-xs text-center py-2.5">Custom Order Enquiry</a>
+      </div>
+    </div>
+    <div class="mt-auto pt-4 border-t border-neutral-100 dark:border-neutral-800 text-xs text-neutral-400">
+      <p>© 2026 SweetBliss Traditional Mithai.</p>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Breadcrumb Navigation -->
+    <div class="bg-amber-50/50 dark:bg-[#1A1517] border-b border-amber-100 dark:border-neutral-800 py-3">
+      <div class="container mx-auto px-4 lg:px-8 text-xs text-neutral-500 flex items-center gap-2">
+        <a href="index.html" class="hover:text-burgundy dark:hover:text-gold">Home</a>
+        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+        <a href="services.html" class="hover:text-burgundy dark:hover:text-gold">Mithai Catalog</a>
+        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+        <span id="breadcrumbProductName" class="text-neutral-900 dark:text-white font-semibold">Royal Kaju Katli</span>
+      </div>
+    </div>
+
+    <!-- Product Details Section -->
+    <section class="py-12 md:py-16 bg-[#FFF8F0] dark:bg-[#171717]">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Left: Product Image Gallery -->
+          <div class="lg:col-span-6 space-y-4">
+            <div class="rounded-3xl overflow-hidden border-2 border-amber-200/60 dark:border-neutral-800 shadow-xl bg-white dark:bg-[#201B1D] relative">
+              <img id="detailMainImage" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kaju_katli_sweet.jpg?width=900" alt="Product Main" class="w-full h-80 sm:h-96 md:h-[420px] object-cover transition duration-300" />
+              <span id="detailBadge" class="absolute top-4 left-4 badge-tag badge-bestseller shadow">Bestseller</span>
+              <div class="absolute top-4 right-4 flex items-center gap-1.5 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+                <i class="fa-solid fa-circle-check"></i> Fresh Today
+              </div>
+            </div>
+
+            <!-- Thumbnails Gallery -->
+            <div class="grid grid-cols-4 gap-3">
+              <button onclick="changeDetailImage(this.querySelector('img').src, this)" class="thumbnail-btn border-2 border-burgundy dark:border-gold rounded-xl overflow-hidden aspect-square">
+                <img id="thumb1" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kaju_katli_sweet.jpg?width=300" alt="Thumb 1" class="w-full h-full object-cover" />
+              </button>
+              <button onclick="changeDetailImage(this.querySelector('img').src, this)" class="thumbnail-btn border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden aspect-square">
+                <img id="thumb2" src="https://upload.wikimedia.org/wikipedia/commons/5/56/Gulab_Jamun.jpg" alt="Thumb 2" class="w-full h-full object-cover" />
+              </button>
+              <button onclick="changeDetailImage(this.querySelector('img').src, this)" class="thumbnail-btn border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden aspect-square">
+                <img id="thumb3" src="https://commons.wikimedia.org/wiki/Special:FilePath/Motichur_laddu.jpg?width=300" alt="Thumb 3" class="w-full h-full object-cover" />
+              </button>
+              <button onclick="changeDetailImage(this.querySelector('img').src, this)" class="thumbnail-btn border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden aspect-square">
+                <img id="thumb4" src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=300&q=80" alt="Thumb 4" class="w-full h-full object-cover" />
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Product Information & Purchase Controls -->
+          <div class="lg:col-span-6 space-y-6">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <span id="detailCategory" class="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-gold">Dry Fruit Mithai</span>
+                <span class="text-neutral-300 dark:text-neutral-700">•</span>
+                <div class="flex items-center gap-1 text-xs text-amber-500 font-semibold">
+                  <i class="fa-solid fa-star"></i>
+                  <span id="detailRating">4.9</span>
+                  <span class="text-neutral-400 font-normal">(<span id="detailReviews">142</span> customer reviews)</span>
+                </div>
+              </div>
+              <h1 id="detailTitle" class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white leading-tight">
+                Royal Kaju Katli (Silver Leaf)
+              </h1>
+            </div>
+
+            <!-- Price & Availability -->
+            <div class="flex items-baseline gap-3 pb-4 border-b border-amber-200/70 dark:border-neutral-800">
+              <span id="detailPrice" class="text-3xl font-black text-burgundy dark:text-gold">₹320</span>
+              <span class="text-xs text-neutral-400">Inclusive of all food taxes</span>
+              <span class="ml-auto inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Ready in Kitchen
+              </span>
+            </div>
+
+            <!-- Short Description -->
+            <p id="detailDescription" class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed font-normal">
+              Crafted from premium Goan cashews, simmered to perfection, and garnished with delicate edible silver leaf (vark). Melt-in-the-mouth texture.
+            </p>
+
+            <!-- Weight Variant Selector -->
+            <div>
+              <label class="block text-xs font-bold text-neutral-800 dark:text-neutral-200 mb-2">
+                Select Packaging Size:
+              </label>
+              <div class="grid grid-cols-3 gap-3" id="detailWeightGroup">
+                <button type="button" onclick="selectDetailWeight('250g', this)" class="detail-weight-btn active border-2 border-burgundy bg-burgundy/10 text-burgundy dark:text-gold font-bold py-2 text-xs rounded-xl transition">
+                  250 Grams
+                  <span class="block text-[10px] text-neutral-500 font-normal">Personal box</span>
+                </button>
+                <button type="button" onclick="selectDetailWeight('500g', this)" class="detail-weight-btn border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 font-bold py-2 text-xs rounded-xl transition">
+                  500 Grams
+                  <span class="block text-[10px] text-neutral-500 font-normal">Family size</span>
+                </button>
+                <button type="button" onclick="selectDetailWeight('1kg', this)" class="detail-weight-btn border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 font-bold py-2 text-xs rounded-xl transition">
+                  1 Kilogram
+                  <span class="block text-[10px] text-neutral-500 font-normal">Festive gift box</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quantity & Add to Cart -->
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <!-- Stepper -->
+              <div class="flex items-center justify-between border-2 border-neutral-200 dark:border-neutral-700 rounded-full px-4 py-2 bg-white dark:bg-neutral-800 w-full sm:w-36">
+                <button onclick="decrementDetailQty()" class="text-neutral-500 hover:text-burgundy dark:hover:text-gold font-bold text-sm w-6">-</button>
+                <span id="detailQty" class="font-extrabold text-sm text-neutral-900 dark:text-white">1</span>
+                <button onclick="incrementDetailQty()" class="text-neutral-500 hover:text-burgundy dark:hover:text-gold font-bold text-sm w-6">+</button>
+              </div>
+
+              <!-- Main Add to Cart Button -->
+              <button onclick="handleDetailAddToCart()" class="btn-primary flex-1 text-xs py-3.5 px-6 shadow-lg">
+                <i class="fa-solid fa-bag-shopping"></i> Add To Sweet Bag
+              </button>
+
+              <!-- Wishlist Button -->
+              <button onclick="toggleDetailWishlist()" id="detailWishlistBtn" class="w-12 h-12 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:text-rose-500 flex items-center justify-center transition shrink-0" title="Add to Wishlist">
+                <i class="fa-solid fa-heart"></i>
+              </button>
+            </div>
+
+            <!-- Quick WhatsApp Enquiry -->
+            <div class="pt-2">
+              <a id="detailWhatsAppLink" href="https://wa.me/919876543210?text=Hi%20SweetBliss,%20I%20would%20like%20to%20order%20Royal%20Kaju%20Katli" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 border border-emerald-200 dark:border-emerald-800/60 rounded-xl py-2.5 text-xs font-bold transition">
+                <i class="fa-brands fa-whatsapp text-emerald-500 text-sm"></i> Instant Order Enquiry on WhatsApp
+              </a>
+            </div>
+
+            <!-- Guarantee Badges -->
+            <div class="pt-4 grid grid-cols-2 gap-3 text-[11px] text-neutral-500 dark:text-neutral-400 border-t border-amber-200/60 dark:border-neutral-800">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-burgundy dark:text-gold"></i>
+                <span>FSSAI Certified 100% Pure</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-snowflake text-burgundy dark:text-gold"></i>
+                <span>Aroma-Lock Vacuum Packaging</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-truck-fast text-burgundy dark:text-gold"></i>
+                <span>Dispatches within 24 Hours</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-gift text-burgundy dark:text-gold"></i>
+                <span>Complimentary Greeting Card</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Information Tabs Section -->
+        <div class="mt-16 bg-white dark:bg-[#1E191B] rounded-3xl border border-amber-100 dark:border-neutral-800 p-6 md:p-8 shadow-sm">
+          <div class="flex border-b border-neutral-100 dark:border-neutral-800 overflow-x-auto gap-4 mb-6">
+            <button onclick="switchTab('ingredients', this)" class="detail-tab active pb-3 font-bold text-xs sm:text-sm text-burgundy dark:text-gold border-b-2 border-burgundy dark:border-gold shrink-0">
+              Ingredients &amp; Allergens
+            </button>
+            <button onclick="switchTab('storage', this)" class="detail-tab pb-3 font-semibold text-xs sm:text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-white shrink-0">
+              Shelf Life &amp; Storage
+            </button>
+            <button onclick="switchTab('reviews', this)" class="detail-tab pb-3 font-semibold text-xs sm:text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-white shrink-0">
+              Verified Reviews (142)
+            </button>
+          </div>
+
+          <!-- Tab Content: Ingredients -->
+          <div id="tab-ingredients" class="tab-pane space-y-4">
+            <h4 class="text-sm font-bold text-neutral-900 dark:text-white">Authentic Artisanal Recipe</h4>
+            <p id="detailIngredients" class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">
+              Cashew nuts, Cane sugar, Purified water, Cardamom, Edible silver foil.
+            </p>
+            <div class="pt-2">
+              <span class="text-xs font-bold text-neutral-800 dark:text-neutral-200 block mb-1">Allergen Notice:</span>
+              <p id="detailAllergens" class="text-xs text-neutral-500 leading-relaxed">
+                Contains tree nuts (Cashews). Prepared in a dedicated vegetarian facility. Gluten-free.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tab Content: Storage -->
+          <div id="tab-storage" class="tab-pane hidden space-y-4">
+            <h4 class="text-sm font-bold text-neutral-900 dark:text-white">Freshness &amp; Shelf Life Guidelines</h4>
+            <p id="detailShelfLife" class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">
+              Best before 20 days from dispatch date. Store in a cool, dry place away from direct sunlight.
+            </p>
+            <ul class="list-disc list-inside text-xs text-neutral-500 space-y-1">
+              <li>Do not refrigerate unless specified (causes sugar crystallisation on surface).</li>
+              <li>Keep sealed in our airtight container once vacuum film is opened.</li>
+            </ul>
+          </div>
+
+          <!-- Tab Content: Reviews -->
+          <div id="tab-reviews" class="tab-pane hidden space-y-4">
+            <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
+              <div>
+                <span class="text-2xl font-black text-neutral-900 dark:text-white">4.9 / 5</span>
+                <div class="flex text-amber-400 text-xs">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <button onclick="showToast('Review form opened for registered customer.', 'gold')" class="btn-outline text-xs py-2 px-4">
+                Write a Review
+              </button>
+            </div>
+
+            <div class="space-y-3 pt-2">
+              <div class="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/40">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-xs font-bold text-neutral-900 dark:text-white">Sunita Agarwal</span>
+                  <span class="text-[10px] text-neutral-400">3 days ago</span>
+                </div>
+                <div class="flex text-amber-400 text-[10px] mb-2">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                  "Absolutely melts in mouth! The silver foil is genuine and the cashews have this natural fragrant sweetness. Definitely my go-to sweet shop."
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/40">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-xs font-bold text-neutral-900 dark:text-white">Vikram Malhotra</span>
+                  <span class="text-[10px] text-neutral-400">1 week ago</span>
+                </div>
+                <div class="flex text-amber-400 text-[10px] mb-2">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                  "Packaging was premium, securely bubble-wrapped and delivered within 36 hours to Bangalore."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Delicacies -->
+        <div class="mt-16">
+          <div class="flex items-center justify-between mb-8">
+            <h3 class="text-xl sm:text-2xl font-extrabold text-neutral-900 dark:text-white">
+              You May Also Savor
+            </h3>
+            <a href="services.html" class="text-xs font-bold text-burgundy dark:text-gold hover:underline">
+              View All Mithai <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="relatedProductsGrid">
+            <!-- Populated via script -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Master Footer -->
+  <footer class="bg-white dark:bg-[#120F10] text-neutral-700 dark:text-neutral-300 border-t border-amber-100 dark:border-neutral-800 pt-16 pb-8">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div class="lg:col-span-2 space-y-4">
+          <img src="assets/logo.svg" alt="SweetBliss" class="h-10 w-auto" />
+          <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm">
+            SweetBliss is a celebrated heritage confectionery committed to pure ingredients, 100% A2 cow desi ghee, and authentic Indian mithai &amp; savory namkeen recipes handcrafted since 1974.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-burgundy dark:text-gold">
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="YouTube"><i class="fa-brands fa-youtube text-xs"></i></a>
+            <a href="https://wa.me/919876543210" target="_blank" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-burgundy dark:hover:text-gold transition">Classic Home</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Products (Mithai &amp; Namkeen)</a></li>
+            <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Festival Specials &amp; Calendar</a></li>
+            <li><a href="weddings.html" class="hover:text-burgundy dark:hover:text-gold transition">Wedding Shagun &amp; Favors</a></li>
+            <li><a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition">Bulk &amp; Corporate Hampers</a></li>
+            <li><a href="track-order.html" class="hover:text-burgundy dark:hover:text-gold transition">Track Fresh Order</a></li>
+            <li><a href="about.html" class="hover:text-burgundy dark:hover:text-gold transition">About SweetBliss</a></li>
+            <li><a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition">Contact &amp; Enquiry</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Delicacies</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Pure Desi Ghee Mithai</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Kaju &amp; Dry Fruit Sweets</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Spongy Bengali Syrups</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Crispy Savory Namkeen</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Zero-Sugar Natural Barfis</a></li>
+            <li><a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition">Corporate Festive Hampers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Stay Sweet</h4>
+          <p class="text-xs text-neutral-500 mb-3">Subscribe for festival discounts and recipe stories.</p>
+          <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2">
+            <input type="email" placeholder="Your email address" required class="w-full px-3 py-2 text-xs rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+            <button type="submit" class="btn-primary w-full text-xs py-2">Join SweetBliss Club</button>
+          </form>
+          <div class="mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-800 text-[11px] text-neutral-500">
+            <i class="fa-regular fa-clock mr-1 text-gold"></i> Open Daily: 8:00 AM – 10:30 PM
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-amber-100 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-3">
+        <p>© 2026 SweetBliss Confectionery Private Limited. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="pricing.html" class="hover:underline text-burgundy dark:text-gold font-semibold">Bulk Orders</a>
+          <a href="contact.html" class="hover:underline">Order Enquiry</a>
+          <a href="404.html" class="hover:underline">404 Demo</a>
+          <a href="coming-soon.html" class="hover:underline">Coming Soon</a>
+          <a href="maintenance.html" class="hover:underline">Maintenance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    let currentProduct = null;
+    let selectedWeight = '250g';
+    let currentQty = 1;
+
+    function initDetailPage() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id') || 'sb-01';
+      currentProduct = SWEETBLISS_PRODUCTS.find(p => p.id === productId) || SWEETBLISS_PRODUCTS[0];
+
+      // Populate details
+      document.title = `${currentProduct.name} | SweetBliss Delicacies`;
+      document.getElementById('breadcrumbProductName').textContent = currentProduct.name;
+      document.getElementById('detailTitle').textContent = currentProduct.name;
+      document.getElementById('detailCategory').textContent = currentProduct.categoryName;
+      document.getElementById('detailRating').textContent = currentProduct.rating;
+      document.getElementById('detailReviews').textContent = currentProduct.reviews;
+      document.getElementById('detailPrice').textContent = `₹${currentProduct.prices[selectedWeight] || currentProduct.basePrice}`;
+      document.getElementById('detailDescription').textContent = currentProduct.description;
+      document.getElementById('detailIngredients').textContent = currentProduct.ingredients;
+      document.getElementById('detailAllergens').textContent = currentProduct.allergens;
+      document.getElementById('detailShelfLife').textContent = currentProduct.shelfLife;
+      document.getElementById('detailBadge').textContent = currentProduct.badge;
+      document.getElementById('detailMainImage').src = currentProduct.image;
+      document.getElementById('thumb1').src = currentProduct.image;
+
+      // WhatsApp link
+      document.getElementById('detailWhatsAppLink').href = `https://wa.me/919876543210?text=Hi%20SweetBliss,%20I%20would%20like%20to%20order%20${encodeURIComponent(currentProduct.name)}%20(${selectedWeight})`;
+
+      // Render Related
+      const related = SWEETBLISS_PRODUCTS.filter(p => p.id !== currentProduct.id).slice(0, 4);
+      const relatedContainer = document.getElementById('relatedProductsGrid');
+      if (relatedContainer) {
+        relatedContainer.innerHTML = related.map(renderProductCard).join('');
+      }
+    }
+
+    function changeDetailImage(src, btn) {
+      document.getElementById('detailMainImage').src = src;
+      document.querySelectorAll('.thumbnail-btn').forEach(b => {
+        b.className = 'thumbnail-btn border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden aspect-square';
+      });
+      btn.className = 'thumbnail-btn border-2 border-burgundy dark:border-gold rounded-xl overflow-hidden aspect-square';
+    }
+
+    function selectDetailWeight(weight, btn) {
+      selectedWeight = weight;
+      document.querySelectorAll('.detail-weight-btn').forEach(b => {
+        b.className = 'detail-weight-btn border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 font-bold py-2 text-xs rounded-xl transition';
+      });
+      btn.className = 'detail-weight-btn active border-2 border-burgundy bg-burgundy/10 text-burgundy dark:text-gold font-bold py-2 text-xs rounded-xl transition';
+      
+      const price = currentProduct.prices[weight] || currentProduct.basePrice;
+      document.getElementById('detailPrice').textContent = `₹${price}`;
+      document.getElementById('detailWhatsAppLink').href = `https://wa.me/919876543210?text=Hi%20SweetBliss,%20I%20would%20like%20to%20order%20${encodeURIComponent(currentProduct.name)}%20(${weight})`;
+    }
+
+    function incrementDetailQty() {
+      currentQty++;
+      document.getElementById('detailQty').textContent = currentQty;
+    }
+
+    function decrementDetailQty() {
+      if (currentQty > 1) {
+        currentQty--;
+        document.getElementById('detailQty').textContent = currentQty;
+      }
+    }
+
+    function handleDetailAddToCart() {
+      if (!currentProduct) return;
+      addToCart(currentProduct.id, selectedWeight, currentQty);
+    }
+
+    function toggleDetailWishlist() {
+      if (!currentProduct) return;
+      toggleWishlist(currentProduct.id, document.getElementById('detailWishlistBtn'));
+    }
+
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.detail-tab').forEach(b => {
+        b.className = 'detail-tab pb-3 font-semibold text-xs sm:text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-white shrink-0';
+      });
+      btn.className = 'detail-tab active pb-3 font-bold text-xs sm:text-sm text-burgundy dark:text-gold border-b-2 border-burgundy dark:border-gold shrink-0';
+
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
+      document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+  </script>
+</body>
+</html>

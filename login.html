@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer &amp; Admin Sign In | SweetBliss</title>
+  <meta name="description" content="Sign in to your SweetBliss account to track your orders, re-order festive hampers, or manage the confectionery store." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              DEFAULT: '#7B263A',
+              50: '#FDF2F4',
+              100: '#FBE8EC',
+              600: '#9C324B',
+              700: '#7B263A',
+              800: '#581928',
+              900: '#3D0E19'
+            },
+            gold: {
+              DEFAULT: '#D6A653',
+              50: '#FDF9F2',
+              100: '#F9F0DF',
+              400: '#E8C482',
+              500: '#D6A653',
+              600: '#B58434',
+              700: '#8C6321'
+            },
+            cream: '#FFF8F0'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#FFF8F0] dark:bg-[#120F10] text-neutral-800 dark:text-neutral-100 min-h-screen flex items-center justify-center p-4 transition-colors duration-300">
+
+  <!-- Floating Utilities: Theme & Return Home -->
+  <div class="fixed top-5 left-5 right-5 flex items-center justify-between z-50 pointer-events-none">
+    <a href="index.html" class="pointer-events-auto inline-flex items-center gap-2 text-xs font-semibold bg-white/90 dark:bg-[#201B1D]/90 backdrop-blur-md px-3 sm:px-4 py-2 rounded-full border border-amber-200 dark:border-neutral-800 shadow-sm text-neutral-700 dark:text-neutral-300 hover:text-burgundy dark:hover:text-gold transition">
+      <i class="fa-solid fa-arrow-left text-[10px]"></i> <span class="hidden sm:inline">Return to SweetBliss Store</span><span class="sm:hidden">Store</span>
+    </a>
+    <div class="pointer-events-auto flex items-center gap-2">
+      <button onclick="toggleRTL()" class="rtl-toggle-btn text-xs font-bold px-3 py-1.5 rounded-full bg-white/90 dark:bg-[#201B1D]/90 border border-amber-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-300">
+        RTL
+      </button>
+      <button onclick="toggleDarkMode()" class="theme-toggle-btn w-8 h-8 rounded-full bg-white/90 dark:bg-[#201B1D]/90 border border-amber-200 dark:border-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-xs shadow-sm">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Auth Card Container -->
+  <div class="w-full max-w-4xl bg-white dark:bg-[#1C1819] rounded-3xl border border-amber-100 dark:border-neutral-800 shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12 my-12">
+    
+    <!-- Left Visual Panel -->
+    <div class="md:col-span-5 bg-gradient-to-b from-burgundy via-[#621A2A] to-burgundy-900 text-white p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden">
+      <div class="absolute inset-0 ornament-pattern opacity-10 pointer-events-none"></div>
+
+      <div class="relative z-10 space-y-4">
+        <a href="index.html">
+          <img src="assets/logo.svg" alt="SweetBliss" class="h-10 w-auto brightness-200 contrast-200" />
+        </a>
+        <div class="pt-6">
+          <span class="text-gold font-bold text-xs uppercase tracking-widest block mb-1">Welcome Back</span>
+          <h2 class="text-2xl font-black leading-snug">Indulge in Royal Sweetness</h2>
+        </div>
+        <p class="text-xs text-neutral-200 leading-relaxed font-normal">
+          Access your personalized order history, save your favorite pure ghee mithai boxes, and receive seasonal VIP festive gifting offers.
+        </p>
+      </div>
+
+      <!-- Quick Trust Indicators -->
+      <div class="relative z-10 pt-8 border-t border-white/10 space-y-2 text-xs text-amber-200">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-shield-heart text-gold"></i>
+          <span>100% Secure &amp; Encrypted</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-truck-fast text-gold"></i>
+          <span>Pan-India Live Dispatch Tracking</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="md:col-span-7 p-8 sm:p-12 flex flex-col justify-center">
+      <div class="mb-6">
+        <h3 class="text-2xl font-extrabold text-neutral-900 dark:text-white">Sign In to Your Account</h3>
+        <p class="text-xs text-neutral-500 mt-1">Enter your phone number or registered email to continue.</p>
+      </div>
+
+      <!-- Demo Account Hint -->
+      <div class="mb-6 p-3.5 rounded-xl bg-amber-50 dark:bg-neutral-800/60 border border-amber-200/60 dark:border-neutral-700 text-xs text-neutral-600 dark:text-neutral-300 flex items-center justify-between">
+        <div>
+          <span class="font-bold text-burgundy dark:text-gold block">Demo Customer Account:</span>
+          <span class="text-[11px] text-neutral-500">customer@sweetbliss.com / sweets123</span>
+        </div>
+        <button onclick="fillDemoCredentials()" class="text-xs font-bold text-burgundy dark:text-gold hover:underline">
+          Autofill
+        </button>
+      </div>
+
+      <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-neutral-700 dark:text-neutral-300 mb-1">Email or Phone Number *</label>
+          <div class="relative">
+            <i class="fa-regular fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 text-xs"></i>
+            <input type="text" name="email" id="loginEmail" required placeholder="name@example.com or +91 98765..." class="w-full pl-9 pr-4 py-2.5 text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-xs font-bold text-neutral-700 dark:text-neutral-300">Password *</label>
+            <a href="#" onclick="showToast('Password reset link sent to your registered email.', 'gold'); return false;" class="text-[11px] font-semibold text-burgundy dark:text-gold hover:underline">
+              Forgot Password?
+            </a>
+          </div>
+          <div class="relative">
+            <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 text-xs"></i>
+            <input type="password" name="password" id="loginPassword" required placeholder="••••••••" class="w-full pl-9 pr-10 py-2.5 text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+            <button type="button" onclick="togglePasswordVisibility('loginPassword', this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 text-xs">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex items-center">
+          <input type="checkbox" id="rememberMe" class="rounded border-neutral-300 text-burgundy focus:ring-burgundy text-xs" />
+          <label for="rememberMe" class="ml-2 text-xs text-neutral-600 dark:text-neutral-400">Remember me for 30 days</label>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="btn-primary w-full text-xs py-3 shadow-md">
+            Sign In to SweetBliss
+          </button>
+        </div>
+      </form>
+
+      <div class="mt-6 pt-6 border-t border-neutral-100 dark:border-neutral-800 text-center text-xs text-neutral-500">
+        Don’t have an account yet? 
+        <a href="register.html" class="text-burgundy dark:text-gold font-bold hover:underline ml-1">Create Account</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    function fillDemoCredentials() {
+      document.getElementById('loginEmail').value = 'customer@sweetbliss.com';
+      document.getElementById('loginPassword').value = 'sweets123';
+      showToast('Autofilled customer demo credentials!', 'gold');
+    }
+  </script>
+</body>
+</html>

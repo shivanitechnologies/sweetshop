@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mithai &amp; Traditional Snacks Catalog | SweetBliss</title>
+  <meta name="description" content="Browse our complete collection of handcrafted pure ghee Indian sweets, savory namkeens, dry fruit sweets, and festive boxes. Filter by category, price, and purity." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              DEFAULT: '#7B263A',
+              50: '#FDF2F4',
+              100: '#FBE8EC',
+              600: '#9C324B',
+              700: '#7B263A',
+              800: '#581928',
+              900: '#3D0E19'
+            },
+            gold: {
+              DEFAULT: '#D6A653',
+              50: '#FDF9F2',
+              100: '#F9F0DF',
+              400: '#E8C482',
+              500: '#D6A653',
+              600: '#B58434',
+              700: '#8C6321'
+            },
+            cream: '#FFF8F0'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#FFF8F0] dark:bg-[#171717] text-neutral-800 dark:text-neutral-100 transition-colors duration-300">
+
+  <!-- Header & Navigation -->
+  <header class="sticky-header sticky top-0 z-40 bg-white/95 dark:bg-[#1C1819]/95 backdrop-blur-md transition-all duration-300 border-b border-amber-100 dark:border-neutral-800">
+    <div class="container mx-auto px-4 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between transition-all duration-300">
+      <a href="index.html" class="flex items-center gap-2 shrink-0" aria-label="SweetBliss Homepage">
+        <img src="assets/logo.svg" alt="SweetBliss Logo" class="h-11 lg:h-12 w-auto transition-all duration-300" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-3.5 xl:gap-5 2xl:gap-7 font-semibold text-[13px] xl:text-[14px] text-neutral-700 dark:text-neutral-200">
+        <div class="relative group">
+          <a href="index.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-1.5 py-1 whitespace-nowrap">
+            Home <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute top-full left-0 w-48 bg-white dark:bg-[#201B1D] rounded-xl shadow-xl py-2 hidden group-hover:block border border-amber-100 dark:border-neutral-800 z-50">
+            <a href="index.html" class="block px-4 py-2.5 text-xs text-neutral-700 dark:text-neutral-300 hover:bg-amber-50 dark:hover:bg-neutral-800">Classic Home</a>
+            <a href="home-2.html" class="block px-4 py-2.5 text-xs text-neutral-700 dark:text-neutral-300 hover:bg-amber-50 dark:hover:bg-neutral-800">Festive Showcase</a>
+          </div>
+        </div>
+        <a href="services.html" class="text-burgundy dark:text-gold font-semibold py-1 whitespace-nowrap">Products</a>
+        <a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span> Festival Specials
+        </a>
+        <a href="weddings.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Wedding Shagun</a>
+        <a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Bulk &amp; Corporate</a>
+        <a href="track-order.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Track Order</a>
+        <a href="about.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">About Us</a>
+        <a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Contact</a>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 shrink-0">
+        <!-- RTL Toggle (Desktop / Tablet) -->
+        <button onclick="toggleRTL()" class="rtl-toggle-btn hidden sm:inline-flex text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition">RTL</button>
+
+        <!-- Theme Toggle -->
+        <button onclick="toggleDarkMode()" class="theme-toggle-btn w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold hover:scale-105 transition flex items-center justify-center text-xs sm:text-sm shadow-sm" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Wishlist Indicator (Desktop / Tablet) -->
+        <a href="services.html" class="relative hidden sm:inline-flex w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold hover:scale-105 transition flex items-center justify-center text-sm shadow-sm" title="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="wishlist-count-badge absolute -top-1 -right-1 w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full items-center justify-center" style="display: none;">0</span>
+        </a>
+
+        <!-- Cart Bag Button -->
+        <button onclick="openCartDrawer()" class="relative bg-burgundy text-white hover:bg-burgundy-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 transition shadow-md whitespace-nowrap">
+          <i class="fa-solid fa-bag-shopping text-gold text-xs sm:text-sm"></i>
+          <span>Bag</span>
+          <span class="cart-count-badge w-4 h-4 sm:w-4.5 sm:h-4.5 bg-gold text-neutral-900 font-extrabold text-[10px] rounded-full flex items-center justify-center ml-0.5" style="display: none;">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuToggle" class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-700 dark:text-neutral-200 hover:text-burgundy transition" aria-label="Open mobile menu">
+          <i class="fa-solid fa-bars text-sm sm:text-base"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu Navigation -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <aside id="mobileMenu" class="fixed top-0 left-0 bottom-0 w-80 max-w-[85%] bg-white dark:bg-[#1C1819] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-5 sm:p-6 overflow-y-auto">
+    <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
+      <img src="assets/logo.svg" alt="SweetBliss" class="h-8 sm:h-9 w-auto" />
+      <button class="mobile-menu-close w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Quick Utilities Row for Mobile -->
+    <div class="flex items-center gap-2 py-3 border-b border-neutral-100 dark:border-neutral-800">
+      <button onclick="toggleRTL()" class="rtl-toggle-btn text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5">
+        <i class="fa-solid fa-language text-gold"></i> RTL Mode
+      </button>
+      <a href="services.html" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5">
+        <i class="fa-regular fa-heart text-burgundy dark:text-gold"></i> Wishlist
+        <span class="wishlist-count-badge w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full inline-flex items-center justify-center" style="display: none;">0</span>
+      </a>
+    </div>
+
+    <div class="py-4 space-y-3 font-semibold text-sm">
+      <a href="index.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Classic Home</a>
+      <a href="home-2.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Festive Showcase</a>
+      <a href="services.html" class="block text-burgundy dark:text-gold font-bold">Products (All Categories)</a>
+      <a href="festivals.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy flex items-center justify-between">
+        <span>Festival Specials</span>
+        <span class="text-[10px] bg-gold/20 text-gold px-2 py-0.5 rounded-full font-bold">2026</span>
+      </a>
+      <a href="weddings.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Wedding Shagun &amp; Favors</a>
+      <a href="pricing.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Bulk &amp; Corporate Hampers</a>
+      <a href="track-order.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Track Fresh Order</a>
+      <a href="about.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">About Us</a>
+      <a href="contact.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Contact &amp; Enquiry</a>
+      <a href="blog.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Mithai Journal</a>
+      <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800 space-y-2.5">
+        <a href="services.html" class="btn-primary w-full text-xs text-center py-2.5">Explore Delicacies</a>
+        <a href="contact.html" class="btn-outline w-full text-xs text-center py-2.5">Order Enquiries</a>
+      </div>
+    </div>
+    <div class="mt-auto pt-4 border-t border-neutral-100 dark:border-neutral-800 text-xs text-neutral-400">
+      <p>© 2026 SweetBliss Traditional Mithai.</p>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Catalog Header Banner -->
+    <section class="py-12 bg-gradient-to-r from-amber-100/60 via-cream to-white dark:from-[#251A1E] dark:via-[#1A1517] dark:to-[#171717] border-b border-amber-200/50 dark:border-neutral-800">
+      <div class="container mx-auto px-4 lg:px-8 text-center max-w-2xl">
+        <nav class="flex items-center justify-center gap-2 text-xs text-neutral-500 mb-3">
+          <a href="index.html" class="hover:text-burgundy dark:hover:text-gold">Home</a>
+          <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          <span class="text-neutral-800 dark:text-neutral-200 font-semibold">Mithai &amp; Snacks</span>
+        </nav>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white mb-3">
+          Our Handcrafted Delicacies
+        </h1>
+        <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          Explore pure ghee sweets, melt-in-mouth kaju confections, crispy teatime namkeens, and royal festive gift boxes prepared fresh daily.
+        </p>
+      </div>
+    </section>
+
+    <!-- Infinite Marquee Ticker -->
+    <div class="bg-gradient-to-r from-burgundy via-[#8F2C44] to-burgundy text-white py-3 overflow-hidden shadow-inner border-y border-amber-300/30">
+      <div class="marquee-track flex items-center gap-8 text-xs font-semibold tracking-wider uppercase">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-sparkles text-gold"></i> 100% Pure A2 Cow Desi Ghee</span>
+        <span class="text-amber-300">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-fire-flame-curved text-gold"></i> Freshly Simmered Daily Batches</span>
+        <span class="text-amber-300">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-truck-fast text-gold"></i> Express Pan-India Delivery in 24-48 Hours</span>
+        <span class="text-amber-300">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-shield-heart text-gold"></i> Zero Chemical Preservatives</span>
+        <span class="text-amber-300">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-gift text-gold"></i> Premium Gold-Embossed Gift Boxes</span>
+        <span class="text-amber-300">•</span>
+        <!-- Continuous loop -->
+        <span class="flex items-center gap-2"><i class="fa-solid fa-sparkles text-gold"></i> 100% Pure A2 Cow Desi Ghee</span>
+        <span class="text-amber-300">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-fire-flame-curved text-gold"></i> Freshly Simmered Daily Batches</span>
+        <span class="text-amber-300">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-truck-fast text-gold"></i> Express Pan-India Delivery in 24-48 Hours</span>
+        <span class="text-amber-300">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-shield-heart text-gold"></i> Zero Chemical Preservatives</span>
+        <span class="text-amber-300">•</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-gift text-gold"></i> Premium Gold-Embossed Gift Boxes</span>
+      </div>
+    </div>
+
+    <!-- Filters & Catalog Grid Area -->
+    <section class="py-12 bg-[#FFF8F0] dark:bg-[#171717]">
+      <div class="container mx-auto px-4 lg:px-8">
+        
+        <!-- Search and Sort Controls Bar -->
+        <div class="bg-white dark:bg-[#201B1D] p-4 sm:p-5 rounded-2xl border border-amber-100 dark:border-neutral-800 shadow-sm mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <!-- Search Input -->
+          <div class="relative w-full md:w-96">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 text-xs"></i>
+            <input type="text" id="productSearchInput" placeholder="Search sweets, samosas, ladoo..." class="w-full pl-9 pr-4 py-2.5 text-xs rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+          </div>
+
+          <!-- Product Count Display -->
+          <span id="productCountDisplay" class="text-xs font-semibold text-neutral-500 dark:text-neutral-400">
+            Showing all delicious items
+          </span>
+
+          <!-- Sort Selector -->
+          <div class="flex items-center gap-2 w-full md:w-auto">
+            <label for="productSortSelect" class="text-xs font-medium text-neutral-500 shrink-0">Sort By:</label>
+            <select id="productSortSelect" class="w-full md:w-auto px-3 py-2 text-xs rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold">
+              <option value="featured">Featured Artisanal</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated (★)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills Bar -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+          <button type="button" class="category-filter-btn px-5 py-2 rounded-full text-xs font-bold shrink-0 transition bg-burgundy text-white shadow-md" data-category="all">
+            All Delicacies
+          </button>
+          <button type="button" class="category-filter-btn px-5 py-2 rounded-full text-xs font-bold shrink-0 transition bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-amber-100 dark:hover:bg-neutral-700" data-category="sweets">
+            <i class="fa-solid fa-cookie mr-1 text-gold"></i> Sweets (Mithai)
+          </button>
+          <button type="button" class="category-filter-btn px-5 py-2 rounded-full text-xs font-bold shrink-0 transition bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-amber-100 dark:hover:bg-neutral-700" data-category="savories">
+            <i class="fa-solid fa-bowl-food mr-1 text-gold"></i> Savories (Namkeen)
+          </button>
+          <button type="button" class="category-filter-btn px-5 py-2 rounded-full text-xs font-bold shrink-0 transition bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-amber-100 dark:hover:bg-neutral-700" data-category="dryfruits">
+            <i class="fa-solid fa-seedling mr-1 text-gold"></i> Dry Fruits &amp; Nuts
+          </button>
+          <button type="button" class="category-filter-btn px-5 py-2 rounded-full text-xs font-bold shrink-0 transition bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-amber-100 dark:hover:bg-neutral-700" data-category="giftboxes">
+            <i class="fa-solid fa-gift mr-1 text-gold"></i> Festive Gift Boxes
+          </button>
+        </div>
+
+        <!-- Dynamic Product Catalog Grid (Rendered by js/app.js) -->
+        <div id="productsCatalogGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <!-- Populated dynamically via AppState & initProductCatalog() -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Custom Orders & Catering Notice -->
+    <section class="py-16 bg-white dark:bg-[#1E191B] border-t border-amber-100 dark:border-neutral-800">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="bg-amber-50 dark:bg-[#251D20] p-8 sm:p-12 rounded-3xl border border-amber-200 dark:border-neutral-700 text-center max-w-4xl mx-auto">
+          <div class="w-14 h-14 mx-auto rounded-full bg-burgundy text-gold flex items-center justify-center text-2xl mb-4 shadow">
+            <i class="fa-solid fa-cake-candles"></i>
+          </div>
+          <h3 class="text-2xl font-extrabold text-neutral-900 dark:text-white mb-2">Planning a Wedding or Special Event?</h3>
+          <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 max-w-xl mx-auto mb-6">
+            We provide live Jalebi and Samosa counters, custom sweet tasting trays, and branded festive packaging for corporate events and luxury weddings.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="contact.html?type=catering" class="btn-primary text-xs py-3 px-6">
+              Request Catering &amp; Bulk Quote
+            </a>
+            <a href="https://wa.me/919876543210" target="_blank" class="btn-outline text-xs py-3 px-6">
+              <i class="fa-brands fa-whatsapp text-emerald-500"></i> WhatsApp Halwai Directly
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Master Footer -->
+  <footer class="bg-white dark:bg-[#120F10] text-neutral-700 dark:text-neutral-300 border-t border-amber-100 dark:border-neutral-800 pt-16 pb-8">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div class="lg:col-span-2 space-y-4">
+          <img src="assets/logo.svg" alt="SweetBliss" class="h-10 w-auto" />
+          <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm">
+            SweetBliss is a celebrated heritage confectionery committed to pure ingredients, 100% A2 cow desi ghee, and authentic Indian mithai &amp; savory namkeen recipes handcrafted since 1974.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-burgundy dark:text-gold">
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="YouTube"><i class="fa-brands fa-youtube text-xs"></i></a>
+            <a href="https://wa.me/919876543210" target="_blank" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-burgundy dark:hover:text-gold transition">Classic Home</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition font-bold">Products (Mithai &amp; Namkeen)</a></li>
+            <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Festival Specials &amp; Calendar</a></li>
+            <li><a href="weddings.html" class="hover:text-burgundy dark:hover:text-gold transition">Wedding Shagun &amp; Favors</a></li>
+            <li><a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition">Bulk &amp; Corporate Hampers</a></li>
+            <li><a href="track-order.html" class="hover:text-burgundy dark:hover:text-gold transition">Track Fresh Order</a></li>
+            <li><a href="about.html" class="hover:text-burgundy dark:hover:text-gold transition">About SweetBliss</a></li>
+            <li><a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition">Contact &amp; Enquiry</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Delicacies</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Pure Desi Ghee Mithai</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Kaju &amp; Dry Fruit Sweets</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Spongy Bengali Syrups</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Crispy Savory Namkeen</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Zero-Sugar Natural Barfis</a></li>
+            <li><a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition">Corporate Festive Hampers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Stay Sweet</h4>
+          <p class="text-xs text-neutral-500 mb-3">Subscribe for festival discounts and recipe stories.</p>
+          <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2">
+            <input type="email" placeholder="Your email address" required class="w-full px-3 py-2 text-xs rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+            <button type="submit" class="btn-primary w-full text-xs py-2">Join SweetBliss Club</button>
+          </form>
+          <div class="mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-800 text-[11px] text-neutral-500">
+            <i class="fa-regular fa-clock mr-1 text-gold"></i> Open Daily: 8:00 AM – 10:30 PM
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-amber-100 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-3">
+        <p>© 2026 SweetBliss Confectionery Private Limited. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="pricing.html" class="hover:underline text-burgundy dark:text-gold font-semibold">Bulk Orders</a>
+          <a href="contact.html" class="hover:underline">Order Enquiry</a>
+          <a href="404.html" class="hover:underline">404 Demo</a>
+          <a href="coming-soon.html" class="hover:underline">Coming Soon</a>
+          <a href="maintenance.html" class="hover:underline">Maintenance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

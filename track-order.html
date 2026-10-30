@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Order Tracking &amp; Freshness Assurance | SweetBliss Mithai</title>
+  <meta name="description" content="Track your freshly prepared SweetBliss mithai and namkeen delivery in real time. Insulated cold-chain air express dispatch across 28,000+ Indian pincodes." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              DEFAULT: '#7B263A',
+              50: '#FDF2F4',
+              100: '#FBE8EC',
+              600: '#9C324B',
+              700: '#7B263A',
+              800: '#581928',
+              900: '#3D0E19'
+            },
+            gold: {
+              DEFAULT: '#D6A653',
+              50: '#FDF9F2',
+              100: '#F9F0DF',
+              400: '#E8C482',
+              500: '#D6A653',
+              600: '#B58434',
+              700: '#8C6321'
+            },
+            cream: '#FFF8F0'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#FFF8F0] dark:bg-[#171717] text-neutral-800 dark:text-neutral-100 transition-colors duration-300">
+
+  <!-- Header & Navigation -->
+  <header class="sticky-header sticky top-0 z-40 bg-white/95 dark:bg-[#1C1819]/95 backdrop-blur-md transition-all duration-300 border-b border-amber-100 dark:border-neutral-800">
+    <div class="container mx-auto px-4 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between transition-all duration-300">
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2 shrink-0" aria-label="SweetBliss Homepage">
+        <img src="assets/logo.svg" alt="SweetBliss Logo" class="h-10 sm:h-11 lg:h-12 w-auto transition-all duration-300" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8 font-semibold text-[13px] xl:text-[14px] text-neutral-700 dark:text-neutral-200">
+        <div class="relative group">
+          <a href="index.html" class="hover:text-burgundy dark:hover:text-gold flex items-center gap-1.5 py-1 whitespace-nowrap">
+            Home <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute top-full left-0 w-48 bg-white dark:bg-[#201B1D] rounded-xl shadow-xl py-2 hidden group-hover:block border border-amber-100 dark:border-neutral-800 z-50">
+            <a href="index.html" class="block px-4 py-2.5 text-xs text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800">Classic Home</a>
+            <a href="home-2.html" class="block px-4 py-2.5 text-xs text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800">Festive Showcase</a>
+          </div>
+        </div>
+        <a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Products</a>
+        <a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Festival Specials</a>
+        <a href="weddings.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Wedding Shagun</a>
+        <a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Bulk &amp; Corporate</a>
+        <a href="track-order.html" class="text-burgundy dark:text-gold font-bold py-1 whitespace-nowrap">Track Order</a>
+        <a href="about.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">About Us</a>
+        <a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition py-1 whitespace-nowrap">Contact</a>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 shrink-0">
+        <button onclick="toggleRTL()" class="rtl-toggle-btn hidden sm:inline-flex text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition">RTL</button>
+
+        <button onclick="toggleDarkMode()" class="theme-toggle-btn w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold hover:scale-105 transition flex items-center justify-center text-xs sm:text-sm shadow-sm" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <a href="services.html" class="relative hidden sm:inline-flex w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold hover:scale-105 transition flex items-center justify-center text-sm shadow-sm" title="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="wishlist-count-badge absolute -top-1 -right-1 w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full items-center justify-center" style="display: none;">0</span>
+        </a>
+
+        <button onclick="openCartDrawer()" class="relative bg-burgundy text-white hover:bg-burgundy-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 transition shadow-md whitespace-nowrap">
+          <i class="fa-solid fa-bag-shopping text-gold text-xs sm:text-sm"></i>
+          <span>Bag</span>
+          <span class="cart-count-badge w-4 h-4 sm:w-4.5 sm:h-4.5 bg-gold text-neutral-900 font-extrabold text-[10px] rounded-full flex items-center justify-center ml-0.5" style="display: none;">0</span>
+        </button>
+
+        <button id="mobileMenuToggle" class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-700 dark:text-neutral-200 hover:text-burgundy transition" aria-label="Open mobile menu">
+          <i class="fa-solid fa-bars text-sm sm:text-base"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu Navigation -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <aside id="mobileMenu" class="fixed top-0 left-0 bottom-0 w-80 max-w-[85%] bg-white dark:bg-[#1C1819] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-5 sm:p-6 overflow-y-auto">
+    <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
+      <img src="assets/logo.svg" alt="SweetBliss" class="h-8 sm:h-9 w-auto" />
+      <button class="mobile-menu-close w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Quick Utilities Row for Mobile -->
+    <div class="flex items-center gap-2 py-3 border-b border-neutral-100 dark:border-neutral-800">
+      <button onclick="toggleRTL()" class="rtl-toggle-btn text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5">
+        <i class="fa-solid fa-language text-gold"></i> RTL Mode
+      </button>
+      <a href="services.html" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5">
+        <i class="fa-regular fa-heart text-burgundy dark:text-gold"></i> Wishlist
+        <span class="wishlist-count-badge w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full inline-flex items-center justify-center" style="display: none;">0</span>
+      </a>
+    </div>
+
+    <div class="py-4 space-y-3 font-semibold text-sm">
+      <a href="index.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Classic Home</a>
+      <a href="home-2.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Festive Showcase</a>
+      <a href="services.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Products (Sweets &amp; Snacks)</a>
+      <a href="festivals.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">🪔 Festival Specials</a>
+      <a href="weddings.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">💍 Wedding Shagun</a>
+      <a href="pricing.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Bulk &amp; Corporate</a>
+      <a href="track-order.html" class="block text-burgundy dark:text-gold font-bold">📦 Track Order</a>
+      <a href="about.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">About Us</a>
+      <a href="contact.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Contact &amp; Enquiry</a>
+      <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800 space-y-2.5">
+        <a href="services.html" class="btn-primary w-full text-xs text-center py-2.5">Shop Fresh Mithai</a>
+        <a href="contact.html" class="btn-outline w-full text-xs text-center py-2.5">Customer Support</a>
+      </div>
+    </div>
+    <div class="mt-auto pt-4 border-t border-neutral-100 dark:border-neutral-800 text-xs text-neutral-400">
+      <p>© 2026 SweetBliss Traditional Mithai.</p>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Tracking Hero -->
+    <section class="py-14 sm:py-20 bg-gradient-to-r from-burgundy via-[#701E31] to-burgundy-900 text-white relative overflow-hidden">
+      <div class="absolute inset-0 ornament-pattern opacity-10 pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 lg:px-8 text-center max-w-3xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/20 border border-gold/40 text-gold text-xs font-bold uppercase tracking-widest mb-3">
+          <i class="fa-solid fa-truck-fast"></i> Pan-India Temperature-Safe Delivery
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black mb-3">
+          Track Your Fresh Delicacies
+        </h1>
+        <p class="text-xs sm:text-sm text-neutral-200 max-w-xl mx-auto leading-relaxed mb-8">
+          Follow your sweet order from our ancestral morning brass kadhai simmering to aroma-sealed vacuum packaging and doorstep express dispatch.
+        </p>
+
+        <!-- Search Input Bar -->
+        <div class="max-w-xl mx-auto bg-white dark:bg-[#201B1D] p-2.5 sm:p-3 rounded-2xl shadow-2xl border border-amber-200 dark:border-neutral-800 flex flex-col sm:flex-row gap-2">
+          <div class="relative flex-1">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 text-xs"></i>
+            <input type="text" id="trackOrderInput" placeholder="Enter Order ID (e.g. SB-84920) or Phone" class="w-full pl-9 pr-3 py-2.5 text-xs text-neutral-900 dark:text-neutral-100 bg-neutral-50 dark:bg-neutral-800 rounded-xl outline-none focus:border-burgundy dark:focus:border-gold border border-neutral-200 dark:border-neutral-700" />
+          </div>
+          <button onclick="handleTrackOrder()" class="btn-primary text-xs py-2.5 px-6 shrink-0">
+            Track Now <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+
+        <div class="mt-3 flex items-center justify-center gap-2 text-[11px] text-amber-200">
+          <span>Quick Demo:</span>
+          <button type="button" onclick="loadSampleOrder('SB-84920')" class="underline hover:text-white font-semibold">SB-84920 (In-Transit Air Cargo)</button>
+          <span>•</span>
+          <button type="button" onclick="loadSampleOrder('SB-91204')" class="underline hover:text-white font-semibold">SB-91204 (Freshly Simmering)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Tracking Result Container -->
+    <section class="py-12 md:py-16 bg-white dark:bg-[#1A1617]">
+      <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+        
+        <div id="trackingResultCard" class="bg-[#FFF8F0] dark:bg-[#201B1D] rounded-3xl border border-amber-200 dark:border-neutral-800 p-6 sm:p-10 shadow-lg">
+          <!-- Order Summary Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-amber-200/60 dark:border-neutral-800 gap-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-burgundy dark:text-gold block">Active Shipment</span>
+              <h3 id="displayOrderId" class="text-xl font-bold text-neutral-900 dark:text-white">Order #SB-84920</h3>
+              <p id="displayOrderItems" class="text-xs text-neutral-500 mt-0.5">The Maharaja Celebration Box (1.5kg) + Kaju Katli (500g)</p>
+            </div>
+            <div class="sm:text-right">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-bold text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> On Schedule
+              </span>
+              <span id="displayEstimatedDelivery" class="text-xs text-neutral-500 dark:text-neutral-400 block mt-1">Expected: Tomorrow by 1:30 PM</span>
+            </div>
+          </div>
+
+          <!-- Step Progress Visual Timeline -->
+          <div class="py-10">
+            <div class="relative">
+              <!-- Connecting Line -->
+              <div class="hidden sm:block absolute top-1/2 left-8 right-8 -translate-y-1/2 h-1 bg-amber-200 dark:bg-neutral-700 z-0"></div>
+              <div id="timelineProgressBar" class="hidden sm:block absolute top-1/2 left-8 -translate-y-1/2 h-1 bg-emerald-500 z-0 transition-all duration-700" style="width: 70%;"></div>
+
+              <!-- 4 Steps -->
+              <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 sm:gap-4 relative z-10">
+                
+                <!-- Step 1 -->
+                <div class="flex sm:flex-col items-center sm:text-center gap-4 sm:gap-2">
+                  <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-lg shadow-md shrink-0">
+                    <i class="fa-solid fa-receipt"></i>
+                  </div>
+                  <div>
+                    <h5 class="text-xs font-bold text-neutral-900 dark:text-white">Order Confirmed</h5>
+                    <span class="text-[10px] text-neutral-400 block">Yesterday, 4:15 PM</span>
+                    <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Ingredients Allocated</span>
+                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex sm:flex-col items-center sm:text-center gap-4 sm:gap-2">
+                  <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-lg shadow-md shrink-0">
+                    <i class="fa-solid fa-fire-burner"></i>
+                  </div>
+                  <div>
+                    <h5 class="text-xs font-bold text-neutral-900 dark:text-white">Freshly Simmered</h5>
+                    <span class="text-[10px] text-neutral-400 block">Today, 6:00 AM</span>
+                    <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Master Halwai Batch #14</span>
+                  </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex sm:flex-col items-center sm:text-center gap-4 sm:gap-2">
+                  <div class="w-12 h-12 rounded-2xl bg-burgundy text-white flex items-center justify-center text-lg shadow-md shrink-0 ring-4 ring-gold/40 animate-pulse">
+                    <i class="fa-solid fa-plane-departure"></i>
+                  </div>
+                  <div>
+                    <h5 class="text-xs font-bold text-burgundy dark:text-gold">In-Transit (Air Cargo)</h5>
+                    <span class="text-[10px] text-neutral-400 block">Today, 11:30 AM</span>
+                    <span class="text-[10px] text-amber-600 dark:text-amber-400 font-semibold">Insulated Gel Pack Active</span>
+                  </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex sm:flex-col items-center sm:text-center gap-4 sm:gap-2 opacity-60">
+                  <div class="w-12 h-12 rounded-2xl bg-neutral-200 dark:bg-neutral-800 text-neutral-500 flex items-center justify-center text-lg shrink-0">
+                    <i class="fa-solid fa-house-chimney"></i>
+                  </div>
+                  <div>
+                    <h5 class="text-xs font-bold text-neutral-700 dark:text-neutral-300">Out for Delivery</h5>
+                    <span class="text-[10px] text-neutral-400 block">Tomorrow Morning</span>
+                    <span class="text-[10px] text-neutral-400">Celebration Doorstep</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Cold Chain & Freshness Details Box -->
+          <div class="bg-white dark:bg-[#181415] p-5 rounded-2xl border border-amber-100 dark:border-neutral-800 text-xs space-y-2">
+            <div class="flex items-center gap-2 font-bold text-burgundy dark:text-gold">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>SweetBliss Triple-Lock Freshness Guarantee Active</span>
+            </div>
+            <p class="text-neutral-500 dark:text-neutral-400 leading-relaxed">
+              Your box was packaged under sterile nitrogen gas flush to maintain crispy crunch and syrup succulence without chemical stabilizers. Sealed inside our food-grade thermal insulation with reusable sub-zero gel cooling packs.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Delivery Pincode Serviceability Tool -->
+    <section class="py-16 bg-[#FFF8F0] dark:bg-[#151112] border-t border-amber-100 dark:border-neutral-800">
+      <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+        <div class="bg-white dark:bg-[#201B1D] p-8 sm:p-10 rounded-3xl border border-amber-200 dark:border-neutral-800 shadow-md">
+          <div class="text-center max-w-xl mx-auto mb-8">
+            <span class="text-xs font-bold text-burgundy dark:text-gold uppercase tracking-wider block mb-1">Pan-India Express Check</span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-white">Check Delivery Timeline to Your City</h3>
+            <p class="text-xs text-neutral-500 mt-1">Enter your 6-digit Indian PIN code to see exact delivery times and same-day express eligibility.</p>
+          </div>
+
+          <div class="max-w-md mx-auto flex gap-2 mb-4">
+            <input type="text" id="checkPincodeInput" maxlength="6" placeholder="e.g. 110001 or 560001" class="flex-1 px-4 py-2.5 text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+            <button onclick="checkPincodeSpeed()" class="btn-primary text-xs py-2.5 px-6 shrink-0">
+              Check
+            </button>
+          </div>
+
+          <div id="pincodeResultBox" class="max-w-md mx-auto hidden p-4 rounded-2xl text-xs font-semibold"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shelf Life & Storage Guide -->
+    <section class="py-16 md:py-20 bg-white dark:bg-[#1A1617] border-t border-amber-100 dark:border-neutral-800">
+      <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
+        <div class="text-center max-w-xl mx-auto mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-burgundy dark:text-gold block mb-1">Culinary Discipline</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-white">How To Store &amp; Savor Your Sweets</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-xs">
+          <div class="bg-[#FFF8F0] dark:bg-[#201B1D] p-5 rounded-2xl border border-amber-100 dark:border-neutral-800">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <h4 class="font-bold text-sm mb-1 text-neutral-900 dark:text-white">Kaju &amp; Dry Fruit Sweets</h4>
+            <span class="text-amber-600 dark:text-gold font-semibold block mb-2">Shelf Life: 20-30 Days</span>
+            <p class="text-neutral-500 leading-relaxed">Store at ambient room temperature in a cool, dry place. Do not refrigerate to preserve soft fudgy texture.</p>
+          </div>
+
+          <div class="bg-[#FFF8F0] dark:bg-[#201B1D] p-5 rounded-2xl border border-amber-100 dark:border-neutral-800">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-fire-flame-curved"></i>
+            </div>
+            <h4 class="font-bold text-sm mb-1 text-neutral-900 dark:text-white">Pure Ghee Ladoos</h4>
+            <span class="text-amber-600 dark:text-gold font-semibold block mb-2">Shelf Life: 15-20 Days</span>
+            <p class="text-neutral-500 leading-relaxed">Keep away from direct sunlight. Warm in microwave for 8-10 seconds before eating for molten ghee bliss.</p>
+          </div>
+
+          <div class="bg-[#FFF8F0] dark:bg-[#201B1D] p-5 rounded-2xl border border-amber-100 dark:border-neutral-800">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-snowflake"></i>
+            </div>
+            <h4 class="font-bold text-sm mb-1 text-neutral-900 dark:text-white">Spongy Syrupy Sweets</h4>
+            <span class="text-amber-600 dark:text-gold font-semibold block mb-2">Shelf Life: 7-10 Days</span>
+            <p class="text-neutral-500 leading-relaxed">Refrigerate immediately upon unboxing. Serve chilled (Rasgullas) or lightly warmed (Gulab Jamuns).</p>
+          </div>
+
+          <div class="bg-[#FFF8F0] dark:bg-[#201B1D] p-5 rounded-2xl border border-amber-100 dark:border-neutral-800">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-cookie"></i>
+            </div>
+            <h4 class="font-bold text-sm mb-1 text-neutral-900 dark:text-white">Crispy Namkeens &amp; Sev</h4>
+            <span class="text-amber-600 dark:text-gold font-semibold block mb-2">Shelf Life: 60 Days</span>
+            <p class="text-neutral-500 leading-relaxed">Transfer to airtight steel or glass jars after cutting vacuum pouch to keep crispiness intact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Master Footer -->
+  <footer class="bg-white dark:bg-[#120F10] text-neutral-700 dark:text-neutral-300 border-t border-amber-100 dark:border-neutral-800 pt-16 pb-8">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div class="lg:col-span-2 space-y-4">
+          <img src="assets/logo.svg" alt="SweetBliss" class="h-10 w-auto" />
+          <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm">
+            SweetBliss is a celebrated heritage confectionery committed to pure ingredients, 100% A2 cow desi ghee, and authentic Indian mithai &amp; savory namkeen recipes handcrafted since 1974.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-burgundy dark:text-gold">
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition" aria-label="YouTube"><i class="fa-brands fa-youtube text-xs"></i></a>
+            <a href="https://wa.me/919876543210" target="_blank" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-burgundy dark:hover:text-gold transition">Classic Home</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Products (Sweets &amp; Snacks)</a></li>
+            <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Festival Specials</a></li>
+            <li><a href="weddings.html" class="hover:text-burgundy dark:hover:text-gold transition">Wedding Shagun</a></li>
+            <li><a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition">Bulk &amp; Corporate</a></li>
+            <li><a href="track-order.html" class="text-burgundy dark:text-gold font-bold transition">Track Your Order</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Delicacies</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Pure Desi Ghee Mithai</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Kaju &amp; Dry Fruit Sweets</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Spongy Bengali Syrups</a></li>
+            <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Crispy Savory Namkeen</a></li>
+            <li><a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition">Corporate Festive Hampers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Stay Sweet</h4>
+          <p class="text-xs text-neutral-500 mb-3">Subscribe for festival discounts and recipe stories.</p>
+          <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2">
+            <input type="email" placeholder="Your email address" required class="w-full px-3 py-2 text-xs rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+            <button type="submit" class="btn-primary w-full text-xs py-2">Join SweetBliss Club</button>
+          </form>
+          <div class="mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-800 text-[11px] text-neutral-500">
+            <i class="fa-regular fa-clock mr-1 text-gold"></i> Open Daily: 8:00 AM – 10:30 PM
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-amber-100 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-3">
+        <p>© 2026 SweetBliss Confectionery Private Limited. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="404.html" class="hover:underline">404 Demo</a>
+          <a href="coming-soon.html" class="hover:underline">Coming Soon</a>
+          <a href="maintenance.html" class="hover:underline">Maintenance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Quick Order -->
+  <a href="https://wa.me/919876543210?text=Hi%20SweetBliss,%20I%20have%20a%20question%20about%20my%20order%20dispatch!" target="_blank" class="fixed bottom-6 right-6 z-40 bg-emerald-500 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 hover:bg-emerald-600 transition" title="Order on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Master JavaScript Application -->
+  <script src="js/app.js"></script>
+  <script>
+    function loadSampleOrder(orderId) {
+      document.getElementById('trackOrderInput').value = orderId;
+      handleTrackOrder();
+    }
+
+    function handleTrackOrder() {
+      const input = document.getElementById('trackOrderInput').value.trim();
+      if (!input) {
+        showToast('Please enter an Order ID or Mobile Number', 'error');
+        return;
+      }
+      showToast(`Locating batch status for ${input}...`, 'gold', 1500);
+
+      const card = document.getElementById('trackingResultCard');
+      const orderIdEl = document.getElementById('displayOrderId');
+      if (orderIdEl) orderIdEl.textContent = `Order #${input.toUpperCase()}`;
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function checkPincodeSpeed() {
+      const pin = document.getElementById('checkPincodeInput').value.trim();
+      const res = document.getElementById('pincodeResultBox');
+      if (!pin || pin.length < 6) {
+        showToast('Please enter a valid 6-digit Indian PIN code', 'error');
+        return;
+      }
+
+      res.classList.remove('hidden');
+      if (pin.startsWith('11') || pin.startsWith('40') || pin.startsWith('56') || pin.startsWith('70')) {
+        res.className = 'max-w-md mx-auto p-4 rounded-2xl text-xs font-semibold bg-emerald-100 text-emerald-900 border border-emerald-300 dark:bg-emerald-950/70 dark:text-emerald-200 block';
+        res.innerHTML = `
+          <div class="flex items-center gap-2 mb-1">
+            <i class="fa-solid fa-bolt text-gold text-base"></i>
+            <span class="font-bold">Metro Express Zone Verified!</span>
+          </div>
+          <div>✅ Same-Day Local Delivery available (Order before 2 PM, arrives in 3-4 hours via temperature-controlled courier).</div>
+        `;
+      } else {
+        res.className = 'max-w-md mx-auto p-4 rounded-2xl text-xs font-semibold bg-amber-100 text-amber-900 border border-amber-300 dark:bg-amber-950/70 dark:text-amber-200 block';
+        res.innerHTML = `
+          <div class="flex items-center gap-2 mb-1">
+            <i class="fa-solid fa-plane text-burgundy dark:text-gold text-base"></i>
+            <span class="font-bold">Pan-India Express Air Cargo Eligible</span>
+          </div>
+          <div>✈️ Guaranteed Freshness Delivery in 24-48 Hours with Sub-Zero Insulated Cold Gel Packs.</div>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

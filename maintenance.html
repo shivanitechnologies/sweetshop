@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Under Maintenance — Crafting Fresh Batches | SweetBliss</title>
+  <meta name="description" content="Our digital kitchen is briefly undergoing maintenance while we prepare fresh festive sweet batches. Expected back online shortly." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            burgundy: {
+              DEFAULT: '#7B263A',
+              50: '#FDF2F4',
+              100: '#FBE8EC',
+              600: '#9C324B',
+              700: '#7B263A',
+              800: '#581928',
+              900: '#3D0E19'
+            },
+            gold: {
+              DEFAULT: '#D6A653',
+              50: '#FDF9F2',
+              100: '#F9F0DF',
+              400: '#E8C482',
+              500: '#D6A653',
+              600: '#B58434',
+              700: '#8C6321'
+            },
+            cream: '#FFF8F0'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#FFF8F0] dark:bg-[#171717] text-neutral-800 dark:text-neutral-100 min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+  <!-- Minimal Top Header -->
+  <header class="py-5 px-6 border-b border-amber-100 dark:border-neutral-800 bg-white/80 dark:bg-[#1C1819]/80 backdrop-blur-sm">
+    <div class="container mx-auto flex items-center justify-between">
+      <a href="index.html">
+        <img src="assets/logo.svg" alt="SweetBliss Logo" class="h-10 w-auto" />
+      </a>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleRTL()" class="rtl-toggle-btn text-xs font-bold px-3 py-1 rounded-full border border-neutral-300 dark:border-neutral-700">RTL</button>
+        <button onclick="toggleDarkMode()" class="theme-toggle-btn w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-xs">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Maintenance Main Content -->
+  <main class="container mx-auto px-4 py-16 text-center max-w-xl flex-1 flex flex-col justify-center items-center">
+    
+    <!-- Animated Brass Kadhai Motif -->
+    <div class="relative w-32 h-32 mx-auto rounded-full bg-amber-100 dark:bg-[#251A1E] text-burgundy dark:text-gold flex items-center justify-center text-5xl mb-6 shadow-inner animate-float">
+      <i class="fa-solid fa-fire-burner"></i>
+      <!-- Steam Particles -->
+      <span class="absolute -top-3 left-1/3 text-gold text-lg animate-pulse"><i class="fa-solid fa-cloud"></i></span>
+      <span class="absolute -top-5 right-1/3 text-amber-300 text-sm animate-pulse" style="animation-delay: 1s;"><i class="fa-solid fa-cloud"></i></span>
+    </div>
+
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-neutral-800 text-burgundy dark:text-gold text-xs font-bold uppercase tracking-wider mb-3">
+      <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+      Scheduled Kitchen Upgrades
+    </div>
+
+    <h1 class="text-3xl sm:text-4xl font-black text-neutral-900 dark:text-white mb-3">
+      Crafting Fresh Batches of Purity
+    </h1>
+
+    <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 mb-8 leading-relaxed">
+      Our digital kitchen is briefly paused while we upgrade our systems for the festive rush. We will be back online with fresh sweets in approximately <strong>45 minutes</strong>.
+    </p>
+
+    <!-- Urgent Enquiries Box -->
+    <div class="w-full bg-white dark:bg-[#201B1D] p-6 rounded-2xl border border-amber-200/70 dark:border-neutral-800 shadow-sm mb-6 text-left">
+      <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-2 flex items-center gap-2">
+        <i class="fa-solid fa-bell text-gold"></i> Urgent Festival or Wedding Bulk Orders?
+      </h4>
+      <p class="text-xs text-neutral-500 mb-4 leading-relaxed">
+        Our kitchen masters and order helplines remain fully active on WhatsApp and direct telephone.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/919876543210" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs hover:bg-emerald-700 transition shadow">
+          <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Support (+91 98765 43210)
+        </a>
+        <a href="tel:+919876543210" class="inline-flex items-center justify-center gap-2 btn-outline text-xs py-2.5 px-4">
+          <i class="fa-solid fa-phone"></i> Call Kitchen
+        </a>
+      </div>
+    </div>
+
+    <a href="index.html" class="text-xs font-semibold text-neutral-500 hover:text-burgundy dark:hover:text-gold transition">
+      <i class="fa-solid fa-rotate-right mr-1"></i> Check If Store Is Back Online
+    </a>
+
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="py-5 px-6 border-t border-amber-100 dark:border-neutral-800 text-center text-xs text-neutral-400">
+    <p>© 2026 SweetBliss Confectionery Private Limited. Purity guaranteed since 1974.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
