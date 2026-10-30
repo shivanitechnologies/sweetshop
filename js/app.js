@@ -506,7 +506,15 @@ function updateRTLButtons() {
 // ==========================================
 // 5. SHOPPING CART LOGIC & DRAWER
 // ==========================================
-function addToCart(productId, weight = '250g', quantity = 1) {
+function triggerCartBounce() {
+  document.querySelectorAll('.cart-count-badge, header button[onclick="openCartDrawer()"]').forEach(el => {
+    el.classList.remove('animate-cart-bounce');
+    void el.offsetWidth;
+    el.classList.add('animate-cart-bounce');
+  });
+}
+
+function addToCart(productId, weight = '250g', quantity = 1, triggerBtn = null) {
   const product = SWEETBLISS_PRODUCTS.find(p => p.id === productId);
   if (!product) return;
 
@@ -530,8 +538,21 @@ function addToCart(productId, weight = '250g', quantity = 1) {
 
   AppState.saveCart();
   renderCartDrawer();
+  triggerCartBounce();
+
+  // Button Morph Feedback
+  if (triggerBtn) {
+    const originalText = triggerBtn.innerHTML;
+    triggerBtn.innerHTML = '<i class="fa-solid fa-check text-[10px] mr-1"></i> Added!';
+    triggerBtn.classList.add('btn-added-feedback');
+    setTimeout(() => {
+      triggerBtn.innerHTML = originalText;
+      triggerBtn.classList.remove('btn-added-feedback');
+    }, 1200);
+  }
+
   openCartDrawer();
-  showToast(`Added ${quantity}x ${product.name} (${weight}) to your cart!`, 'success');
+  showToast(`Added ${quantity}x ${product.name} (${weight}) to your bag!`, 'success');
 }
 
 function updateCartQuantity(index, delta) {
@@ -712,6 +733,7 @@ function handleCheckoutSimulation() {
     return;
   }
   closeCartDrawer();
+  fireFestiveConfetti();
   showToast('Order Enquiry Initiated! Redirecting to WhatsApp & Order confirmation...', 'gold', 3000);
   setTimeout(() => {
     window.location.href = 'contact.html?order=true';
@@ -830,7 +852,16 @@ function toggleWishlist(productId, btn) {
     showToast('Removed from Wishlist', 'primary', 2000);
   } else {
     AppState.wishlist.push(productId);
-    if (btn) btn.classList.add('text-rose-500');
+    if (btn) {
+      btn.classList.add('text-rose-500', 'animate-heart-pop');
+      setTimeout(() => btn.classList.remove('animate-heart-pop'), 600);
+    }
+    // Navbar wishlist badge pop animation
+    document.querySelectorAll('.wishlist-count-badge, header a[title="Wishlist"]').forEach(el => {
+      el.classList.remove('animate-heart-pop');
+      void el.offsetWidth;
+      el.classList.add('animate-heart-pop');
+    });
     showToast('Added to your Wishlist!', 'gold', 2000);
   }
   AppState.saveWishlist();
@@ -875,7 +906,7 @@ function renderProductCard(product) {
             <span class="text-lg font-black text-burgundy dark:text-gold">₹${product.basePrice}</span>
             <span class="text-[11px] text-neutral-400 font-normal">/ 250g</span>
           </div>
-          <button onclick="addToCart('${product.id}', '250g', 1)" class="btn-primary text-xs py-2 px-3.5" title="Add 250g pack to bag">
+          <button onclick="addToCart('${product.id}', '250g', 1, this)" class="btn-primary text-xs py-2 px-3.5" title="Add 250g pack to bag">
             <i class="fa-solid fa-plus text-[10px]"></i> Add
           </button>
         </div>
@@ -1514,6 +1545,7 @@ const HeroShowcase = {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
   initThemeAndRTL();
+  initPreloader();
   injectSharedCartDrawer();
   injectSharedModal();
   AppState.updateCartBadges();
@@ -1522,6 +1554,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initProductCatalog();
   initSocialProofToast();
+  initScrollReveal();
+  initStatCounters();
 
   if (document.getElementById('heroShowcaseCard')) {
     HeroShowcase.init();
@@ -1577,5 +1611,196 @@ function checkHomePincode() {
     }
   }
 }
+
+// ==========================================
+// 17. LUXURY FESTIVE PRELOADER (1.1s Reveal)
+// ==========================================
+function initPreloader() {
+  if (document.getElementById('sweetblissPreloader')) return;
+
+  const preloaderMarkup = `
+    <div id="sweetblissPreloader">
+      <div class="preloader-sparkle" style="top:22%; left:28%; animation-delay:0.1s;"><i class="fa-solid fa-sparkles text-gold text-sm opacity-60"></i></div>
+      <div class="preloader-sparkle" style="top:32%; right:22%; animation-delay:0.35s;"><i class="fa-solid fa-star text-gold text-xs opacity-75"></i></div>
+      <div class="preloader-sparkle" style="bottom:28%; left:22%; animation-delay:0.5s;"><i class="fa-solid fa-sparkles text-gold text-base opacity-50"></i></div>
+      <div class="preloader-sparkle" style="bottom:22%; right:28%; animation-delay:0.2s;"><i class="fa-solid fa-star text-gold text-xs opacity-70"></i></div>
+
+      <div class="preloader-content text-center px-4">
+        <div class="preloader-logo-wrap mb-4">
+          <img src="assets/logo.svg" alt="SweetBliss" class="h-14 sm:h-16 w-auto brightness-200 contrast-150 drop-shadow-[0_4px_24px_rgba(214,166,83,0.45)]" />
+        </div>
+        <p class="text-xs tracking-[0.2em] uppercase text-gold font-semibold mb-5">
+          Royal Mithai &amp; Handcrafted Snacks
+        </p>
+        <div class="preloader-bar-wrap w-44 sm:w-56 h-1 bg-white/10 rounded-full overflow-hidden mx-auto border border-gold/20">
+          <div class="preloader-bar"></div>
+        </div>
+        <span class="text-[10px] text-amber-200/60 uppercase tracking-widest mt-3 block font-medium">Pure Desi Ghee Since 1974</span>
+      </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML('afterbegin', preloaderMarkup);
+  const el = document.getElementById('sweetblissPreloader');
+
+  function dismiss() {
+    if (!el || el.classList.contains('preloader-fade-out')) return;
+    el.classList.add('preloader-fade-out');
+    setTimeout(() => {
+      if (el.parentNode) el.parentNode.removeChild(el);
+    }, 450);
+  }
+
+  // Dismiss cleanly after ~1000ms
+  window.addEventListener('load', () => setTimeout(dismiss, 950));
+  setTimeout(dismiss, 1600);
+}
+
+// ==========================================
+// 18. SCROLL REVEAL (IntersectionObserver)
+// ==========================================
+function initScrollReveal() {
+  const elements = document.querySelectorAll('.reveal-on-scroll');
+  if (!elements.length) return;
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.1
+    });
+
+    elements.forEach(el => observer.observe(el));
+  } else {
+    elements.forEach(el => el.classList.add('is-revealed'));
+  }
+}
+
+// ==========================================
+// 19. ANIMATED NUMBER COUNTERS
+// ==========================================
+function initStatCounters() {
+  const counters = document.querySelectorAll('[data-counter-target]');
+  if (!counters.length) return;
+
+  function animate(el) {
+    if (el.dataset.animated) return;
+    el.dataset.animated = 'true';
+
+    const target = parseFloat(el.getAttribute('data-counter-target')) || 0;
+    const prefix = el.getAttribute('data-counter-prefix') || '';
+    const suffix = el.getAttribute('data-counter-suffix') || '';
+    const duration = 1600;
+    const start = performance.now();
+
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(ease * target);
+
+      el.textContent = `${prefix}${current.toLocaleString('en-IN')}${suffix}`;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = `${prefix}${target.toLocaleString('en-IN')}${suffix}`;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    counters.forEach(c => observer.observe(c));
+  } else {
+    counters.forEach(animate);
+  }
+}
+
+// ==========================================
+// 20. CELEBRATORY FESTIVE CONFETTI
+// ==========================================
+function fireFestiveConfetti() {
+  let canvas = document.getElementById('festiveConfettiCanvas');
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+    canvas.id = 'festiveConfettiCanvas';
+    canvas.className = 'fixed inset-0 pointer-events-none z-[10000]';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.body.appendChild(canvas);
+  }
+
+  const ctx = canvas.getContext('2d');
+  const particles = [];
+  const particleCount = 110;
+  const colors = ['#D6A653', '#7B263A', '#059669', '#F59E0B', '#FFF8F0', '#EA580C'];
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: window.innerWidth / 2 + (Math.random() - 0.5) * 160,
+      y: window.innerHeight / 2 + (Math.random() - 0.5) * 80,
+      w: Math.random() * 8 + 4,
+      h: Math.random() * 6 + 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 14,
+      vy: (Math.random() - 1.2) * 11,
+      gravity: 0.35,
+      rotation: Math.random() * 360,
+      vRot: (Math.random() - 0.5) * 8,
+      opacity: 1
+    });
+  }
+
+  const startTime = performance.now();
+  function render(now) {
+    const elapsed = now - startTime;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    let alive = false;
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += p.gravity;
+      p.rotation += p.vRot;
+      p.opacity -= 0.009;
+
+      if (p.opacity > 0) {
+        alive = true;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0, p.opacity);
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+    });
+
+    if (alive && elapsed < 3200) {
+      requestAnimationFrame(render);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+    }
+  }
+
+  requestAnimationFrame(render);
+}
+
 
 
