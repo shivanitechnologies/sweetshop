@@ -1662,52 +1662,103 @@ function initSocialProofToast() {
 // ==========================================
 // 14. MOBILE MENU TOGGLE (STRICT MOBILE ONLY)
 // ==========================================
+// Global Mobile Menu Controllers (Callable via onclick or event listeners)
+function openMobileMenu() {
+  if (window.innerWidth >= 1024) return;
+  const menu = document.getElementById('mobileMenu');
+  const backdrop = document.getElementById('mobileMenuBackdrop');
+  if (!menu) return;
+
+  menu.classList.remove('-translate-x-full', 'translate-x-full');
+  menu.classList.add('open', 'active');
+  menu.style.setProperty('transform', 'translateX(0)', 'important');
+  menu.style.setProperty('display', 'flex', 'important');
+  menu.style.setProperty('visibility', 'visible', 'important');
+
+  if (backdrop) {
+    backdrop.classList.remove('hidden');
+    backdrop.classList.add('open', 'active');
+    backdrop.style.setProperty('display', 'block', 'important');
+    backdrop.style.setProperty('visibility', 'visible', 'important');
+  }
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const backdrop = document.getElementById('mobileMenuBackdrop');
+  if (!menu) return;
+
+  const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+  menu.classList.remove('open', 'active');
+  menu.classList.add(isRtl ? 'translate-x-full' : '-translate-x-full');
+  menu.style.setProperty('transform', isRtl ? 'translateX(100%)' : 'translateX(-100%)', 'important');
+
+  if (backdrop) {
+    backdrop.classList.add('hidden');
+    backdrop.classList.remove('open', 'active');
+    backdrop.style.setProperty('display', 'none', 'important');
+  }
+  document.body.style.overflow = '';
+}
+
+function toggleMobileMenu(e) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  const menu = document.getElementById('mobileMenu');
+  if (!menu) return;
+
+  const isOpen = menu.classList.contains('open') || 
+                 menu.classList.contains('active') ||
+                 menu.style.transform === 'translateX(0px)' ||
+                 menu.style.transform === 'translateX(0)';
+
+  if (isOpen) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+
+// Expose on global window object
+window.openMobileMenu = openMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
+window.toggleMobileMenu = toggleMobileMenu;
+
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobileMenuToggle');
   const menu = document.getElementById('mobileMenu');
   const backdrop = document.getElementById('mobileMenuBackdrop');
 
-  if (!menu) return;
-
-  function openMenu() {
-    // Strictly prevent opening on desktop
-    if (window.innerWidth >= 1024) return;
-    menu.classList.remove('-translate-x-full', 'translate-x-full');
-    if (backdrop) backdrop.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMenu() {
-    const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
-    menu.classList.add(isRtl ? 'translate-x-full' : '-translate-x-full');
-    if (backdrop) backdrop.classList.add('hidden');
-    document.body.style.overflow = '';
-  }
-
   if (toggleBtn) {
+    toggleBtn.setAttribute('onclick', 'toggleMobileMenu(event)');
     toggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (window.innerWidth >= 1024) return;
-      const isOpen = !menu.classList.contains('-translate-x-full') && !menu.classList.contains('translate-x-full');
-      if (isOpen) closeMenu();
-      else openMenu();
+      toggleMobileMenu(e);
     });
   }
 
-  if (backdrop) backdrop.addEventListener('click', closeMenu);
+  if (backdrop) {
+    backdrop.setAttribute('onclick', 'closeMobileMenu()');
+    backdrop.addEventListener('click', closeMobileMenu);
+  }
 
   document.querySelectorAll('.mobile-menu-close').forEach(btn => {
-    btn.addEventListener('click', closeMenu);
+    btn.setAttribute('onclick', 'closeMobileMenu()');
+    btn.addEventListener('click', closeMobileMenu);
   });
 
-  menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
+  if (menu) {
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  }
 
   // Automatically close and restore scrolling if viewport resized to desktop
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 1024) {
-      closeMenu();
+      closeMobileMenu();
     }
   });
 }

@@ -111,7 +111,7 @@
         </button>
 
         <!-- Mobile Menu Toggle -->
-        <button id="mobileMenuToggle" class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-700 dark:text-neutral-200 hover:text-burgundy transition" aria-label="Open mobile menu">
+        <button id="mobileMenuToggle" onclick="toggleMobileMenu(event)" class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-700 dark:text-neutral-200 hover:text-burgundy transition" aria-label="Open mobile menu">
           <i class="fa-solid fa-bars text-sm sm:text-base"></i>
         </button>
       </div>
@@ -119,11 +119,11 @@
   </header>
 
   <!-- Mobile Drawer Menu Navigation (Mobile Only) -->
-  <div id="mobileMenuBackdrop" class="lg:hidden fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <div id="mobileMenuBackdrop" onclick="closeMobileMenu()" class="lg:hidden fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm transition-opacity"></div>
   <aside id="mobileMenu" class="lg:hidden fixed top-0 left-0 bottom-0 w-80 max-w-[85%] bg-white dark:bg-[#1C1819] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-5 sm:p-6 overflow-y-auto">
     <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
       <img src="assets/logo.svg" alt="SweetBliss" class="h-8 sm:h-9 w-auto" />
-      <button class="mobile-menu-close w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center" aria-label="Close menu">
+      <button class="mobile-menu-close w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center" onclick="closeMobileMenu()" aria-label="Close menu">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>

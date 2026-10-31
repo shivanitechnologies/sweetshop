@@ -1058,12 +1058,31 @@ html.dark .mega-menu-card.featured-card .mega-menu-subtitle {
    ========================================================================== */
 #mobileMenu {
   transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  z-index: 60 !important;
 }
 [dir="rtl"] #mobileMenu {
+  left: auto;
+  right: 0;
   transform: translateX(100%);
 }
+
+/* Active / Open state on mobile */
+#mobileMenu.open,
+#mobileMenu.active,
+#mobileMenu:not(.-translate-x-full):not(.translate-x-full) {
+  transform: translateX(0) !important;
+}
+
 #mobileMenuBackdrop {
   display: none;
+  z-index: 55 !important;
+  transition: opacity 0.3s ease;
+}
+#mobileMenuBackdrop.open,
+#mobileMenuBackdrop.active,
+#mobileMenuBackdrop:not(.hidden) {
+  display: block !important;
 }
 
 @media (min-width: 1024px) {
