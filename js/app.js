@@ -614,6 +614,182 @@ function closeCartDrawer() {
   }
 }
 
+// ==========================================
+// WISHLIST DRAWER (ROYAL FAVORITES)
+// ==========================================
+function injectSharedWishlistDrawer() {
+  if (document.getElementById('wishlistDrawer')) return;
+
+  const drawerMarkup = `
+    <div id="wishlistDrawer" class="wishlist-drawer-container">
+      <div class="wishlist-backdrop" onclick="closeWishlistDrawer()"></div>
+      <div class="wishlist-drawer-content flex flex-col h-full bg-white dark:bg-[#1C1819] text-neutral-800 dark:text-neutral-100 shadow-2xl">
+        <!-- Header -->
+        <div class="flex items-center justify-between px-5 py-4 border-b border-neutral-100 dark:border-neutral-800">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-burgundy/10 dark:bg-gold/20 text-burgundy dark:text-gold flex items-center justify-center">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div>
+              <h3 class="text-base sm:text-lg font-bold">Saved Delicacies</h3>
+              <p class="text-[11px] text-neutral-500 font-normal"><span id="wishlistHeaderCount">0</span> favorites saved</p>
+            </div>
+          </div>
+          <button onclick="closeWishlistDrawer()" class="w-8 h-8 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 flex items-center justify-center text-neutral-500 transition cursor-pointer" aria-label="Close Wishlist">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Wishlist Items List -->
+        <div class="flex-1 overflow-y-auto px-5 py-2 divide-y divide-neutral-100 dark:divide-neutral-800" id="wishlistItemsContainer">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Empty Wishlist State -->
+        <div id="wishlistEmptyState" class="hidden flex-1 flex flex-col items-center justify-center p-8 text-center">
+          <div class="w-20 h-20 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center text-burgundy dark:text-gold text-3xl mb-4">
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <h4 class="text-lg font-bold mb-1">Your wishlist is empty</h4>
+          <p class="text-xs text-neutral-500 max-w-xs mb-6">Tap the heart icon on any mithai, namkeen, or gift box to save it here for later.</p>
+          <a href="services.html" onclick="closeWishlistDrawer()" class="btn-primary text-xs py-2.5 px-6 font-bold rounded-full">
+            Browse Delicacies
+          </a>
+        </div>
+
+        <!-- Footer Actions -->
+        <div id="wishlistFooter" class="p-4 sm:p-5 border-t border-neutral-100 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 space-y-2.5">
+          <button onclick="moveAllWishlistToCart()" class="w-full bg-burgundy hover:bg-burgundy-800 text-white font-bold py-3 rounded-full text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-md cursor-pointer">
+            <i class="fa-solid fa-bag-shopping text-gold"></i>
+            <span>Add All to Sweet Bag</span>
+          </button>
+          <button onclick="clearWishlist()" class="w-full text-xs font-semibold text-neutral-500 hover:text-burgundy dark:hover:text-gold py-1 text-center transition cursor-pointer">
+            Clear All Favorites
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML('beforeend', drawerMarkup);
+}
+
+function openWishlistDrawer() {
+  injectSharedWishlistDrawer();
+  const drawer = document.getElementById('wishlistDrawer');
+  if (drawer) {
+    renderWishlistDrawer();
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeWishlistDrawer() {
+  const drawer = document.getElementById('wishlistDrawer');
+  if (drawer) {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+function renderWishlistDrawer() {
+  const container = document.getElementById('wishlistItemsContainer');
+  const emptyState = document.getElementById('wishlistEmptyState');
+  const footer = document.getElementById('wishlistFooter');
+  const headerCount = document.getElementById('wishlistHeaderCount');
+  if (!container) return;
+
+  const savedIds = AppState.wishlist || [];
+  if (headerCount) headerCount.textContent = savedIds.length;
+
+  if (savedIds.length === 0) {
+    container.innerHTML = '';
+    container.classList.add('hidden');
+    if (emptyState) emptyState.classList.remove('hidden');
+    if (footer) footer.classList.add('hidden');
+    return;
+  }
+
+  container.classList.remove('hidden');
+  if (emptyState) emptyState.classList.add('hidden');
+  if (footer) footer.classList.remove('hidden');
+
+  container.innerHTML = savedIds.map(id => {
+    const prod = SWEETBLISS_PRODUCTS.find(p => p.id === id);
+    if (!prod) return '';
+    const weightLabel = prod.category === 'giftboxes' ? 'Box' : '250g';
+    return `
+      <div class="py-3 flex items-center gap-3">
+        <img src="${prod.image}" alt="${prod.name}" class="w-14 h-14 rounded-xl object-cover border border-amber-100 dark:border-neutral-700 shrink-0 shadow-sm" />
+        <div class="min-w-0 flex-1">
+          <h4 class="text-xs sm:text-sm font-bold text-neutral-900 dark:text-neutral-100 truncate">${prod.name}</h4>
+          <div class="flex items-center gap-2 mt-0.5">
+            <span class="text-xs font-bold text-burgundy dark:text-gold">₹${prod.basePrice}</span>
+            <span class="text-[10px] text-neutral-400">/${weightLabel}</span>
+          </div>
+          <div class="flex items-center gap-3 mt-1.5">
+            <button onclick="moveWishlistItemToCart('${prod.id}')" class="px-2.5 py-1 rounded-full bg-burgundy/10 hover:bg-burgundy text-burgundy hover:text-white dark:bg-gold/15 dark:hover:bg-gold dark:text-gold dark:hover:text-neutral-900 text-[10.5px] font-bold transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-solid fa-bag-shopping text-[9px]"></i> Add to Bag
+            </button>
+            <button onclick="removeFromWishlist('${prod.id}')" class="text-[10.5px] text-neutral-400 hover:text-rose-500 font-medium transition cursor-pointer">
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function moveWishlistItemToCart(productId) {
+  addToCart(productId, '250g', 1);
+  removeFromWishlist(productId);
+  showToast('Moved delicacy to your Bag!', 'gold', 2500);
+}
+
+function moveAllWishlistToCart() {
+  const savedIds = [...(AppState.wishlist || [])];
+  if (savedIds.length === 0) return;
+  savedIds.forEach(id => {
+    addToCart(id, '250g', 1);
+  });
+  AppState.wishlist = [];
+  AppState.saveWishlist();
+  renderWishlistDrawer();
+  closeWishlistDrawer();
+  openCartDrawer();
+  showToast('All saved delicacies added to your Bag!', 'gold', 3000);
+}
+
+function removeFromWishlist(productId) {
+  const index = AppState.wishlist.indexOf(productId);
+  if (index > -1) {
+    AppState.wishlist.splice(index, 1);
+    AppState.saveWishlist();
+    renderWishlistDrawer();
+    // Update any heart icons on active cards
+    document.querySelectorAll(`[onclick*="toggleWishlist('${productId}'"]`).forEach(b => {
+      b.classList.remove('text-rose-500');
+    });
+  }
+}
+
+function clearWishlist() {
+  AppState.wishlist = [];
+  AppState.saveWishlist();
+  renderWishlistDrawer();
+  showToast('Wishlist cleared', 'burgundy', 2000);
+}
+
+window.injectSharedWishlistDrawer = injectSharedWishlistDrawer;
+window.openWishlistDrawer = openWishlistDrawer;
+window.closeWishlistDrawer = closeWishlistDrawer;
+window.renderWishlistDrawer = renderWishlistDrawer;
+window.moveWishlistItemToCart = moveWishlistItemToCart;
+window.moveAllWishlistToCart = moveAllWishlistToCart;
+window.removeFromWishlist = removeFromWishlist;
+window.clearWishlist = clearWishlist;
+
 function renderCartDrawer() {
   const cartItemsContainer = document.getElementById('cartItemsContainer');
   const cartSubtotalEl = document.getElementById('cartSubtotal');
@@ -1935,6 +2111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeAndRTL();
   initPreloader();
   injectSharedCartDrawer();
+  injectSharedWishlistDrawer();
   injectSharedModal();
   AppState.updateCartBadges();
   AppState.updateWishlistBadges();
