@@ -1663,8 +1663,9 @@ function initSocialProofToast() {
 // 14. MOBILE MENU TOGGLE (STRICT MOBILE ONLY)
 // ==========================================
 // Global Mobile Menu Controllers (Callable via onclick or event listeners)
+let _mobileMenuLastToggleTime = 0;
+
 function openMobileMenu() {
-  if (window.innerWidth >= 1024) return;
   const menu = document.getElementById('mobileMenu');
   const backdrop = document.getElementById('mobileMenuBackdrop');
   if (!menu) return;
@@ -1674,12 +1675,16 @@ function openMobileMenu() {
   menu.style.setProperty('transform', 'translateX(0)', 'important');
   menu.style.setProperty('display', 'flex', 'important');
   menu.style.setProperty('visibility', 'visible', 'important');
+  menu.style.setProperty('opacity', '1', 'important');
+  menu.style.setProperty('pointer-events', 'auto', 'important');
 
   if (backdrop) {
     backdrop.classList.remove('hidden');
     backdrop.classList.add('open', 'active');
     backdrop.style.setProperty('display', 'block', 'important');
     backdrop.style.setProperty('visibility', 'visible', 'important');
+    backdrop.style.setProperty('opacity', '1', 'important');
+    backdrop.style.setProperty('pointer-events', 'auto', 'important');
   }
   document.body.style.overflow = 'hidden';
 }
@@ -1693,11 +1698,13 @@ function closeMobileMenu() {
   menu.classList.remove('open', 'active');
   menu.classList.add(isRtl ? 'translate-x-full' : '-translate-x-full');
   menu.style.setProperty('transform', isRtl ? 'translateX(100%)' : 'translateX(-100%)', 'important');
+  menu.style.setProperty('pointer-events', 'none', 'important');
 
   if (backdrop) {
     backdrop.classList.add('hidden');
     backdrop.classList.remove('open', 'active');
     backdrop.style.setProperty('display', 'none', 'important');
+    backdrop.style.setProperty('pointer-events', 'none', 'important');
   }
   document.body.style.overflow = '';
 }
@@ -1707,6 +1714,14 @@ function toggleMobileMenu(e) {
     if (e.preventDefault) e.preventDefault();
     if (e.stopPropagation) e.stopPropagation();
   }
+
+  const now = Date.now();
+  if (now - _mobileMenuLastToggleTime < 350) {
+    // Prevent double toggle bug from simultaneous touch/click events
+    return;
+  }
+  _mobileMenuLastToggleTime = now;
+
   const menu = document.getElementById('mobileMenu');
   if (!menu) return;
 
@@ -1733,25 +1748,30 @@ function initMobileMenu() {
   const backdrop = document.getElementById('mobileMenuBackdrop');
 
   if (toggleBtn) {
-    toggleBtn.setAttribute('onclick', 'toggleMobileMenu(event)');
-    toggleBtn.addEventListener('click', (e) => {
+    // Single robust click handler to avoid duplicate triggers
+    toggleBtn.onclick = function(e) {
       toggleMobileMenu(e);
-    });
+      return false;
+    };
   }
 
   if (backdrop) {
-    backdrop.setAttribute('onclick', 'closeMobileMenu()');
-    backdrop.addEventListener('click', closeMobileMenu);
+    backdrop.onclick = function(e) {
+      closeMobileMenu();
+    };
   }
 
   document.querySelectorAll('.mobile-menu-close').forEach(btn => {
-    btn.setAttribute('onclick', 'closeMobileMenu()');
-    btn.addEventListener('click', closeMobileMenu);
+    btn.onclick = function(e) {
+      closeMobileMenu();
+    };
   });
 
   if (menu) {
     menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
     });
   }
 

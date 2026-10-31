@@ -132,9 +132,9 @@
 
         <!-- Mobile Menu Toggle -->
         <button id="mobileMenuToggle" onclick="toggleMobileMenu(event)"
-          class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-700 dark:text-neutral-200 hover:text-burgundy transition"
+          class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-700 dark:text-neutral-200 hover:text-burgundy transition cursor-pointer"
           aria-label="Open mobile menu">
-          <i class="fa-solid fa-bars text-sm sm:text-base"></i>
+          <i class="fa-solid fa-bars text-sm sm:text-base pointer-events-none"></i>
         </button>
       </div>
     </div>
@@ -146,9 +146,11 @@
     <aside id="mobileMenu"
       class="lg:hidden fixed top-0 left-0 bottom-0 w-80 max-w-[85%] bg-white dark:bg-[#1C1819] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-5 sm:p-6 overflow-y-auto">
       <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
-        <img src="assets/logo.svg" alt="SweetBliss" class="h-8 sm:h-9 w-auto" />
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="assets/logo.svg" alt="SweetBliss" class="h-8 sm:h-9 w-auto" />
+        </a>
         <button onclick="closeMobileMenu()"
-          class="mobile-menu-close w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center"
+          class="mobile-menu-close w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center transition"
           aria-label="Close menu">
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -169,30 +171,48 @@
         </a>
       </div>
 
-      <div class="py-4 space-y-3 font-semibold text-sm">
-        <a href="index.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Classic Home (Sweets &amp; Snacks)</a>
-        <a href="home-2.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Wedding &amp; Shagun Showcase</a>
-        <a href="services.html" class="block text-burgundy dark:text-gold font-bold">Products (All Categories)</a>
-        <a href="festivals.html"
-          class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy flex items-center justify-between">
-          <span>Festival Specials</span>
-          <span class="text-[10px] bg-gold/20 text-gold px-2 py-0.5 rounded-full font-bold">2026</span>
+      <!-- Navigation Links Matching Navbar -->
+      <div class="py-4 space-y-2.5 font-semibold text-sm">
+        <a href="index.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Classic Home (Sweets &amp; Snacks)</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
         </a>
-        <a href="pricing.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Bulk &amp;
-          Corporate Hampers</a>
-        <a href="track-order.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Track Fresh
-          Order</a>
-        <a href="about.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">About Us</a>
-        <a href="contact.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Contact &amp;
-          Enquiry</a>
-        <a href="blog.html" class="block text-neutral-700 dark:text-neutral-200 hover:text-burgundy">Mithai Journal</a>
-        <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800 space-y-2.5">
-          <a href="services.html" class="btn-primary w-full text-xs text-center py-2.5">Explore Delicacies</a>
-          <a href="contact.html" class="btn-outline w-full text-xs text-center py-2.5">Order Enquiries</a>
+        <a href="home-2.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Wedding &amp; Shagun Showcase</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+        <a href="services.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Products</span>
+          <span class="text-[10px] bg-burgundy/10 dark:bg-gold/20 text-burgundy dark:text-gold px-2 py-0.5 rounded-full font-bold">19 Delicacies</span>
+        </a>
+        <a href="festivals.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span> Festival Specials</span>
+          <span class="text-[10px] bg-gold/20 text-gold px-2 py-0.5 rounded-full font-bold">Diwali 2026</span>
+        </a>
+        <a href="pricing.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Bulk &amp; Corporate</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+        <a href="track-order.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Track Order</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+        <a href="about.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>About Us</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+        <a href="contact.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Contact</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+
+        <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800 space-y-2">
+          <a href="services.html" class="btn-primary w-full text-xs text-center py-2.5 block rounded-xl font-bold">Explore All Delicacies</a>
+          <a href="contact.html" class="btn-outline w-full text-xs text-center py-2.5 block rounded-xl font-bold">Send Quick Enquiry</a>
         </div>
       </div>
       <div class="mt-auto pt-4 border-t border-neutral-100 dark:border-neutral-800 text-xs text-neutral-400">
-        <p>© 2026 SweetBliss Traditional Mithai.</p>
+        <p>© 2026 SweetBliss Traditional Mithai &amp; Snacks.</p>
       </div>
     </aside>
 
