@@ -17,7 +17,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Sweets',
     basePrice: 320,
     prices: { '250g': 320, '500g': 620, '1kg': 1180 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kaju_katli_sweet.jpg?width=800',
+    image: 'assets/images/royal_kaju_katli_1793441959061.jpg',
+    fallbackImage: 'assets/images/royal_kaju_katli_1793441959061.jpg',
     rating: 4.9,
     reviews: 142,
     badge: 'Bestseller',
@@ -36,7 +37,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Sweets',
     basePrice: 240,
     prices: { '250g': 240, '500g': 460, '1kg': 880 },
-    image: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Gulab_Jamun.jpg',
+    image: 'assets/images/desi_ghee_gulab_jamun_1793441980923.jpg',
+    fallbackImage: 'assets/images/desi_ghee_gulab_jamun_1793441980923.jpg',
     rating: 4.8,
     reviews: 218,
     badge: '100% Desi Ghee',
@@ -55,7 +57,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Sweets',
     basePrice: 220,
     prices: { '250g': 220, '500g': 420, '1kg': 800 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Motichur_laddu.jpg?width=800',
+    image: 'assets/images/kashmiri_saffron_motichoor_ladoo_1793442005055.jpg',
+    fallbackImage: 'assets/images/kashmiri_saffron_motichoor_ladoo_1793442005055.jpg',
     rating: 4.9,
     reviews: 310,
     badge: 'Pure Desi Ghee',
@@ -74,7 +77,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Sweets',
     basePrice: 200,
     prices: { '250g': 200, '500g': 380, '1kg': 720 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Rasgulla.jpg?width=800',
+    image: 'assets/images/kolkata_spongy_rasgulla_1793442162817.jpg',
+    fallbackImage: 'assets/images/kolkata_spongy_rasgulla_1793442162817.jpg',
     rating: 4.7,
     reviews: 98,
     badge: 'Authentic Bengal',
@@ -93,7 +97,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Sweets',
     basePrice: 190,
     prices: { '250g': 190, '500g': 360, '1kg': 680 },
-    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/JalebiIndia.jpg',
+    image: 'assets/images/crispy_saffron_jalebi_1793442136428.jpg',
+    fallbackImage: 'assets/images/crispy_saffron_jalebi_1793442136428.jpg',
     rating: 4.8,
     reviews: 175,
     badge: 'Fresh Daily',
@@ -112,7 +117,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Sweets',
     basePrice: 280,
     prices: { '250g': 280, '500g': 540, '1kg': 1020 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mysore_pak.jpg?width=800',
+    image: 'assets/images/mysore_pak_ghee_1793444408147.jpg',
+    fallbackImage: 'assets/images/mysore_pak_ghee_1793444408147.jpg',
     rating: 4.9,
     reviews: 84,
     badge: 'Royal Heritage',
@@ -131,7 +137,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Savories',
     basePrice: 160,
     prices: { '250g': 160, '500g': 300, '1kg': 580 },
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/images/crispy_cocktail_samosa_1793442099403.jpg',
+    fallbackImage: 'assets/images/crispy_cocktail_samosa_1793442099403.jpg',
     rating: 4.7,
     reviews: 162,
     badge: 'Crunchy Savory',
@@ -150,7 +157,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Savories',
     basePrice: 150,
     prices: { '250g': 150, '500g': 280, '1kg': 540 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bombaymix.jpg?width=800',
+    image: 'assets/images/ratlami_sev_bhujia_1793445838005.jpg',
+    fallbackImage: 'assets/images/ratlami_sev_bhujia_1793445838005.jpg',
     rating: 4.8,
     reviews: 119,
     badge: 'Spicy Crunch',
@@ -169,7 +177,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Dry Fruits & Nuts',
     basePrice: 380,
     prices: { '250g': 380, '500g': 740, '1kg': 1420 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kaju_katli_sweet.jpg?width=800',
+    image: 'assets/images/anjeer_barfi.jpg',
+    fallbackImage: 'assets/images/anjeer_barfi.jpg',
     rating: 4.9,
     reviews: 73,
     badge: 'Zero Sugar Added',
@@ -188,7 +197,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Gift Boxes & Hampers',
     basePrice: 1450,
     prices: { '250g': 1450, '500g': 2250, '1kg': 3800 },
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/images/imperial_velvet_shagun_trunk_1793442028061.jpg',
+    fallbackImage: 'assets/images/imperial_velvet_shagun_trunk_1793442028061.jpg',
     rating: 5.0,
     reviews: 58,
     badge: 'Luxury Velvet Box',
@@ -207,7 +217,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Savories',
     basePrice: 140,
     prices: { '250g': 140, '500g': 260, '1kg': 500 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chakli_(Indian_snack).jpg?width=800',
+    image: 'assets/images/crispy_butter_murukku_1793445861561.jpg',
+    fallbackImage: 'assets/images/crispy_butter_murukku_1793445861561.jpg',
     rating: 4.7,
     reviews: 95,
     badge: 'Crispy Savory',
@@ -226,7 +237,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Sweets',
     basePrice: 210,
     prices: { '250g': 210, '500g': 400, '1kg': 760 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dharwad_peda.jpg?width=800',
+    image: 'assets/images/khoya_peda.jpg',
+    fallbackImage: 'assets/images/khoya_peda.jpg',
     rating: 4.8,
     reviews: 134,
     badge: 'Desi Ghee',
@@ -245,7 +257,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Dry Fruits & Nuts',
     basePrice: 340,
     prices: { '250g': 340, '500g': 660, '1kg': 1280 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cashew_nuts.JPG?width=800',
+    image: 'assets/images/roasted_cashews.jpg',
+    fallbackImage: 'assets/images/roasted_cashews.jpg',
     rating: 4.9,
     reviews: 82,
     badge: 'Goan Jumbo W-210',
@@ -264,7 +277,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Gift Boxes & Hampers',
     basePrice: 899,
     prices: { '250g': 899, '500g': 1450, '1kg': 2650 },
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/images/festive_sweet_box.jpg',
+    fallbackImage: 'assets/images/festive_sweet_box.jpg',
     rating: 5.0,
     reviews: 64,
     badge: 'Festival Special',
@@ -283,7 +297,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Sweets',
     basePrice: 260,
     prices: { '250g': 260, '500g': 500, '1kg': 960 },
-    image: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Gulab_Jamun.jpg',
+    image: 'assets/images/shahi_mawa_gujiya_1793444457260.jpg',
+    fallbackImage: 'assets/images/shahi_mawa_gujiya_1793444457260.jpg',
     rating: 4.9,
     reviews: 112,
     badge: 'Holi & Diwali Special',
@@ -302,7 +317,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Sweets',
     basePrice: 280,
     prices: { '250g': 280, '500g': 540, '1kg': 1020 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Motichur_laddu.jpg?width=800',
+    image: 'assets/images/kesar_ukadiche_modak_1793444499657.jpg',
+    fallbackImage: 'assets/images/kesar_ukadiche_modak_1793444499657.jpg',
     rating: 5.0,
     reviews: 89,
     badge: 'Sacred Prasad',
@@ -321,7 +337,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Traditional Sweets',
     basePrice: 350,
     prices: { '250g': 350, '500g': 680, '1kg': 1300 },
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mysore_pak.jpg?width=800',
+    image: 'assets/images/royal_malai_ghevar_1793442193024.jpg',
+    fallbackImage: 'assets/images/royal_malai_ghevar_1793442193024.jpg',
     rating: 4.9,
     reviews: 145,
     badge: 'Teej & Rakhi Pride',
@@ -340,7 +357,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Gift Boxes & Hampers',
     basePrice: 1850,
     prices: { '250g': 1850, '500g': 2850, '1kg': 4800 },
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/images/imperial_velvet_shagun_trunk_1793442028061.jpg',
+    fallbackImage: 'assets/images/imperial_velvet_shagun_trunk_1793442028061.jpg',
     rating: 5.0,
     reviews: 73,
     badge: 'Wedding Keepsake',
@@ -359,7 +377,8 @@ const SWEETBLISS_PRODUCTS = [
     categoryName: 'Gift Boxes & Hampers',
     basePrice: 299,
     prices: { '250g': 299, '500g': 599, '1kg': 999 },
-    image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80',
+    image: 'assets/images/tasting_sample_box.jpg',
+    fallbackImage: 'assets/images/tasting_sample_box.jpg',
     rating: 5.0,
     reviews: 120,
     badge: 'Taste Before Ordering',
@@ -381,7 +400,7 @@ const AppState = {
   direction: localStorage.getItem('sweetbliss_dir') || 'ltr',
   cart: JSON.parse(localStorage.getItem('sweetbliss_cart') || '[]'),
   wishlist: JSON.parse(localStorage.getItem('sweetbliss_wishlist') || '[]'),
-  
+
   saveCart() {
     localStorage.setItem('sweetbliss_cart', JSON.stringify(this.cart));
     this.updateCartBadges();
@@ -478,8 +497,8 @@ function toggleDarkMode() {
 function updateThemeButtons() {
   const isDark = document.documentElement.classList.contains('dark');
   document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
-    btn.innerHTML = isDark 
-      ? '<i class="fa-solid fa-sun text-amber-400"></i>' 
+    btn.innerHTML = isDark
+      ? '<i class="fa-solid fa-sun text-amber-400"></i>'
       : '<i class="fa-solid fa-moon text-burgundy dark:text-gold"></i>';
     btn.setAttribute('aria-label', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
   });
@@ -872,10 +891,11 @@ function toggleWishlist(productId, btn) {
 // ==========================================
 function renderProductCard(product) {
   const isWishlisted = AppState.wishlist.includes(product.id);
+  const fallback = product.fallbackImage || 'https://images.unsplash.com/photo-1599785209707-a456fc1337bb?auto=format&fit=crop&w=800&q=80';
   return `
     <div class="mithai-card bg-white dark:bg-[#201B1D] border border-neutral-100 dark:border-neutral-800 shadow-sm flex flex-col group" data-category="${product.category}" data-name="${product.name.toLowerCase()}">
       <div class="mithai-img-wrap h-56 relative bg-amber-50/50 dark:bg-neutral-900/50">
-        <img src="${product.image}" alt="${product.name}" loading="lazy" class="w-full h-full object-cover" />
+        <img src="${product.image}" alt="${product.name}" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${fallback}';" />
         <span class="absolute top-3 left-3 badge-tag ${product.badgeType} shadow-sm">${product.badge}</span>
         
         <!-- Hover Quick Actions -->
@@ -1223,15 +1243,17 @@ function selectOccasion(occasionKey, btn) {
 }
 
 // ==========================================
-// 12. INTERACTIVE MITHAI BOX BUILDER (CONFIGURATOR)
+// 12. INTERACTIVE MITHAI BOX BUILDER (CONFIGURATOR & PACKAGING CEREMONY)
 // ==========================================
 const BoxBuilder = {
   slots: {
-    1: { id: 'sb-01', name: 'Royal Kaju Katli', price: 320, image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kaju_katli_sweet.jpg?width=500' },
-    2: { id: 'sb-03', name: 'Motichoor Ladoo', price: 220, image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Motichur_laddu.jpg?width=500' },
-    3: { id: 'sb-02', name: 'Gulab Jamun', price: 240, image: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Gulab_Jamun.jpg' },
-    4: { id: 'sb-08', name: 'Ratlami Sev & Bhujia', price: 150, image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bombaymix.jpg?width=500' }
+    1: { id: 'sb-01', name: 'Royal Kaju Katli', price: 320, image: 'assets/images/royal_kaju_katli_1793441959061.jpg' },
+    2: { id: 'sb-03', name: 'Motichoor Ladoo', price: 220, image: 'assets/images/kashmiri_saffron_motichoor_ladoo_1793442005055.jpg' },
+    3: { id: 'sb-02', name: 'Gulab Jamun', price: 240, image: 'assets/images/desi_ghee_gulab_jamun_1793441980923.jpg' },
+    4: { id: 'sb-08', name: 'Ratlami Sev & Samosa', price: 150, image: 'assets/images/ratlami_sev_bhujia_1793445838005.jpg' }
   },
+  isPacking: false,
+  packagingTimers: [],
 
   selectItemForSlot(slotNum, productId, el) {
     const product = SWEETBLISS_PRODUCTS.find(p => p.id === productId);
@@ -1255,7 +1277,62 @@ const BoxBuilder = {
       el.classList.remove('border-neutral-200', 'dark:border-neutral-700');
     }
 
+    // Play flight animation from button to box slot
+    this.playFlightAnimation(el, slotNum, product);
+
     this.renderPreview();
+  },
+
+  playFlightAnimation(el, slotNum, product) {
+    if (!el) return;
+    const srcImg = el.querySelector('img');
+    const targetSlot = document.getElementById(`boxSlot${slotNum}`);
+    if (!srcImg || !targetSlot) return;
+
+    const startRect = srcImg.getBoundingClientRect();
+    const endRect = targetSlot.getBoundingClientRect();
+
+    // Create a temporary cloned thumbnail
+    const clone = document.createElement('img');
+    clone.src = product.image;
+    clone.className = 'flying-sweet-clone';
+    clone.style.left = `${startRect.left}px`;
+    clone.style.top = `${startRect.top}px`;
+    clone.style.width = `${startRect.width}px`;
+    clone.style.height = `${startRect.height}px`;
+    document.body.appendChild(clone);
+
+    // Force reflow
+    void clone.offsetWidth;
+
+    // Smoothly fly to target quadrant
+    const targetX = endRect.left + (endRect.width - 64) / 2;
+    const targetY = endRect.top + (endRect.height - 64) / 2;
+    clone.style.left = `${targetX}px`;
+    clone.style.top = `${targetY}px`;
+    clone.style.width = '64px';
+    clone.style.height = '64px';
+    clone.style.transform = 'scale(1.15) rotate(10deg)';
+
+    setTimeout(() => {
+      clone.remove();
+
+      // Trigger bounce & golden glow on target slot
+      targetSlot.classList.remove('animate-slot-pack');
+      void targetSlot.offsetWidth;
+      targetSlot.classList.add('animate-slot-pack');
+
+      // Sparkles burst on slot
+      for (let i = 0; i < 4; i++) {
+        const sparkle = document.createElement('span');
+        sparkle.className = 'absolute pointer-events-none text-gold font-bold text-xs animate-ping';
+        sparkle.textContent = '✨';
+        sparkle.style.left = `${15 + Math.random() * 70}%`;
+        sparkle.style.top = `${15 + Math.random() * 70}%`;
+        targetSlot.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 600);
+      }
+    }, 520);
   },
 
   renderPreview() {
@@ -1283,10 +1360,234 @@ const BoxBuilder = {
   },
 
   addBoxToCart() {
+    if (this.isPacking) return;
+    this.isPacking = true;
+    this.startPackagingCeremony();
+  },
+
+  startPackagingCeremony() {
+    // Clear any leftover timers
+    this.packagingTimers.forEach(t => clearTimeout(t));
+    this.packagingTimers = [];
+
+    // Remove old modal if exists
+    const oldModal = document.getElementById('boxPackagingModal');
+    if (oldModal) oldModal.remove();
+
     const itemsList = Object.values(this.slots).map(s => s.name).join(', ');
     const rawTotal = Object.values(this.slots).reduce((sum, item) => sum + (item ? item.price : 0), 0);
     const discountedTotal = Math.round(rawTotal * 0.9);
 
+    const modalHTML = `
+      <div id="boxPackagingModal" class="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300">
+        <!-- Skip button -->
+        <button onclick="BoxBuilder.skipAndAddToCart()" class="absolute top-5 right-5 z-50 text-xs font-bold uppercase tracking-wider text-amber-200/90 hover:text-white px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center gap-2 border border-white/20 shadow-lg">
+          <span>Skip</span> <i class="fa-solid fa-forward text-[10px]"></i>
+        </button>
+
+        <div class="relative w-full max-w-lg mx-auto flex flex-col items-center">
+          
+          <!-- Header Announcement -->
+          <div id="packHeader" class="text-center mb-5 transition-all duration-300">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/20 text-gold text-[11px] font-bold uppercase tracking-widest mb-1.5 border border-gold/30 shadow-sm">
+              <i class="fa-solid fa-wand-magic-sparkles text-gold"></i> Live Halwai Packing Ritual
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-white drop-shadow-md">
+              Assembling Your 1kg Royal Festive Box
+            </h3>
+            <p class="text-xs text-amber-100/80 mt-1">
+              Packing 4 handcrafted delicacies in an airtight keepsake trunk
+            </p>
+          </div>
+
+          <!-- The 3D Royal Box Structure -->
+          <div id="packTrunkBox" class="royal-trunk-3d relative w-full aspect-[4/3] max-w-md bg-gradient-to-br from-[#2D0B14] via-[#1E080E] to-[#3B0E1B] rounded-3xl border-4 border-gold/80 shadow-[0_25px_60px_rgba(0,0,0,0.95),0_0_40px_rgba(214,166,83,0.4)] p-3 sm:p-4 flex flex-col justify-between overflow-hidden">
+            
+            <!-- 4 Velvet Quadrants Inside Box -->
+            <div class="grid grid-cols-2 gap-2.5 sm:gap-3 h-full w-full">
+              <!-- Quad 1 -->
+              <div id="packSlot1" class="relative rounded-2xl bg-gradient-to-br from-[#45111E] to-[#25070E] border-2 border-gold/40 p-2 sm:p-2.5 flex flex-col items-center justify-center text-center shadow-inner overflow-hidden opacity-0">
+                <img src="${this.slots[1].image}" class="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl shadow-md mb-1 border border-gold/60" />
+                <span class="text-[11px] font-bold text-white truncate max-w-[130px] block leading-tight">${this.slots[1].name}</span>
+                <span class="inline-flex items-center gap-1 text-[9px] font-extrabold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded-full mt-1 border border-amber-500/40">
+                  <i class="fa-solid fa-check text-emerald-400 text-[8px]"></i> Packed 250g
+                </span>
+              </div>
+
+              <!-- Quad 2 -->
+              <div id="packSlot2" class="relative rounded-2xl bg-gradient-to-br from-[#45111E] to-[#25070E] border-2 border-gold/40 p-2 sm:p-2.5 flex flex-col items-center justify-center text-center shadow-inner overflow-hidden opacity-0">
+                <img src="${this.slots[2].image}" class="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl shadow-md mb-1 border border-gold/60" />
+                <span class="text-[11px] font-bold text-white truncate max-w-[130px] block leading-tight">${this.slots[2].name}</span>
+                <span class="inline-flex items-center gap-1 text-[9px] font-extrabold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded-full mt-1 border border-amber-500/40">
+                  <i class="fa-solid fa-check text-emerald-400 text-[8px]"></i> Packed 250g
+                </span>
+              </div>
+
+              <!-- Quad 3 -->
+              <div id="packSlot3" class="relative rounded-2xl bg-gradient-to-br from-[#45111E] to-[#25070E] border-2 border-gold/40 p-2 sm:p-2.5 flex flex-col items-center justify-center text-center shadow-inner overflow-hidden opacity-0">
+                <img src="${this.slots[3].image}" class="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl shadow-md mb-1 border border-gold/60" />
+                <span class="text-[11px] font-bold text-white truncate max-w-[130px] block leading-tight">${this.slots[3].name}</span>
+                <span class="inline-flex items-center gap-1 text-[9px] font-extrabold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded-full mt-1 border border-amber-500/40">
+                  <i class="fa-solid fa-check text-emerald-400 text-[8px]"></i> Packed 250g
+                </span>
+              </div>
+
+              <!-- Quad 4 -->
+              <div id="packSlot4" class="relative rounded-2xl bg-gradient-to-br from-[#45111E] to-[#25070E] border-2 border-gold/40 p-2 sm:p-2.5 flex flex-col items-center justify-center text-center shadow-inner overflow-hidden opacity-0">
+                <img src="${this.slots[4].image}" class="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl shadow-md mb-1 border border-gold/60" />
+                <span class="text-[11px] font-bold text-white truncate max-w-[130px] block leading-tight">${this.slots[4].name}</span>
+                <span class="inline-flex items-center gap-1 text-[9px] font-extrabold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded-full mt-1 border border-amber-500/40">
+                  <i class="fa-solid fa-check text-emerald-400 text-[8px]"></i> Packed 250g
+                </span>
+              </div>
+            </div>
+
+            <!-- Royal Velvet Lid Container -->
+            <div id="packTrunkLid" class="absolute inset-0 bg-gradient-to-br from-[#7B263A] via-[#5C1B2A] to-[#3B0E18] rounded-3xl border-4 border-gold flex flex-col items-center justify-center shadow-2xl z-20 pointer-events-none hidden">
+              <!-- Corner Ornaments -->
+              <div class="absolute top-2.5 left-2.5 text-gold/60 text-lg"><i class="fa-solid fa-crown"></i></div>
+              <div class="absolute top-2.5 right-2.5 text-gold/60 text-lg"><i class="fa-solid fa-crown"></i></div>
+              <div class="absolute bottom-2.5 left-2.5 text-gold/60 text-lg"><i class="fa-solid fa-crown"></i></div>
+              <div class="absolute bottom-2.5 right-2.5 text-gold/60 text-lg"><i class="fa-solid fa-crown"></i></div>
+
+              <!-- Shimmering Gold Ribbon Cross -->
+              <div class="absolute inset-x-0 h-10 top-1/2 -translate-y-1/2 ribbon-shine flex items-center justify-center shadow-lg border-y border-amber-300/80 z-10"></div>
+              <div class="absolute inset-y-0 w-10 left-1/2 -translate-x-1/2 ribbon-shine flex items-center justify-center shadow-lg border-x border-amber-300/80 z-10"></div>
+
+              <!-- 24K Monogram Wax Seal -->
+              <div id="packWaxSeal" class="relative z-30 w-24 h-24 rounded-full bg-gradient-to-br from-amber-300 via-gold to-amber-600 border-4 border-amber-100 shadow-[0_0_35px_rgba(214,166,83,0.95)] flex flex-col items-center justify-center text-center p-1 hidden">
+                <i class="fa-solid fa-award text-burgundy text-xl drop-shadow"></i>
+                <span class="text-[9px] font-black uppercase tracking-widest text-burgundy-900 mt-0.5">SweetBliss</span>
+                <span class="text-[7.5px] font-black text-burgundy-800 tracking-wider">ROYAL 1KG BOX</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Progress Status Text -->
+          <div id="packStatus" class="mt-4 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md text-amber-200 text-xs font-bold flex items-center gap-2 border border-gold/30 shadow-md">
+            <i id="packStatusIcon" class="fa-solid fa-circle-notch fa-spin text-gold"></i>
+            <span id="packStatusText">Placing fresh confections into golden compartments...</span>
+          </div>
+
+        </div>
+      </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    const modal = document.getElementById('boxPackagingModal');
+    void modal.offsetWidth;
+    modal.classList.add('active');
+
+    const schedule = (fn, delay) => {
+      const t = setTimeout(fn, delay);
+      this.packagingTimers.push(t);
+    };
+
+    // Staggered Packing Timeline
+    schedule(() => {
+      const q1 = document.getElementById('packSlot1');
+      if (q1) q1.classList.add('animate-item-drop');
+    }, 200);
+
+    schedule(() => {
+      const q2 = document.getElementById('packSlot2');
+      if (q2) q2.classList.add('animate-item-drop');
+    }, 450);
+
+    schedule(() => {
+      const q3 = document.getElementById('packSlot3');
+      if (q3) q3.classList.add('animate-item-drop');
+    }, 700);
+
+    schedule(() => {
+      const q4 = document.getElementById('packSlot4');
+      if (q4) q4.classList.add('animate-item-drop');
+      const st = document.getElementById('packStatusText');
+      if (st) st.textContent = 'All 4 delicacies in place. Closing airtight royal trunk...';
+    }, 950);
+
+    // Lid Drops
+    schedule(() => {
+      const lid = document.getElementById('packTrunkLid');
+      if (lid) {
+        lid.classList.remove('hidden');
+        lid.classList.add('animate-lid-close');
+      }
+    }, 1300);
+
+    // Seal Stamps Down
+    schedule(() => {
+      const seal = document.getElementById('packWaxSeal');
+      const box = document.getElementById('packTrunkBox');
+      if (seal) {
+        seal.classList.remove('hidden');
+        seal.classList.add('animate-seal-stamp');
+      }
+      if (box) box.classList.add('gold-halo-pulse');
+
+      const st = document.getElementById('packStatusText');
+      const si = document.getElementById('packStatusIcon');
+      if (st) st.textContent = 'Box sealed with 24K Royal Halwai guarantee of purity!';
+      if (si) si.className = 'fa-solid fa-stamp text-gold';
+    }, 1750);
+
+    // Festive Confetti burst
+    schedule(() => {
+      if (typeof fireFestiveConfetti === 'function') {
+        fireFestiveConfetti();
+      }
+      const st = document.getElementById('packStatusText');
+      const si = document.getElementById('packStatusIcon');
+      if (st) st.textContent = '✨ Auspicious box ready! Adding to your bag...';
+      if (si) si.className = 'fa-solid fa-sparkles text-gold';
+    }, 2100);
+
+    // Fly to Shopping Bag
+    schedule(() => {
+      const bagBtn = document.querySelector('header button[onclick="openCartDrawer()"]') || document.querySelector('.cart-count-badge');
+      const box = document.getElementById('packTrunkBox');
+      if (bagBtn && box) {
+        const bagRect = bagBtn.getBoundingClientRect();
+        const boxRect = box.getBoundingClientRect();
+        const dx = bagRect.left + bagRect.width / 2 - (boxRect.left + boxRect.width / 2);
+        const dy = bagRect.top + bagRect.height / 2 - (boxRect.top + boxRect.height / 2);
+        box.style.setProperty('--fly-x', `${dx}px`);
+        box.style.setProperty('--fly-y', `${dy}px`);
+        box.classList.add('animate-trunk-fly');
+      }
+    }, 2550);
+
+    // Finalize addition & cleanup
+    schedule(() => {
+      this.finalizeAddToCart(itemsList, discountedTotal);
+      if (modal) {
+        modal.classList.remove('active');
+        setTimeout(() => modal.remove(), 400);
+      }
+      this.isPacking = false;
+    }, 3200);
+  },
+
+  skipAndAddToCart() {
+    this.packagingTimers.forEach(t => clearTimeout(t));
+    this.packagingTimers = [];
+
+    const itemsList = Object.values(this.slots).map(s => s.name).join(', ');
+    const rawTotal = Object.values(this.slots).reduce((sum, item) => sum + (item ? item.price : 0), 0);
+    const discountedTotal = Math.round(rawTotal * 0.9);
+
+    const modal = document.getElementById('boxPackagingModal');
+    if (modal) {
+      modal.classList.remove('active');
+      setTimeout(() => modal.remove(), 300);
+    }
+
+    this.finalizeAddToCart(itemsList, discountedTotal);
+    this.isPacking = false;
+  },
+
+  finalizeAddToCart(itemsList, discountedTotal) {
     addCustomItemToCart(
       `Custom 4-in-1 Box (${itemsList})`,
       discountedTotal,
@@ -1294,6 +1595,9 @@ const BoxBuilder = {
       this.slots[1].image,
       1
     );
+    if (typeof triggerCartBounce === 'function') {
+      triggerCartBounce();
+    }
   }
 };
 
@@ -1356,16 +1660,18 @@ function initSocialProofToast() {
 }
 
 // ==========================================
-// 14. MOBILE MENU TOGGLE
+// 14. MOBILE MENU TOGGLE (STRICT MOBILE ONLY)
 // ==========================================
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobileMenuToggle');
   const menu = document.getElementById('mobileMenu');
   const backdrop = document.getElementById('mobileMenuBackdrop');
 
-  if (!toggleBtn || !menu) return;
+  if (!menu) return;
 
   function openMenu() {
+    // Strictly prevent opening on desktop
+    if (window.innerWidth >= 1024) return;
     menu.classList.remove('-translate-x-full', 'translate-x-full');
     if (backdrop) backdrop.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
@@ -1378,11 +1684,15 @@ function initMobileMenu() {
     document.body.style.overflow = '';
   }
 
-  toggleBtn.addEventListener('click', () => {
-    const isOpen = !menu.classList.contains('-translate-x-full') && !menu.classList.contains('translate-x-full');
-    if (isOpen) closeMenu();
-    else openMenu();
-  });
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (window.innerWidth >= 1024) return;
+      const isOpen = !menu.classList.contains('-translate-x-full') && !menu.classList.contains('translate-x-full');
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+  }
 
   if (backdrop) backdrop.addEventListener('click', closeMenu);
 
@@ -1392,6 +1702,13 @@ function initMobileMenu() {
 
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', closeMenu);
+  });
+
+  // Automatically close and restore scrolling if viewport resized to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+      closeMenu();
+    }
   });
 }
 
@@ -1437,15 +1754,15 @@ const HERO_SLIDES = [
   },
   {
     index: 3,
-    badge: 'Heritage Hamper',
+    badge: 'Crunchy Savory',
     badgeClass: 'badge-tag bg-amber-600 text-white font-bold',
-    title: 'Maharaja Celebration Gift Hamper',
-    desc: 'Royal festive pairing of traditional mithai & slow-roasted dry fruits',
-    badge1Title: 'Velvet Keepsake Box',
-    badge1Sub: 'Pan-India Express Courier',
-    badge1Icon: 'fa-gift',
-    rating: '4.9 / 5 Rating',
-    ratingReviews: 'Corporate & Wedding Fav'
+    title: 'Crispy Cocktail Samosa Platter',
+    desc: 'Golden flaky crust filled with spiced potatoes, green peas, and cashews',
+    badge1Title: 'Daily Morning Fry',
+    badge1Sub: 'Served with Mint Chutney',
+    badge1Icon: 'fa-bowl-food',
+    rating: '4.85 / 5 Rating',
+    ratingReviews: 'Evening Chai Favorite'
   }
 ];
 
@@ -1557,6 +1874,19 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initStatCounters();
 
+  // Auto-open product quick view from URL parameter (?product=sb-xx)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const prodParam = urlParams.get('product');
+    if (prodParam && typeof openQuickView === 'function') {
+      setTimeout(() => {
+        openQuickView(prodParam);
+      }, 350);
+    }
+  } catch (err) {
+    console.warn('URL product param inspection error:', err);
+  }
+
   if (document.getElementById('heroShowcaseCard')) {
     HeroShowcase.init();
   }
@@ -1613,9 +1943,28 @@ function checkHomePincode() {
 }
 
 // ==========================================
-// 17. LUXURY FESTIVE PRELOADER (1.1s Reveal)
+// 17. LUXURY FESTIVE PRELOADER (First Visit Only)
 // ==========================================
 function initPreloader() {
+  // Show ONLY on first arrival. Strictly NEVER show on page refresh or subsequent navigation.
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const forcePreview = urlParams.get('preview_preloader') === '1' || urlParams.get('preloader') === 'true';
+
+    const hasBeenSeen = localStorage.getItem('sweetbliss_preloader_seen') || sessionStorage.getItem('sweetbliss_preloader_seen');
+    if (!forcePreview && hasBeenSeen) {
+      // Remove immediately if present
+      const existing = document.getElementById('sweetblissPreloader');
+      if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+      return;
+    }
+    // Record that the preloader has been seen (persists permanently across refreshes and navigations)
+    localStorage.setItem('sweetbliss_preloader_seen', 'true');
+    sessionStorage.setItem('sweetbliss_preloader_seen', 'true');
+  } catch (err) {
+    // Graceful fallback if storage access is restricted
+  }
+
   if (document.getElementById('sweetblissPreloader')) return;
 
   const preloaderMarkup = `
@@ -1651,10 +2000,24 @@ function initPreloader() {
     }, 450);
   }
 
-  // Dismiss cleanly after ~1000ms
-  window.addEventListener('load', () => setTimeout(dismiss, 950));
+  // Dismiss cleanly after ~950ms or fallback
+  if (document.readyState === 'complete') {
+    setTimeout(dismiss, 950);
+  } else {
+    window.addEventListener('load', () => setTimeout(dismiss, 950));
+  }
   setTimeout(dismiss, 1600);
 }
+
+// Global helper to reset preloader for testing if desired
+window.SweetBliss = window.SweetBliss || {};
+window.SweetBliss.resetPreloader = function() {
+  try {
+    localStorage.removeItem('sweetbliss_preloader_seen');
+    sessionStorage.removeItem('sweetbliss_preloader_seen');
+    console.log('SweetBliss: Preloader status reset. Refresh page to see preloader once again.');
+  } catch(e) {}
+};
 
 // ==========================================
 // 18. SCROLL REVEAL (IntersectionObserver)
