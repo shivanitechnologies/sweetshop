@@ -906,8 +906,9 @@ function injectSharedCartDrawer() {
             <a href="service-details.html" onclick="closeCartDrawer()" class="btn-outline text-xs text-center py-2.5">
               View Product
             </a>
-            <button onclick="handleCheckoutSimulation()" class="btn-primary text-xs py-2.5">
-              Proceed to Order
+            <button id="btnProceedToOrder" onclick="handleCheckoutSimulation(this)" class="btn-primary btn-proceed-order text-xs py-2.5 flex items-center justify-center gap-1.5 cursor-pointer">
+              <span>Proceed to Order</span>
+              <i class="fa-solid fa-arrow-right text-[10px] ml-0.5"></i>
             </button>
           </div>
           <p class="text-[11px] text-center text-neutral-400 dark:text-neutral-500 mt-3 flex items-center justify-center gap-1">
@@ -922,17 +923,297 @@ function injectSharedCartDrawer() {
   renderCartDrawer();
 }
 
-function handleCheckoutSimulation() {
+// ==========================================
+// 5B. ROYAL ORDER CEREMONY MODAL & PREMIUM CHECKOUT
+// ==========================================
+let _orderRedirectTimer = null;
+let _orderCountdownInterval = null;
+
+function injectSharedOrderModal() {
+  if (document.getElementById('royalOrderModal')) return;
+
+  const modalMarkup = `
+    <div id="royalOrderModal" class="royal-order-overlay" style="display: none;">
+      <div class="royal-order-backdrop" onclick="closeRoyalOrderModal()"></div>
+      <div class="royal-order-card relative z-10">
+        <!-- Corner Gold Accents -->
+        <span class="royal-corner royal-corner-tl"></span>
+        <span class="royal-corner royal-corner-tr"></span>
+        <span class="royal-corner royal-corner-bl"></span>
+        <span class="royal-corner royal-corner-br"></span>
+
+        <!-- Close button -->
+        <button onclick="closeRoyalOrderModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-gold hover:text-neutral-900 text-neutral-300 flex items-center justify-center transition cursor-pointer z-20" aria-label="Close Order Preview">
+          <i class="fa-solid fa-xmark text-xs"></i>
+        </button>
+
+        <!-- Royal Crest -->
+        <div class="text-center pt-2 pb-3">
+          <div class="royal-medallion-crest w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-amber-600 via-gold to-amber-300 text-neutral-950 font-black flex items-center justify-center text-2xl mx-auto shadow-2xl mb-2.5 border-2 border-amber-200">
+            <i class="fa-solid fa-crown"></i>
+          </div>
+          <span class="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-gold block mb-1">
+            👑 SweetBliss Royal Halwai Concierge
+          </span>
+          <h3 class="text-lg sm:text-xl font-extrabold text-white tracking-tight">
+            Assembling Your Auspicious Order
+          </h3>
+          <p class="text-[11px] text-amber-100/75 mt-0.5" id="royalDocketSubtitle">
+            Docket #SB-8921 • Handcrafted in 100% Pure Desi Ghee
+          </p>
+        </div>
+
+        <!-- Order Snapshot Card -->
+        <div class="my-3 p-3.5 rounded-2xl bg-black/40 border border-gold/30 backdrop-blur-md text-xs">
+          <div class="flex items-center justify-between pb-2 border-b border-gold/20">
+            <span class="text-neutral-300">Total Order Value:</span>
+            <span id="royalOrderTotal" class="text-base font-extrabold text-gold">₹0</span>
+          </div>
+          <div class="flex items-center justify-between pt-2 text-[11px] text-neutral-400">
+            <span id="royalOrderItemCount">0 Delicacies in Bag</span>
+            <span class="text-emerald-400 font-semibold flex items-center gap-1">
+              <i class="fa-solid fa-truck-fast"></i> Express Safe Dispatch
+            </span>
+          </div>
+          <div id="royalOrderItemsPreview" class="mt-2 pt-2 border-t border-white/10 text-[11px] text-neutral-300 max-h-24 overflow-y-auto divide-y divide-white/5 custom-scrollbar">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Live 3-Stage Halwai Verification Pipeline -->
+        <div class="space-y-2 my-4">
+          <div id="orderStep1" class="royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs">
+            <div class="w-6 h-6 rounded-full bg-gold/20 text-gold flex items-center justify-center text-[10px] shrink-0 font-bold step-icon">
+              <i class="fa-solid fa-circle-notch fa-spin"></i>
+            </div>
+            <span class="step-text text-neutral-300 text-[11.5px]">100% Pure Desi Ghee & Fresh Batch Verification</span>
+          </div>
+
+          <div id="orderStep2" class="royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs">
+            <div class="w-6 h-6 rounded-full bg-white/10 text-neutral-400 flex items-center justify-center text-[10px] shrink-0 font-bold step-icon">
+              <i class="fa-solid fa-gift"></i>
+            </div>
+            <span class="step-text text-neutral-400 text-[11.5px]">Airtight Keepsake Packaging & Gold Silk Ribbon Sealed</span>
+          </div>
+
+          <div id="orderStep3" class="royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs">
+            <div class="w-6 h-6 rounded-full bg-white/10 text-neutral-400 flex items-center justify-center text-[10px] shrink-0 font-bold step-icon">
+              <i class="fa-solid fa-stamp"></i>
+            </div>
+            <span class="step-text text-neutral-400 text-[11.5px]">Halwai Shagun Docket & VIP Concierge Routing</span>
+          </div>
+        </div>
+
+        <!-- Shimmer Liquid Gold Progress Bar -->
+        <div class="w-full bg-black/50 h-2 rounded-full overflow-hidden border border-gold/30 mb-4 p-0.5">
+          <div id="royalProgressBar" class="royal-progress-fill h-full rounded-full" style="width: 15%;"></div>
+        </div>
+
+        <!-- Actions / Fast-track Confirmation -->
+        <div class="space-y-2 pt-1">
+          <a id="royalWhatsappBtn" href="#" target="_blank"
+            class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg hover:shadow-emerald-500/25 transition cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Instant WhatsApp VIP Checkout</span>
+          </a>
+          <button id="royalEnquiryBtn" onclick="proceedToContactEnquiry()"
+            class="w-full py-2.5 px-4 rounded-xl border border-gold/40 hover:border-gold hover:bg-gold/10 text-gold font-semibold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer">
+            <span>Proceed to Official Order Form</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
+        </div>
+
+        <!-- Auto-redirect countdown hint -->
+        <p id="royalAutoRedirectText" class="text-[10px] text-center text-amber-200/60 mt-3 flex items-center justify-center gap-1">
+          <i class="fa-regular fa-clock text-[9px]"></i> Connecting to concierge desk in <span id="royalTimerSec">3</span>s...
+        </p>
+      </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML('beforeend', modalMarkup);
+}
+
+function closeRoyalOrderModal() {
+  const modal = document.getElementById('royalOrderModal');
+  if (modal) {
+    modal.classList.remove('active');
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 350);
+  }
+  if (_orderRedirectTimer) clearTimeout(_orderRedirectTimer);
+  if (_orderCountdownInterval) clearInterval(_orderCountdownInterval);
+
+  // Restore button state
+  const btn = document.getElementById('btnProceedToOrder');
+  if (btn) {
+    btn.disabled = false;
+    btn.classList.remove('active-shimmer');
+    btn.innerHTML = '<span>Proceed to Order</span> <i class="fa-solid fa-arrow-right text-[10px] ml-0.5"></i>';
+  }
+  const total = document.getElementById('cartGrandTotal');
+  if (total) total.classList.remove('animate-gold-halo-text');
+}
+
+function proceedToContactEnquiry(docketId) {
+  if (_orderRedirectTimer) clearTimeout(_orderRedirectTimer);
+  if (_orderCountdownInterval) clearInterval(_orderCountdownInterval);
+  const docket = docketId || ('SB-' + Math.floor(100000 + Math.random() * 900000));
+  window.location.href = `contact.html?order=true&docket=${encodeURIComponent(docket)}`;
+}
+
+function handleCheckoutSimulation(btnEl) {
   if (AppState.cart.length === 0) {
     showToast('Your cart is empty! Please add some delicious sweets first.', 'error');
     return;
   }
-  closeCartDrawer();
-  showToast('Order Enquiry Initiated! Redirecting to WhatsApp & Order confirmation...', 'gold', 3000);
-  setTimeout(() => {
+
+  // 1. Interactive Button Feedback
+  const btn = btnEl || document.getElementById('btnProceedToOrder');
+  if (btn) {
+    btn.disabled = true;
+    btn.classList.add('active-shimmer');
+    btn.innerHTML = '<i class="fa-solid fa-crown fa-beat text-gold mr-1"></i><span>Securing Order...</span>';
+  }
+
+  const grandTotalEl = document.getElementById('cartGrandTotal');
+  if (grandTotalEl) {
+    grandTotalEl.classList.add('animate-gold-halo-text');
+  }
+
+  // 2. Prepare Order Details & Modal
+  injectSharedOrderModal();
+  const modal = document.getElementById('royalOrderModal');
+  if (!modal) {
     window.location.href = 'contact.html?order=true';
-  }, 1200);
+    return;
+  }
+
+  const docketNum = 'SB-' + Math.floor(100000 + Math.random() * 900000);
+  const subtotal = AppState.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const totalCount = AppState.cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  // Set docket & summary in modal
+  const docketSub = document.getElementById('royalDocketSubtitle');
+  if (docketSub) {
+    docketSub.textContent = `Docket #${docketNum} • Handcrafted in 100% Pure Desi Ghee`;
+  }
+  const totalDisplay = document.getElementById('royalOrderTotal');
+  if (totalDisplay) {
+    totalDisplay.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+  }
+  const countDisplay = document.getElementById('royalOrderItemCount');
+  if (countDisplay) {
+    countDisplay.textContent = `${totalCount} Delicac${totalCount === 1 ? 'y' : 'ies'} in Bag`;
+  }
+
+  // Populate item breakdown preview
+  const previewContainer = document.getElementById('royalOrderItemsPreview');
+  if (previewContainer) {
+    previewContainer.innerHTML = AppState.cart.map(item => `
+      <div class="py-1 flex items-center justify-between gap-2">
+        <span class="truncate max-w-[240px]">${item.name} (${item.unit || '250g'}) × ${item.quantity}</span>
+        <span class="font-bold text-gold shrink-0">₹${(item.price * item.quantity).toLocaleString('en-IN')}</span>
+      </div>
+    `).join('');
+  }
+
+  // Pre-configure WhatsApp Instant Checkout link
+  const itemsText = AppState.cart.map(i => `• ${i.name} (${i.unit || '250g'}) x ${i.quantity} = ₹${i.price * i.quantity}`).join('%0A');
+  const waMsg = `Namaste SweetBliss!%20I%20would%20like%20to%20confirm%20my%20order%20(Docket%20${docketNum}):%0A%0A${itemsText}%0A%0ATotal%20Amount:%20₹${subtotal}%0APlease%20confirm%20delivery%20details%20and%20dispatch%20time.`;
+  const waBtn = document.getElementById('royalWhatsappBtn');
+  if (waBtn) {
+    waBtn.href = `https://wa.me/919876543210?text=${waMsg}`;
+  }
+
+  const enquiryBtn = document.getElementById('royalEnquiryBtn');
+  if (enquiryBtn) {
+    enquiryBtn.onclick = () => proceedToContactEnquiry(docketNum);
+  }
+
+  // Reset steps & progress
+  const step1 = document.getElementById('orderStep1');
+  const step2 = document.getElementById('orderStep2');
+  const step3 = document.getElementById('orderStep3');
+  const progressBar = document.getElementById('royalProgressBar');
+  const timerSec = document.getElementById('royalTimerSec');
+
+  if (step1) {
+    step1.className = 'royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs';
+    step1.querySelector('.step-icon').innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
+  }
+  if (step2) {
+    step2.className = 'royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs';
+    step2.querySelector('.step-icon').innerHTML = '<i class="fa-solid fa-gift"></i>';
+  }
+  if (step3) {
+    step3.className = 'royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs';
+    step3.querySelector('.step-icon').innerHTML = '<i class="fa-solid fa-stamp"></i>';
+  }
+  if (progressBar) progressBar.style.width = '15%';
+
+  // 3. Open Modal with smooth transition
+  setTimeout(() => {
+    modal.style.display = 'flex';
+    requestAnimationFrame(() => {
+      modal.classList.add('active');
+    });
+  }, 220);
+
+  // 4. Staged Progression Animation
+  // Phase 1: Ghee & Morning Batch (at 600ms)
+  setTimeout(() => {
+    if (step1) {
+      step1.classList.add('completed');
+      step1.querySelector('.step-icon').innerHTML = '<i class="fa-solid fa-check text-xs"></i>';
+    }
+    if (progressBar) progressBar.style.width = '45%';
+  }, 600);
+
+  // Phase 2: Airtight Keepsake Packaging & Ribbon (at 1400ms)
+  setTimeout(() => {
+    if (step2) {
+      step2.classList.add('completed');
+      step2.querySelector('.step-icon').innerHTML = '<i class="fa-solid fa-check text-xs"></i>';
+    }
+    if (progressBar) progressBar.style.width = '80%';
+  }, 1400);
+
+  // Phase 3: Shagun Docket & Routing Ready (at 2100ms)
+  setTimeout(() => {
+    if (step3) {
+      step3.classList.add('completed');
+      step3.querySelector('.step-icon').innerHTML = '<i class="fa-solid fa-crown text-xs"></i>';
+    }
+    if (progressBar) progressBar.style.width = '100%';
+  }, 2100);
+
+  // 5. Soft Countdown & Auto-transition
+  let secondsLeft = 3;
+  if (timerSec) timerSec.textContent = secondsLeft;
+
+  if (_orderCountdownInterval) clearInterval(_orderCountdownInterval);
+  setTimeout(() => {
+    _orderCountdownInterval = setInterval(() => {
+      secondsLeft--;
+      if (timerSec) timerSec.textContent = secondsLeft;
+      if (secondsLeft <= 0) {
+        clearInterval(_orderCountdownInterval);
+      }
+    }, 1000);
+  }, 2200);
+
+  if (_orderRedirectTimer) clearTimeout(_orderRedirectTimer);
+  _orderRedirectTimer = setTimeout(() => {
+    proceedToContactEnquiry(docketNum);
+  }, 5200);
 }
+
+window.injectSharedOrderModal = injectSharedOrderModal;
+window.closeRoyalOrderModal = closeRoyalOrderModal;
+window.proceedToContactEnquiry = proceedToContactEnquiry;
+window.handleCheckoutSimulation = handleCheckoutSimulation;
 
 // ==========================================
 // 6. QUICK VIEW & ENQUIRY MODAL
@@ -2200,6 +2481,29 @@ const HeroShowcase = {
 };
 
 // ==========================================
+// 11B. CONTACT PAGE ORDER PRE-FILL
+// ==========================================
+function initContactOrderPreFill() {
+  if (!window.location.search.includes('order=true')) return;
+  const urlParams = new URLSearchParams(window.location.search);
+  const docket = urlParams.get('docket') || ('SB-' + Math.floor(100000 + Math.random() * 900000));
+
+  const typeSelect = document.querySelector('select[name="type"]');
+  if (typeSelect) {
+    typeSelect.value = 'retail';
+  }
+
+  const messageTextarea = document.querySelector('textarea[name="message"]');
+  if (messageTextarea && AppState.cart.length > 0) {
+    const itemsList = AppState.cart.map(i => `• ${i.name} (${i.unit || '250g'}) × ${i.quantity} = ₹${(i.price * i.quantity).toLocaleString('en-IN')}`).join('\n');
+    const total = AppState.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    messageTextarea.value = `👑 SweetBliss Royal Order Enquiry (Docket #${docket}):\n\n${itemsList}\n\nTotal Estimated: ₹${total.toLocaleString('en-IN')}\n\nDelivery Request: Please confirm fresh batch dispatch time, pan-India courier options, and payment gateway link.`;
+    showToast(`✨ Auspicious Order Docket #${docket} details pre-loaded!`, 'gold', 4500);
+  }
+}
+window.initContactOrderPreFill = initContactOrderPreFill;
+
+// ==========================================
 // 12. INITIALIZATION ON DOM READY
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -2209,6 +2513,7 @@ document.addEventListener('DOMContentLoaded', () => {
   injectSharedWishlistDrawer();
   injectSharedModal();
   injectSharedMobileMenuDrawer();
+  injectSharedOrderModal();
   AppState.updateCartBadges();
   AppState.updateWishlistBadges();
   initMobileMenu();
@@ -2217,6 +2522,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSocialProofToast();
   initScrollReveal();
   initStatCounters();
+  initContactOrderPreFill();
 
   // Auto-open product quick view from URL parameter (?product=sb-xx)
   try {

@@ -1355,6 +1355,173 @@ html.dark .custom-scrollbar::-webkit-scrollbar-track {
   background: rgba(214, 166, 83, 0.9);
 }
 
+/* ==========================================================================
+   24. ROYAL ORDER CHECKOUT CEREMONY & PROCEED TO ORDER PREMIUM EFFECTS
+   ========================================================================== */
+
+/* Shimmer gleam for Proceed to Order button */
+@keyframes goldSheenSweep {
+  0% { transform: translateX(-100%) skewX(-20deg); }
+  100% { transform: translateX(200%) skewX(-20deg); }
+}
+
+.btn-proceed-order {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(123, 38, 58, 0.25);
+}
+
+.btn-proceed-order::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-100%) skewX(-20deg);
+}
+
+.btn-proceed-order:hover::after,
+.btn-proceed-order.active-shimmer::after {
+  animation: goldSheenSweep 1.2s ease-in-out infinite;
+}
+
+.btn-proceed-order:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(214, 166, 83, 0.35);
+}
+
+/* Pulsing golden halo for grand total */
+@keyframes goldHaloTextPulse {
+  0%, 100% { 
+    text-shadow: 0 0 4px rgba(214, 166, 83, 0.2); 
+    transform: scale(1);
+  }
+  50% { 
+    text-shadow: 0 0 16px rgba(214, 166, 83, 0.95), 0 0 30px rgba(214, 166, 83, 0.6); 
+    transform: scale(1.04);
+  }
+}
+
+.animate-gold-halo-text {
+  display: inline-block;
+  animation: goldHaloTextPulse 1.2s ease-in-out infinite;
+}
+
+/* Royal Order Ceremony Modal Overlay */
+.royal-order-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 10005 !important;
+  background-color: rgba(10, 6, 8, 0.88) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1rem !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.royal-order-overlay.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.royal-order-backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+/* Royal Order Dialog Card */
+.royal-order-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(160deg, #2D0B14 0%, #1A070C 60%, #120508 100%);
+  border: 2px solid #D6A653;
+  border-radius: 28px;
+  box-shadow: 0 25px 60px -5px rgba(214, 166, 83, 0.35), 0 0 40px rgba(123, 38, 58, 0.5);
+  padding: 1.75rem 1.5rem;
+  color: #FFF8F0;
+  transform: scale(0.92) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.royal-order-overlay.active .royal-order-card {
+  transform: scale(1) translateY(0);
+}
+
+/* Golden Corner Flourishes */
+.royal-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: #D6A653;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.royal-corner-tl { top: 12px; left: 12px; border-top: 2px solid #D6A653; border-left: 2px solid #D6A653; border-top-left-radius: 12px; }
+.royal-corner-tr { top: 12px; right: 12px; border-top: 2px solid #D6A653; border-right: 2px solid #D6A653; border-top-right-radius: 12px; }
+.royal-corner-bl { bottom: 12px; left: 12px; border-bottom: 2px solid #D6A653; border-left: 2px solid #D6A653; border-bottom-left-radius: 12px; }
+.royal-corner-br { bottom: 12px; right: 12px; border-bottom: 2px solid #D6A653; border-right: 2px solid #D6A653; border-bottom-right-radius: 12px; }
+
+/* Golden Medallion Crest with Halo Wave */
+@keyframes medallionHaloWave {
+  0% { box-shadow: 0 0 0 0 rgba(214, 166, 83, 0.7); }
+  70% { box-shadow: 0 0 0 16px rgba(214, 166, 83, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(214, 166, 83, 0); }
+}
+
+.royal-medallion-crest {
+  animation: medallionHaloWave 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+/* Progress Step Items */
+.royal-step-pill {
+  transition: all 0.35s ease;
+  opacity: 0.4;
+  transform: translateX(-4px);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.royal-step-pill.completed {
+  opacity: 1;
+  transform: translateX(0);
+  background: rgba(214, 166, 83, 0.12);
+  border-color: rgba(214, 166, 83, 0.45);
+}
+
+.royal-step-pill.completed .step-icon {
+  background-color: #D6A653 !important;
+  color: #1A070C !important;
+}
+
+.royal-step-pill.completed .step-text {
+  color: #FFF8F0 !important;
+  font-weight: 600 !important;
+}
+
+/* Luxury Liquid Gold Progress Bar */
+.royal-progress-fill {
+  background: linear-gradient(90deg, #B58434 0%, #D6A653 45%, #FFF5D0 75%, #D6A653 100%);
+  background-size: 200% 100%;
+  animation: shimmerProgress 1.6s linear infinite;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes shimmerProgress {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+
 
 
 
