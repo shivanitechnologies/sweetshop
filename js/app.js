@@ -928,7 +928,6 @@ function handleCheckoutSimulation() {
     return;
   }
   closeCartDrawer();
-  fireFestiveConfetti();
   showToast('Order Enquiry Initiated! Redirecting to WhatsApp & Order confirmation...', 'gold', 3000);
   setTimeout(() => {
     window.location.href = 'contact.html?order=true';
@@ -1708,11 +1707,8 @@ const BoxBuilder = {
       if (si) si.className = 'fa-solid fa-stamp text-gold';
     }, 1750);
 
-    // Festive Confetti burst
+    // Status update before flight to Bag
     schedule(() => {
-      if (typeof fireFestiveConfetti === 'function') {
-        fireFestiveConfetti();
-      }
       const st = document.getElementById('packStatusText');
       const si = document.getElementById('packStatusIcon');
       if (st) st.textContent = '✨ Auspicious box ready! Adding to your bag...';
@@ -2443,74 +2439,14 @@ function initStatCounters() {
 }
 
 // ==========================================
-// 20. CELEBRATORY FESTIVE CONFETTI
+// 20. CELEBRATORY FESTIVE CONFETTI (DISABLED)
 // ==========================================
 function fireFestiveConfetti() {
-  let canvas = document.getElementById('festiveConfettiCanvas');
-  if (!canvas) {
-    canvas = document.createElement('canvas');
-    canvas.id = 'festiveConfettiCanvas';
-    canvas.className = 'fixed inset-0 pointer-events-none z-[10000]';
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    document.body.appendChild(canvas);
+  // Disabled as per user request (removed color paper blast effect)
+  const existing = document.getElementById('festiveConfettiCanvas');
+  if (existing && existing.parentNode) {
+    existing.parentNode.removeChild(existing);
   }
-
-  const ctx = canvas.getContext('2d');
-  const particles = [];
-  const particleCount = 110;
-  const colors = ['#D6A653', '#7B263A', '#059669', '#F59E0B', '#FFF8F0', '#EA580C'];
-
-  for (let i = 0; i < particleCount; i++) {
-    particles.push({
-      x: window.innerWidth / 2 + (Math.random() - 0.5) * 160,
-      y: window.innerHeight / 2 + (Math.random() - 0.5) * 80,
-      w: Math.random() * 8 + 4,
-      h: Math.random() * 6 + 3,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      vx: (Math.random() - 0.5) * 14,
-      vy: (Math.random() - 1.2) * 11,
-      gravity: 0.35,
-      rotation: Math.random() * 360,
-      vRot: (Math.random() - 0.5) * 8,
-      opacity: 1
-    });
-  }
-
-  const startTime = performance.now();
-  function render(now) {
-    const elapsed = now - startTime;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    let alive = false;
-    particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      p.vy += p.gravity;
-      p.rotation += p.vRot;
-      p.opacity -= 0.009;
-
-      if (p.opacity > 0) {
-        alive = true;
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate((p.rotation * Math.PI) / 180);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = Math.max(0, p.opacity);
-        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
-        ctx.restore();
-      }
-    });
-
-    if (alive && elapsed < 3200) {
-      requestAnimationFrame(render);
-    } else {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
-    }
-  }
-
-  requestAnimationFrame(render);
 }
 
 
