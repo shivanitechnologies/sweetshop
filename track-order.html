@@ -218,9 +218,9 @@
     </aside>
 
     <main>
-      <!-- Tracking Hero -->
+      <!-- Warm Festive Hero Banner -->
       <section
-        class="py-14 sm:py-20 bg-gradient-to-r from-burgundy via-[#701E31] to-burgundy-900 text-white relative overflow-hidden">
+        class="py-14 bg-gradient-to-r from-burgundy via-[#6B1B2C] to-burgundy-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 ornament-pattern opacity-10 pointer-events-none"></div>
 
         <div class="container mx-auto px-4 lg:px-8 text-center max-w-3xl relative z-10">
@@ -228,10 +228,10 @@
             class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/20 border border-gold/40 text-gold text-xs font-bold uppercase tracking-widest mb-3">
             <i class="fa-solid fa-truck-fast"></i> Pan-India Temperature-Safe Delivery
           </div>
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black mb-3">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black mb-3 text-white">
             Track Your Fresh Delicacies
           </h1>
-          <p class="text-xs sm:text-sm text-neutral-200 max-w-xl mx-auto leading-relaxed mb-8">
+          <p class="text-xs sm:text-sm text-neutral-200 max-w-xl mx-auto leading-relaxed mb-6">
             Follow your sweet order from our ancestral morning brass kadhai simmering to aroma-sealed vacuum packaging
             and doorstep express dispatch.
           </p>
@@ -245,7 +245,7 @@
               <input type="text" id="trackOrderInput" placeholder="Enter Order ID (e.g. SB-84920) or Phone"
                 class="w-full pl-9 pr-3 py-2.5 text-xs text-neutral-900 dark:text-neutral-100 bg-neutral-50 dark:bg-neutral-800 rounded-xl outline-none focus:border-burgundy dark:focus:border-gold border border-neutral-200 dark:border-neutral-700" />
             </div>
-            <button onclick="handleTrackOrder()" class="btn-primary text-xs py-2.5 px-6 shrink-0">
+            <button onclick="handleTrackOrder()" class="btn-primary text-xs py-2.5 px-6 shrink-0 cursor-pointer">
               Track Now <i class="fa-solid fa-arrow-right ml-1"></i>
             </button>
           </div>
@@ -253,10 +253,20 @@
           <div class="mt-3 flex items-center justify-center gap-2 text-[11px] text-amber-200">
             <span>Quick Demo:</span>
             <button type="button" onclick="loadSampleOrder('SB-84920')"
-              class="underline hover:text-white font-semibold">SB-84920 (In-Transit Air Cargo)</button>
+              class="underline hover:text-white font-semibold cursor-pointer">SB-84920 (In-Transit Air Cargo)</button>
             <span>•</span>
             <button type="button" onclick="loadSampleOrder('SB-91204')"
-              class="underline hover:text-white font-semibold">SB-91204 (Freshly Simmering)</button>
+              class="underline hover:text-white font-semibold cursor-pointer">SB-91204 (Freshly Simmering)</button>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-4 mt-6">
+            <a href="#trackingResultCard" onclick="handleTrackOrder()" class="btn-gold text-xs py-3 px-6 shadow-lg">
+              <i class="fa-solid fa-truck-ramp-box mr-1"></i> View Live Shipment Status
+            </a>
+            <a href="https://wa.me/919876543210?text=Hi%20SweetBliss,%20I%20would%20like%20to%20inquire%20about%20my%20delivery%20status."
+              target="_blank" class="btn-outline-gold text-xs py-3 px-6">
+              <i class="fa-brands fa-whatsapp text-emerald-400 mr-1 text-sm"></i> WhatsApp Dispatch Support
+            </a>
           </div>
         </div>
       </section>
