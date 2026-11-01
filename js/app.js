@@ -943,88 +943,88 @@ function injectSharedOrderModal() {
         <span class="royal-corner royal-corner-br"></span>
 
         <!-- Close button -->
-        <button onclick="closeRoyalOrderModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-gold hover:text-neutral-900 text-neutral-300 flex items-center justify-center transition cursor-pointer z-20" aria-label="Close Order Preview">
+        <button type="button" onclick="closeRoyalOrderModal()" class="absolute top-2.5 right-2.5 sm:top-3.5 sm:right-3.5 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/15 hover:bg-gold hover:text-neutral-900 text-neutral-200 flex items-center justify-center transition cursor-pointer z-30" aria-label="Close Order Preview">
           <i class="fa-solid fa-xmark text-xs"></i>
         </button>
 
         <!-- Royal Crest -->
-        <div class="text-center pt-2 pb-3">
-          <div class="royal-medallion-crest w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-amber-600 via-gold to-amber-300 text-neutral-950 font-black flex items-center justify-center text-2xl mx-auto shadow-2xl mb-2.5 border-2 border-amber-200">
+        <div class="text-center pt-1 pb-2">
+          <div class="royal-medallion-crest w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-amber-600 via-gold to-amber-300 text-neutral-950 font-black flex items-center justify-center text-xl sm:text-2xl mx-auto shadow-2xl mb-1.5 border-2 border-amber-200">
             <i class="fa-solid fa-crown"></i>
           </div>
-          <span class="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-gold block mb-1">
+          <span class="text-[9.5px] sm:text-[10.5px] font-black uppercase tracking-[0.2em] text-gold block mb-0.5">
             👑 SweetBliss Royal Halwai Concierge
           </span>
-          <h3 class="text-lg sm:text-xl font-extrabold text-white tracking-tight">
+          <h3 class="text-base sm:text-lg font-extrabold text-white tracking-tight">
             Assembling Your Auspicious Order
           </h3>
-          <p class="text-[11px] text-amber-100/75 mt-0.5" id="royalDocketSubtitle">
+          <p class="text-[10px] sm:text-[11px] text-amber-100/75 mt-0.5" id="royalDocketSubtitle">
             Docket #SB-8921 • Handcrafted in 100% Pure Desi Ghee
           </p>
         </div>
 
         <!-- Order Snapshot Card -->
-        <div class="my-3 p-3.5 rounded-2xl bg-black/40 border border-gold/30 backdrop-blur-md text-xs">
-          <div class="flex items-center justify-between pb-2 border-b border-gold/20">
-            <span class="text-neutral-300">Total Order Value:</span>
-            <span id="royalOrderTotal" class="text-base font-extrabold text-gold">₹0</span>
+        <div class="my-2.5 p-2.5 sm:p-3 rounded-2xl bg-black/40 border border-gold/30 backdrop-blur-md text-xs">
+          <div class="flex items-center justify-between pb-1.5 border-b border-gold/20">
+            <span class="text-neutral-300 text-[11px] sm:text-xs">Total Order Value:</span>
+            <span id="royalOrderTotal" class="text-sm sm:text-base font-extrabold text-gold">₹0</span>
           </div>
-          <div class="flex items-center justify-between pt-2 text-[11px] text-neutral-400">
+          <div class="flex items-center justify-between pt-1.5 text-[10.5px] sm:text-[11px] text-neutral-400">
             <span id="royalOrderItemCount">0 Delicacies in Bag</span>
             <span class="text-emerald-400 font-semibold flex items-center gap-1">
               <i class="fa-solid fa-truck-fast"></i> Express Safe Dispatch
             </span>
           </div>
-          <div id="royalOrderItemsPreview" class="mt-2 pt-2 border-t border-white/10 text-[11px] text-neutral-300 max-h-24 overflow-y-auto divide-y divide-white/5 custom-scrollbar">
+          <div id="royalOrderItemsPreview" class="mt-2 pt-2 border-t border-white/10 text-[10.5px] sm:text-[11px] text-neutral-300 max-h-20 sm:max-h-24 overflow-y-auto divide-y divide-white/5 custom-scrollbar">
             <!-- Dynamically populated -->
           </div>
         </div>
 
         <!-- Live 3-Stage Halwai Verification Pipeline -->
-        <div class="space-y-2 my-4">
-          <div id="orderStep1" class="royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs">
-            <div class="w-6 h-6 rounded-full bg-gold/20 text-gold flex items-center justify-center text-[10px] shrink-0 font-bold step-icon">
+        <div class="space-y-1.5 my-3">
+          <div id="orderStep1" class="royal-step-pill flex items-center gap-2.5 sm:gap-3 p-2 sm:p-2.5 rounded-xl border border-white/10 text-xs">
+            <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gold/20 text-gold flex items-center justify-center text-[10px] shrink-0 font-bold step-icon">
               <i class="fa-solid fa-circle-notch fa-spin"></i>
             </div>
-            <span class="step-text text-neutral-300 text-[11.5px]">100% Pure Desi Ghee & Fresh Batch Verification</span>
+            <span class="step-text text-neutral-300 text-[11px] sm:text-[11.5px]">100% Pure Desi Ghee & Fresh Batch Verification</span>
           </div>
 
-          <div id="orderStep2" class="royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs">
-            <div class="w-6 h-6 rounded-full bg-white/10 text-neutral-400 flex items-center justify-center text-[10px] shrink-0 font-bold step-icon">
+          <div id="orderStep2" class="royal-step-pill flex items-center gap-2.5 sm:gap-3 p-2 sm:p-2.5 rounded-xl border border-white/10 text-xs">
+            <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 text-neutral-400 flex items-center justify-center text-[10px] shrink-0 font-bold step-icon">
               <i class="fa-solid fa-gift"></i>
             </div>
-            <span class="step-text text-neutral-400 text-[11.5px]">Airtight Keepsake Packaging & Gold Silk Ribbon Sealed</span>
+            <span class="step-text text-neutral-400 text-[11px] sm:text-[11.5px]">Airtight Keepsake Packaging & Gold Silk Ribbon Sealed</span>
           </div>
 
-          <div id="orderStep3" class="royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs">
-            <div class="w-6 h-6 rounded-full bg-white/10 text-neutral-400 flex items-center justify-center text-[10px] shrink-0 font-bold step-icon">
+          <div id="orderStep3" class="royal-step-pill flex items-center gap-2.5 sm:gap-3 p-2 sm:p-2.5 rounded-xl border border-white/10 text-xs">
+            <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 text-neutral-400 flex items-center justify-center text-[10px] shrink-0 font-bold step-icon">
               <i class="fa-solid fa-stamp"></i>
             </div>
-            <span class="step-text text-neutral-400 text-[11.5px]">Halwai Shagun Docket & VIP Concierge Routing</span>
+            <span class="step-text text-neutral-400 text-[11px] sm:text-[11.5px]">Halwai Shagun Docket & VIP Concierge Routing</span>
           </div>
         </div>
 
         <!-- Shimmer Liquid Gold Progress Bar -->
-        <div class="w-full bg-black/50 h-2 rounded-full overflow-hidden border border-gold/30 mb-4 p-0.5">
+        <div class="w-full bg-black/50 h-1.5 sm:h-2 rounded-full overflow-hidden border border-gold/30 mb-3 p-0.5">
           <div id="royalProgressBar" class="royal-progress-fill h-full rounded-full" style="width: 15%;"></div>
         </div>
 
         <!-- Actions / Fast-track Confirmation -->
-        <div class="space-y-2 pt-1">
+        <div class="space-y-2 pt-0.5">
           <a id="royalWhatsappBtn" href="#" target="_blank"
-            class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg hover:shadow-emerald-500/25 transition cursor-pointer">
-            <i class="fa-brands fa-whatsapp text-base"></i>
+            class="w-full py-2.5 sm:py-3 px-3.5 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg hover:shadow-emerald-500/25 transition cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
             <span>Instant WhatsApp VIP Checkout</span>
           </a>
           <button id="royalEnquiryBtn" onclick="proceedToContactEnquiry()"
-            class="w-full py-2.5 px-4 rounded-xl border border-gold/40 hover:border-gold hover:bg-gold/10 text-gold font-semibold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer">
+            class="w-full py-2 sm:py-2.5 px-3.5 rounded-xl border border-gold/40 hover:border-gold hover:bg-gold/10 text-gold font-semibold text-[11px] sm:text-xs flex items-center justify-center gap-1.5 transition cursor-pointer">
             <span>Proceed to Official Order Form</span>
             <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </button>
         </div>
 
         <!-- Auto-redirect countdown hint -->
-        <p id="royalAutoRedirectText" class="text-[10px] text-center text-amber-200/60 mt-3 flex items-center justify-center gap-1">
+        <p id="royalAutoRedirectText" class="text-[9.5px] sm:text-[10px] text-center text-amber-200/60 mt-2.5 flex items-center justify-center gap-1">
           <i class="fa-regular fa-clock text-[9px]"></i> Connecting to concierge desk in <span id="royalTimerSec">3</span>s...
         </p>
       </div>
@@ -1140,15 +1140,15 @@ function handleCheckoutSimulation(btnEl) {
   const timerSec = document.getElementById('royalTimerSec');
 
   if (step1) {
-    step1.className = 'royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs';
+    step1.className = 'royal-step-pill flex items-center gap-2.5 sm:gap-3 p-2 sm:p-2.5 rounded-xl border border-white/10 text-xs';
     step1.querySelector('.step-icon').innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
   }
   if (step2) {
-    step2.className = 'royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs';
+    step2.className = 'royal-step-pill flex items-center gap-2.5 sm:gap-3 p-2 sm:p-2.5 rounded-xl border border-white/10 text-xs';
     step2.querySelector('.step-icon').innerHTML = '<i class="fa-solid fa-gift"></i>';
   }
   if (step3) {
-    step3.className = 'royal-step-pill flex items-center gap-3 p-2.5 rounded-xl border border-white/10 text-xs';
+    step3.className = 'royal-step-pill flex items-center gap-2.5 sm:gap-3 p-2 sm:p-2.5 rounded-xl border border-white/10 text-xs';
     step3.querySelector('.step-icon').innerHTML = '<i class="fa-solid fa-stamp"></i>';
   }
   if (progressBar) progressBar.style.width = '15%';

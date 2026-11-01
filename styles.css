@@ -1533,9 +1533,9 @@ html.dark .custom-scrollbar::-webkit-scrollbar-track {
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
   display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 1rem !important;
+  padding: 1rem 0.75rem !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.35s ease, visibility 0.35s ease;
@@ -1547,29 +1547,54 @@ html.dark .custom-scrollbar::-webkit-scrollbar-track {
 }
 
 .royal-order-backdrop {
-  position: absolute;
-  inset: 0;
+  position: fixed !important;
+  inset: 0 !important;
   cursor: pointer;
 }
 
 /* Royal Order Dialog Card */
 .royal-order-card {
-  position: relative;
-  width: 100%;
-  max-width: 440px;
-  background: linear-gradient(160deg, #2D0B14 0%, #1A070C 60%, #120508 100%);
-  border: 2px solid #D6A653;
-  border-radius: 28px;
-  box-shadow: 0 25px 60px -5px rgba(214, 166, 83, 0.35), 0 0 40px rgba(123, 38, 58, 0.5);
-  padding: 1.75rem 1.5rem;
-  color: #FFF8F0;
-  transform: scale(0.92) translateY(20px);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
+  position: relative !important;
+  margin: auto !important;
+  width: 100% !important;
+  max-width: 425px !important;
+  max-height: calc(100dvh - 2rem) !important;
+  max-height: calc(100vh - 2rem) !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  background: linear-gradient(160deg, #2D0B14 0%, #1A070C 60%, #120508 100%) !important;
+  border: 2px solid #D6A653 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 25px 60px -5px rgba(214, 166, 83, 0.35), 0 0 40px rgba(123, 38, 58, 0.5) !important;
+  padding: 1.25rem 1rem !important;
+  color: #FFF8F0 !important;
+  box-sizing: border-box !important;
+  transform: scale(0.95) translateY(12px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .royal-order-card {
+    padding: 1.5rem 1.35rem !important;
+    border-radius: 26px !important;
+  }
 }
 
 .royal-order-overlay.active .royal-order-card {
-  transform: scale(1) translateY(0);
+  transform: scale(1) translateY(0) !important;
+}
+
+/* Subtle scrollbar for royal order card */
+.royal-order-card::-webkit-scrollbar {
+  width: 5px;
+}
+.royal-order-card::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 9999px;
+}
+.royal-order-card::-webkit-scrollbar-thumb {
+  background: rgba(214, 166, 83, 0.4);
+  border-radius: 9999px;
 }
 
 /* Golden Corner Flourishes */
