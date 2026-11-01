@@ -1838,12 +1838,104 @@ function initSocialProofToast() {
 // ==========================================
 // 14. MOBILE MENU TOGGLE (STRICT MOBILE ONLY)
 // ==========================================
+// Inject Shared Mobile Menu Drawer (Fallback for pages lacking static drawer markup)
+function injectSharedMobileMenuDrawer() {
+  if (document.getElementById('mobileMenu')) return;
+
+  const menuMarkup = `
+    <div id="mobileMenuBackdrop" onclick="closeMobileMenu()"
+      class="lg:hidden fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+    <aside id="mobileMenu"
+      class="lg:hidden fixed top-0 left-0 bottom-0 w-80 max-w-[85%] bg-white dark:bg-[#1C1819] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-5 sm:p-6 overflow-y-auto text-neutral-800 dark:text-neutral-100">
+      <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="assets/logo.svg" alt="SweetBliss" class="h-8 sm:h-9 w-auto" />
+        </a>
+        <button onclick="closeMobileMenu()"
+          class="mobile-menu-close w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center transition cursor-pointer"
+          aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Quick Utilities Row for Mobile -->
+      <div class="flex items-center gap-2 py-3 border-b border-neutral-100 dark:border-neutral-800">
+        <button onclick="toggleRTL()"
+          class="rtl-toggle-btn text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-language text-gold"></i> RTL Mode
+        </button>
+        <button onclick="closeMobileMenu(); openWishlistDrawer()"
+          class="text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-regular fa-heart text-burgundy dark:text-gold pointer-events-none"></i> Wishlist
+          <span
+            class="wishlist-count-badge w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full inline-flex items-center justify-center"
+            style="display: none;">0</span>
+        </button>
+      </div>
+
+      <!-- Navigation Links Matching Navbar -->
+      <div class="py-4 space-y-2.5 font-semibold text-sm">
+        <a href="index.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Classic Home (Sweets &amp; Snacks)</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+        <a href="home-2.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Wedding &amp; Shagun Showcase</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+        <a href="services.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Products</span>
+          <span class="text-[10px] bg-burgundy/10 dark:bg-gold/20 text-burgundy dark:text-gold px-2 py-0.5 rounded-full font-bold">19 Delicacies</span>
+        </a>
+        <a href="festivals.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span> Festival Specials</span>
+          <span class="text-[10px] bg-gold/20 text-gold px-2 py-0.5 rounded-full font-bold">Diwali 2026</span>
+        </a>
+        <a href="pricing.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Bulk &amp; Corporate</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+        <a href="track-order.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Track Order</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+        <a href="about.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>About Us</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+        <a href="contact.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+          <span>Contact</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        </a>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="mt-auto pt-4 border-t border-neutral-100 dark:border-neutral-800 space-y-2">
+        <a href="services.html" class="btn-primary w-full justify-center text-xs py-2.5">
+          Order Fresh Sweets
+        </a>
+        <a href="tel:+919876543210"
+          class="w-full py-2 text-xs font-semibold text-center text-neutral-600 dark:text-neutral-400 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-phone text-gold"></i> +91 98765 43210
+        </a>
+      </div>
+    </aside>
+  `;
+  document.body.insertAdjacentHTML('beforeend', menuMarkup);
+  initMobileMenu();
+}
+
 // Global Mobile Menu Controllers (Callable via onclick or event listeners)
 let _mobileMenuLastToggleTime = 0;
 
 function openMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  const backdrop = document.getElementById('mobileMenuBackdrop');
+  let menu = document.getElementById('mobileMenu');
+  let backdrop = document.getElementById('mobileMenuBackdrop');
+  if (!menu) {
+    injectSharedMobileMenuDrawer();
+    menu = document.getElementById('mobileMenu');
+    backdrop = document.getElementById('mobileMenuBackdrop');
+  }
   if (!menu) return;
 
   menu.classList.remove('-translate-x-full', 'translate-x-full');
@@ -1874,12 +1966,14 @@ function closeMobileMenu() {
   menu.classList.remove('open', 'active');
   menu.classList.add(isRtl ? 'translate-x-full' : '-translate-x-full');
   menu.style.setProperty('transform', isRtl ? 'translateX(100%)' : 'translateX(-100%)', 'important');
+  menu.style.setProperty('visibility', 'hidden', 'important');
   menu.style.setProperty('pointer-events', 'none', 'important');
 
   if (backdrop) {
     backdrop.classList.add('hidden');
     backdrop.classList.remove('open', 'active');
     backdrop.style.setProperty('display', 'none', 'important');
+    backdrop.style.setProperty('visibility', 'hidden', 'important');
     backdrop.style.setProperty('pointer-events', 'none', 'important');
   }
   document.body.style.overflow = '';
@@ -1892,13 +1986,17 @@ function toggleMobileMenu(e) {
   }
 
   const now = Date.now();
-  if (now - _mobileMenuLastToggleTime < 350) {
+  if (now - _mobileMenuLastToggleTime < 250) {
     // Prevent double toggle bug from simultaneous touch/click events
     return;
   }
   _mobileMenuLastToggleTime = now;
 
-  const menu = document.getElementById('mobileMenu');
+  let menu = document.getElementById('mobileMenu');
+  if (!menu) {
+    injectSharedMobileMenuDrawer();
+    menu = document.getElementById('mobileMenu');
+  }
   if (!menu) return;
 
   const isOpen = menu.classList.contains('open') || 
@@ -1914,6 +2012,7 @@ function toggleMobileMenu(e) {
 }
 
 // Expose on global window object
+window.injectSharedMobileMenuDrawer = injectSharedMobileMenuDrawer;
 window.openMobileMenu = openMobileMenu;
 window.closeMobileMenu = closeMobileMenu;
 window.toggleMobileMenu = toggleMobileMenu;
@@ -2113,6 +2212,7 @@ document.addEventListener('DOMContentLoaded', () => {
   injectSharedCartDrawer();
   injectSharedWishlistDrawer();
   injectSharedModal();
+  injectSharedMobileMenuDrawer();
   AppState.updateCartBadges();
   AppState.updateWishlistBadges();
   initMobileMenu();

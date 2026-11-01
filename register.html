@@ -59,8 +59,14 @@
       <button onclick="toggleRTL()" class="rtl-toggle-btn text-xs font-bold px-3 py-1.5 rounded-full bg-white/90 dark:bg-[#201B1D]/90 border border-amber-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-300">
         RTL
       </button>
-      <button onclick="toggleDarkMode()" class="theme-toggle-btn w-8 h-8 rounded-full bg-white/90 dark:bg-[#201B1D]/90 border border-amber-200 dark:border-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-xs shadow-sm">
+      <button onclick="toggleDarkMode()" class="theme-toggle-btn w-8 h-8 rounded-full bg-white/90 dark:bg-[#201B1D]/90 border border-amber-200 dark:border-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-xs shadow-sm" aria-label="Toggle dark mode">
         <i class="fa-solid fa-moon"></i>
+      </button>
+      <!-- Mobile Menu Toggle -->
+      <button id="mobileMenuToggle" onclick="toggleMobileMenu(event)"
+        class="w-8 h-8 rounded-full bg-white/90 dark:bg-[#201B1D]/90 border border-amber-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold flex items-center justify-center text-xs shadow-sm cursor-pointer"
+        aria-label="Open mobile menu">
+        <i class="fa-solid fa-bars pointer-events-none"></i>
       </button>
     </div>
   </div>
