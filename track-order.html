@@ -402,20 +402,23 @@
       <section class="py-16 bg-[#FFF8F0] dark:bg-[#151112] border-t border-amber-100 dark:border-neutral-800">
         <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
           <div
-            class="bg-white dark:bg-[#201B1D] p-8 sm:p-10 rounded-3xl border border-amber-200 dark:border-neutral-800 shadow-md">
-            <div class="text-center max-w-xl mx-auto mb-8">
+            class="bg-white dark:bg-[#201B1D] p-5 sm:p-8 md:p-10 rounded-3xl border border-amber-200 dark:border-neutral-800 shadow-md overflow-hidden">
+            <div class="text-center max-w-xl mx-auto mb-6 sm:mb-8">
               <span class="text-xs font-bold text-burgundy dark:text-gold uppercase tracking-wider block mb-1">Pan-India
                 Express Check</span>
-              <h3 class="text-2xl font-bold text-neutral-900 dark:text-white">Check Delivery Timeline to Your City</h3>
+              <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white">Check Delivery Timeline to Your City</h3>
               <p class="text-xs text-neutral-500 mt-1">Enter your 6-digit Indian PIN code to see exact delivery times
                 and same-day express eligibility.</p>
             </div>
 
-            <div class="max-w-md mx-auto flex gap-2 mb-4">
-              <input type="text" id="checkPincodeInput" maxlength="6" placeholder="e.g. 110001 or 560001"
-                class="flex-1 px-4 py-2.5 text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
-              <button onclick="checkPincodeSpeed()" class="btn-primary text-xs py-2.5 px-6 shrink-0">
-                Check
+            <div class="max-w-md mx-auto flex flex-col sm:flex-row gap-2.5 mb-4">
+              <div class="relative flex-1">
+                <i class="fa-solid fa-location-dot absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 text-xs"></i>
+                <input type="text" id="checkPincodeInput" maxlength="6" placeholder="e.g. 110001 or 560001"
+                  class="w-full pl-9 pr-4 py-2.5 text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
+              </div>
+              <button onclick="checkPincodeSpeed()" class="btn-primary text-xs py-2.5 px-6 shrink-0 w-full sm:w-auto cursor-pointer">
+                Check Delivery
               </button>
             </div>
 

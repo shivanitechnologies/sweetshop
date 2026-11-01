@@ -1760,3 +1760,20 @@ html:not(.dark) select option {
   background-color: #FFFDF9;
   color: #2D0B14;
 }
+
+/* Universal Mobile Alignment & Badge Protection */
+.badge-tag,
+.rounded-full[class*="text-[10px]"],
+.rounded-full[class*="text-xs"] {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+@media (max-width: 639px) {
+  /* Prevent horizontal overflow on mobile inputs and cards */
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"] {
+    max-width: 100% !important;
+  }
+}
