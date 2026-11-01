@@ -2499,6 +2499,254 @@ function initContactOrderPreFill() {
 window.initContactOrderPreFill = initContactOrderPreFill;
 
 // ==========================================
+// 11C. ROYAL BESPOKE CUSTOM SELECT DROPDOWNS
+// ==========================================
+function initCustomSelects() {
+  const selects = document.querySelectorAll('select:not([data-customized])');
+
+  selects.forEach(select => {
+    select.setAttribute('data-customized', 'true');
+
+    // Visually hide native select but retain full accessibility and form capability
+    select.style.position = 'absolute';
+    select.style.opacity = '0';
+    select.style.pointerEvents = 'none';
+    select.style.width = '1px';
+    select.style.height = '1px';
+    select.style.margin = '-1px';
+    select.style.clip = 'rect(0, 0, 0, 0)';
+    select.setAttribute('tabindex', '-1');
+
+    // Create wrapper
+    const wrapper = document.createElement('div');
+    if (select.id === 'productSortSelect') {
+      wrapper.className = 'custom-select-wrapper relative inline-block w-full md:w-auto min-w-[210px]';
+    } else {
+      wrapper.className = 'custom-select-wrapper relative inline-block w-full';
+    }
+
+    select.parentNode.insertBefore(wrapper, select);
+    wrapper.appendChild(select);
+
+    // Selected trigger button
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'custom-select-trigger w-full flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#201B1D] text-xs font-semibold text-neutral-800 dark:text-neutral-100 hover:border-gold dark:hover:border-gold transition-all duration-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-gold/30 cursor-pointer';
+
+    const labelSpan = document.createElement('span');
+    labelSpan.className = 'custom-select-label truncate text-left';
+    const selectedOption = select.options[select.selectedIndex] || select.options[0];
+    labelSpan.textContent = selectedOption ? selectedOption.text : 'Select Option';
+
+    const chevron = document.createElement('span');
+    chevron.className = 'custom-select-chevron text-gold text-[10px] transition-transform duration-300 shrink-0';
+    chevron.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+
+    trigger.appendChild(labelSpan);
+    trigger.appendChild(chevron);
+    wrapper.appendChild(trigger);
+
+    // If label exists with 'for' attribute, clicking label focuses trigger
+    if (select.id) {
+      trigger.id = 'trigger_' + select.id;
+      const matchingLabel = document.querySelector(`label[for="${select.id}"]`);
+      if (matchingLabel) {
+        matchingLabel.setAttribute('for', 'trigger_' + select.id);
+      }
+    }
+
+    // Floating dropdown menu
+    const menu = document.createElement('div');
+    menu.className = 'custom-select-menu absolute left-0 right-0 top-[calc(100%+6px)] z-50 p-1.5 rounded-2xl border border-amber-200/80 dark:border-gold/35 bg-white/95 dark:bg-[#1C1618]/95 backdrop-blur-md shadow-2xl opacity-0 translate-y-[-6px] pointer-events-none transition-all duration-200 custom-scrollbar max-h-64 overflow-y-auto';
+
+    function renderMenuOptions() {
+      menu.innerHTML = '';
+      Array.from(select.options).forEach((opt, idx) => {
+        const item = document.createElement('div');
+        const isSelected = select.selectedIndex === idx;
+
+        item.className = `custom-select-option px-3.5 py-2 rounded-xl text-xs flex items-center justify-between gap-2 cursor-pointer transition-all duration-150 mb-0.5 last:mb-0 ${
+          isSelected
+            ? 'bg-amber-100/80 dark:bg-gold/20 text-burgundy dark:text-gold font-bold'
+            : 'text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800/80 hover:text-burgundy dark:hover:text-gold'
+        }`;
+
+        const textSpan = document.createElement('span');
+        textSpan.className = 'truncate';
+        textSpan.textContent = opt.text;
+        item.appendChild(textSpan);
+
+        if (isSelected) {
+          const check = document.createElement('i');
+          check.className = 'fa-solid fa-check text-gold text-xs shrink-0';
+          item.appendChild(check);
+        }
+
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          select.selectedIndex = idx;
+          select.value = opt.value;
+          labelSpan.textContent = opt.text;
+          closeMenu();
+          renderMenuOptions();
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+
+        menu.appendChild(item);
+      });
+    }
+
+    renderMenuOptions();
+    wrapper.appendChild(menu);
+
+    function openMenu() {
+      // Close other open menus
+      document.querySelectorAll('.custom-select-menu.open').forEach(m => {
+        if (m !== menu) {
+          m.classList.remove('open');
+          m.style.opacity = '0';
+          m.style.transform = 'translateY(-6px)';
+          m.style.pointerEvents = 'none';
+          const otherTrigger = m.parentElement.querySelector('.custom-select-trigger');
+          if (otherTrigger) {
+            otherTrigger.classList.remove('ring-2', 'ring-gold/30', 'border-gold');
+            const chev = otherTrigger.querySelector('.custom-select-chevron');
+            if (chev) chev.style.transform = 'rotate(0deg)';
+          }
+        }
+      });
+
+      // Smart placement: check if close to viewport bottom
+      const rect = wrapper.getBoundingClientRect();
+      const spaceBelow = window.innerHeight - rect.bottom;
+      if (spaceBelow < 220 && rect.top > 220) {
+        menu.style.top = 'auto';
+        menu.style.bottom = 'calc(100% + 6px)';
+      } else {
+        menu.style.top = 'calc(100% + 6px)';
+        menu.style.bottom = 'auto';
+      }
+
+      menu.classList.add('open');
+      menu.style.opacity = '1';
+      menu.style.transform = 'translateY(0)';
+      menu.style.pointerEvents = 'auto';
+      trigger.classList.add('ring-2', 'ring-gold/30', 'border-gold');
+      chevron.style.transform = 'rotate(180deg)';
+    }
+
+    function closeMenu() {
+      menu.classList.remove('open');
+      menu.style.opacity = '0';
+      menu.style.transform = 'translateY(-6px)';
+      menu.style.pointerEvents = 'none';
+      trigger.classList.remove('ring-2', 'ring-gold/30', 'border-gold');
+      chevron.style.transform = 'rotate(0deg)';
+    }
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (menu.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // Keyboard support
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (!menu.classList.contains('open')) {
+          openMenu();
+        } else if (e.key === 'ArrowDown') {
+          if (select.selectedIndex < select.options.length - 1) {
+            select.selectedIndex++;
+            select.value = select.options[select.selectedIndex].value;
+            labelSpan.textContent = select.options[select.selectedIndex].text;
+            renderMenuOptions();
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        } else if (e.key === 'ArrowUp') {
+          if (select.selectedIndex > 0) {
+            select.selectedIndex--;
+            select.value = select.options[select.selectedIndex].value;
+            labelSpan.textContent = select.options[select.selectedIndex].text;
+            renderMenuOptions();
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        } else if (e.key === 'Enter') {
+          closeMenu();
+        }
+      } else if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    // Sync when select.value is changed programmatically
+    select.addEventListener('change', () => {
+      const currentOpt = select.options[select.selectedIndex];
+      if (currentOpt) {
+        labelSpan.textContent = currentOpt.text;
+      }
+      renderMenuOptions();
+    });
+
+    // Reset when form resets
+    if (select.form) {
+      select.form.addEventListener('reset', () => {
+        setTimeout(() => {
+          const currentOpt = select.options[select.selectedIndex];
+          if (currentOpt) {
+            labelSpan.textContent = currentOpt.text;
+          }
+          renderMenuOptions();
+        }, 50);
+      });
+    }
+  });
+}
+
+// Global click outside to close open menus
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.custom-select-wrapper')) {
+    document.querySelectorAll('.custom-select-menu.open').forEach(menu => {
+      menu.classList.remove('open');
+      menu.style.opacity = '0';
+      menu.style.transform = 'translateY(-6px)';
+      menu.style.pointerEvents = 'none';
+      const trigger = menu.parentElement.querySelector('.custom-select-trigger');
+      if (trigger) {
+        trigger.classList.remove('ring-2', 'ring-gold/30', 'border-gold');
+        const chev = trigger.querySelector('.custom-select-chevron');
+        if (chev) chev.style.transform = 'rotate(0deg)';
+      }
+    });
+  }
+});
+
+// Escape key to close
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.custom-select-menu.open').forEach(menu => {
+      menu.classList.remove('open');
+      menu.style.opacity = '0';
+      menu.style.transform = 'translateY(-6px)';
+      menu.style.pointerEvents = 'none';
+      const trigger = menu.parentElement.querySelector('.custom-select-trigger');
+      if (trigger) {
+        trigger.classList.remove('ring-2', 'ring-gold/30', 'border-gold');
+        const chev = trigger.querySelector('.custom-select-chevron');
+        if (chev) chev.style.transform = 'rotate(0deg)';
+      }
+    });
+  }
+});
+
+window.initCustomSelects = initCustomSelects;
+
+
+// ==========================================
 // 12. INITIALIZATION ON DOM READY
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -2518,6 +2766,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initStatCounters();
   initContactOrderPreFill();
+  initCustomSelects();
 
   // Auto-open product quick view from URL parameter (?product=sb-xx)
   try {

@@ -1667,3 +1667,92 @@ html.dark .custom-scrollbar::-webkit-scrollbar-track {
 
 
 
+
+/* ==========================================
+   Royal Custom Select Component
+   ========================================== */
+.custom-select-wrapper {
+  position: relative;
+  user-select: none;
+}
+
+.custom-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.95rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+}
+
+.custom-select-trigger:focus-visible {
+  outline: 2px solid #D6A653;
+  outline-offset: 2px;
+}
+
+.custom-select-menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  padding: 0.45rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.45), 0 0 25px rgba(214, 166, 83, 0.15);
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 16rem;
+  overflow-y: auto;
+}
+
+.custom-select-menu.open {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+.custom-select-option {
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.65rem;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.custom-select-option:hover {
+  transform: translateX(3px);
+}
+
+/* Scrollbar for custom select dropdown menu */
+.custom-select-menu::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-select-menu::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 9999px;
+}
+.custom-select-menu::-webkit-scrollbar-thumb {
+  background: rgba(214, 166, 83, 0.4);
+  border-radius: 9999px;
+}
+
+/* Fallback styling for native option tags */
+select option {
+  background-color: #201B1D;
+  color: #FFF8F0;
+  padding: 8px 12px;
+}
+html:not(.dark) select option {
+  background-color: #FFFDF9;
+  color: #2D0B14;
+}
