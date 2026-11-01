@@ -1836,11 +1836,6 @@ const BoxBuilder = {
 
     const modalHTML = `
       <div id="boxPackagingModal" class="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300">
-        <!-- Skip button -->
-        <button onclick="BoxBuilder.skipAndAddToCart()" class="absolute top-5 right-5 z-50 text-xs font-bold uppercase tracking-wider text-amber-200/90 hover:text-white px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center gap-2 border border-white/20 shadow-lg">
-          <span>Skip</span> <i class="fa-solid fa-forward text-[10px]"></i>
-        </button>
-
         <div class="relative w-full max-w-lg mx-auto flex flex-col items-center">
           
           <!-- Header Announcement -->
