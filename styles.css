@@ -278,6 +278,8 @@ html.dark .mithai-card:hover {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 .badge-ghee {
   background: #FFF2D6;

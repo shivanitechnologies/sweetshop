@@ -250,7 +250,7 @@
               <div class="flex items-center gap-4">
                 <span><i class="fa-regular fa-clock mr-1 text-gold"></i> 8 Min Read</span>
                 <button
-                  onclick="navigator.clipboard.writeText(window.location.href); showToast('Article link copied to clipboard!', 'gold');"
+                  onclick="if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(window.location.href).catch(function(){}); } showToast('Article link copied to clipboard!', 'gold');"
                   class="btn-outline text-[11px] py-1.5 px-3">
                   <i class="fa-solid fa-share-nodes"></i> Share
                 </button>
