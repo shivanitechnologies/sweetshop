@@ -300,13 +300,22 @@
             <!-- Step Progress Visual Timeline -->
             <div class="py-10">
               <div class="relative">
-                <!-- Connecting Line -->
+                <!-- Desktop Horizontal Connecting Track (through icon centers at y = 24px) -->
                 <div
-                  class="hidden sm:block absolute top-1/2 left-8 right-8 -translate-y-1/2 h-1 bg-amber-200 dark:bg-neutral-700 z-0">
+                  class="hidden sm:block absolute top-6 -translate-y-1/2 h-1 bg-amber-200/60 dark:bg-neutral-800 z-0 rounded-full"
+                  style="left: 12.5%; right: 12.5%;">
                 </div>
                 <div id="timelineProgressBar"
-                  class="hidden sm:block absolute top-1/2 left-8 -translate-y-1/2 h-1 bg-emerald-500 z-0 transition-all duration-700"
-                  style="width: 70%;"></div>
+                  class="hidden sm:block absolute top-6 -translate-y-1/2 h-1 bg-emerald-500 z-0 transition-all duration-700 rounded-full"
+                  style="left: 12.5%; width: 50%;"></div>
+
+                <!-- Mobile Vertical Connecting Track (through icon centers at x = 24px) -->
+                <div
+                  class="sm:hidden absolute top-6 bottom-6 left-6 -translate-x-1/2 w-1 bg-amber-200/60 dark:bg-neutral-800 z-0 rounded-full">
+                </div>
+                <div id="timelineProgressBarMobile"
+                  class="sm:hidden absolute top-6 left-6 -translate-x-1/2 w-1 bg-emerald-500 z-0 transition-all duration-700 rounded-full"
+                  style="height: 66.7%;"></div>
 
                 <!-- 4 Steps -->
                 <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 sm:gap-4 relative z-10">
@@ -599,6 +608,41 @@
         handleTrackOrder();
       }
 
+      function setStepActive(stepNum) {
+        const desktopBar = document.getElementById('timelineProgressBar');
+        const mobileBar = document.getElementById('timelineProgressBarMobile');
+
+        // Percentages between icon centers (col 1 center to col 4 center is 75% total span)
+        const desktopWidths = { 1: '0%', 2: '25%', 3: '50%', 4: '75%' };
+        const mobileHeights = { 1: '0%', 2: '33.3%', 3: '66.7%', 4: '100%' };
+
+        if (desktopBar) desktopBar.style.width = desktopWidths[stepNum] || '50%';
+        if (mobileBar) mobileBar.style.height = mobileHeights[stepNum] || '66.7%';
+
+        // Dynamic step indicators
+        const step1Icon = document.querySelector('#trackingResultCard .grid > div:nth-child(1) > div:first-child');
+        const step2Icon = document.querySelector('#trackingResultCard .grid > div:nth-child(2) > div:first-child');
+        const step3Icon = document.querySelector('#trackingResultCard .grid > div:nth-child(3) > div:first-child');
+        const step4Icon = document.querySelector('#trackingResultCard .grid > div:nth-child(4) > div:first-child');
+        const step4Wrapper = document.querySelector('#trackingResultCard .grid > div:nth-child(4)');
+
+        if (stepNum === 2) {
+          if (step2Icon) step2Icon.className = 'w-12 h-12 rounded-2xl bg-burgundy text-white flex items-center justify-center text-lg shadow-md shrink-0 ring-4 ring-gold/40 animate-pulse';
+          if (step3Icon) step3Icon.className = 'w-12 h-12 rounded-2xl bg-neutral-200 dark:bg-neutral-800 text-neutral-500 flex items-center justify-center text-lg shrink-0';
+          const itemsEl = document.getElementById('displayOrderItems');
+          if (itemsEl) itemsEl.textContent = 'Royal Kesar Peda (1kg) + Special Motichoor Laddoo (500g)';
+          const delEl = document.getElementById('displayEstimatedDelivery');
+          if (delEl) delEl.textContent = 'Expected: Today by 8:00 PM';
+        } else {
+          if (step2Icon) step2Icon.className = 'w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-lg shadow-md shrink-0';
+          if (step3Icon) step3Icon.className = 'w-12 h-12 rounded-2xl bg-burgundy text-white flex items-center justify-center text-lg shadow-md shrink-0 ring-4 ring-gold/40 animate-pulse';
+          const itemsEl = document.getElementById('displayOrderItems');
+          if (itemsEl) itemsEl.textContent = 'The Maharaja Celebration Box (1.5kg) + Kaju Katli (500g)';
+          const delEl = document.getElementById('displayEstimatedDelivery');
+          if (delEl) delEl.textContent = 'Expected: Tomorrow by 1:30 PM';
+        }
+      }
+
       function handleTrackOrder() {
         const input = document.getElementById('trackOrderInput').value.trim();
         if (!input) {
@@ -610,6 +654,13 @@
         const card = document.getElementById('trackingResultCard');
         const orderIdEl = document.getElementById('displayOrderId');
         if (orderIdEl) orderIdEl.textContent = `Order #${input.toUpperCase()}`;
+
+        if (input.toUpperCase().includes('91204')) {
+          setStepActive(2);
+        } else {
+          setStepActive(3);
+        }
+
         if (card) {
           card.scrollIntoView({ behavior: 'smooth' });
         }
