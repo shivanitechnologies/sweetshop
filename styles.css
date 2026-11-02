@@ -131,7 +131,8 @@ html.dark ::-webkit-scrollbar-track {
   gap: 0.5rem;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 14px rgba(123, 38, 58, 0.25);
-  border: 1px solid transparent;
+  border: 1.5px solid transparent;
+  box-sizing: border-box;
   text-decoration: none;
 }
 .btn-primary:hover {
@@ -168,7 +169,7 @@ html.dark ::-webkit-scrollbar-track {
   border: 1.5px solid #7B263A;
   color: #7B263A;
   background: transparent;
-  padding: 0.7rem 1.75rem;
+  padding: 0.75rem 1.75rem;
   font-weight: 600;
   font-size: 0.95rem;
   border-radius: 9999px;
@@ -177,6 +178,7 @@ html.dark ::-webkit-scrollbar-track {
   justify-content: center;
   gap: 0.5rem;
   transition: all 0.25s ease;
+  box-sizing: border-box;
   text-decoration: none;
 }
 .btn-outline:hover {
