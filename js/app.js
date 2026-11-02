@@ -2780,6 +2780,90 @@ document.addEventListener('keydown', (e) => {
 
 window.initCustomSelects = initCustomSelects;
 
+// ==========================================
+// 11B. ACTIVE NAVIGATION INDICATOR
+// ==========================================
+function initActiveNavigationIndicators() {
+  try {
+    const path = (window.location.pathname || '').toLowerCase();
+    const filename = path.split('/').pop() || 'index.html';
+
+    const pageMap = {
+      '': 'home',
+      'index.html': 'home',
+      'home-2.html': 'home',
+      'services.html': 'products',
+      'service-details.html': 'products',
+      'festivals.html': 'festivals',
+      'weddings.html': 'home',
+      'pricing.html': 'pricing',
+      'track-order.html': 'track-order',
+      'about.html': 'about',
+      'contact.html': 'contact',
+      'blog.html': 'about',
+      'blog-details.html': 'about'
+    };
+
+    const activeKey = pageMap[filename] || (filename === '' ? 'home' : '');
+    if (!activeKey) return;
+
+    // Desktop Nav
+    const navLinks = document.querySelectorAll('header nav a.nav-link');
+    if (navLinks.length > 0) {
+      navLinks.forEach(link => {
+        const href = (link.getAttribute('href') || '').toLowerCase().split('?')[0];
+        let isMatch = false;
+
+        if (activeKey === 'home' && (href === 'index.html' || href === 'home-2.html' || href === './' || href === '/')) {
+          isMatch = true;
+        } else if (activeKey === 'products' && (href === 'services.html' || href === 'service-details.html')) {
+          isMatch = true;
+        } else if (activeKey === 'festivals' && href === 'festivals.html') {
+          isMatch = true;
+        } else if (activeKey === 'pricing' && href === 'pricing.html') {
+          isMatch = true;
+        } else if (activeKey === 'track-order' && href === 'track-order.html') {
+          isMatch = true;
+        } else if (activeKey === 'about' && (href === 'about.html' || href === 'blog.html' || href === 'blog-details.html')) {
+          isMatch = true;
+        } else if (activeKey === 'contact' && href === 'contact.html') {
+          isMatch = true;
+        }
+
+        if (isMatch) {
+          link.classList.add('nav-link-active');
+        } else {
+          link.classList.remove('nav-link-active');
+        }
+      });
+    }
+
+    // Mobile Drawer Nav Links
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu) {
+      const mobileLinks = mobileMenu.querySelectorAll('a[href]');
+      mobileLinks.forEach(link => {
+        const href = (link.getAttribute('href') || '').toLowerCase().split('?')[0];
+        let isMatch = false;
+        if (activeKey === 'home' && (href === 'index.html' || href === 'home-2.html')) isMatch = true;
+        else if (activeKey === 'products' && href === 'services.html') isMatch = true;
+        else if (activeKey === 'festivals' && href === 'festivals.html') isMatch = true;
+        else if (activeKey === 'pricing' && href === 'pricing.html') isMatch = true;
+        else if (activeKey === 'track-order' && href === 'track-order.html') isMatch = true;
+        else if (activeKey === 'about' && href === 'about.html') isMatch = true;
+        else if (activeKey === 'contact' && href === 'contact.html') isMatch = true;
+
+        if (isMatch) {
+          link.classList.add('text-burgundy', 'dark:text-gold', 'font-bold');
+        }
+      });
+    }
+  } catch (err) {
+    console.warn('Active navigation indicator error:', err);
+  }
+}
+window.initActiveNavigationIndicators = initActiveNavigationIndicators;
+
 
 // ==========================================
 // 12. INITIALIZATION ON DOM READY
@@ -2793,6 +2877,7 @@ document.addEventListener('DOMContentLoaded', () => {
   injectSharedMobileMenuDrawer();
   injectSharedOrderModal();
   initContactEnquiryAutoFill();
+  initActiveNavigationIndicators();
   AppState.updateCartBadges();
   AppState.updateWishlistBadges();
   initMobileMenu();
