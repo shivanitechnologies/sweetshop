@@ -2394,6 +2394,35 @@ const HeroShowcase = {
     if (!card) return;
 
     this.startAutoCycle();
+    this.initTouchSwipe(card);
+  },
+
+  initTouchSwipe(card) {
+    let startX = 0;
+    let startY = 0;
+
+    card.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length > 0) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    card.addEventListener('touchend', (e) => {
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        const diffX = e.changedTouches[0].clientX - startX;
+        const diffY = e.changedTouches[0].clientY - startY;
+
+        // Ensure horizontal swipe is dominant and exceeds 35px threshold
+        if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
+          if (diffX < 0) {
+            this.next(); // Swiped left -> next delicacy
+          } else {
+            this.prev(); // Swiped right -> prev delicacy
+          }
+        }
+      }
+    }, { passive: true });
   },
 
   startAutoCycle() {
@@ -2413,11 +2442,13 @@ const HeroShowcase = {
   next() {
     this.currentIndex = (this.currentIndex + 1) % HERO_SLIDES.length;
     this.render();
+    this.startAutoCycle();
   },
 
   prev() {
     this.currentIndex = (this.currentIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length;
     this.render();
+    this.startAutoCycle();
   },
 
   render() {

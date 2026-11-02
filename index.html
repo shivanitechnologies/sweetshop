@@ -292,6 +292,16 @@
                   <button onclick="HeroShowcase.goTo(3)" class="hero-dot-indicator w-2 h-2 rounded-full bg-white/40 hover:bg-gold transition-all relative overflow-hidden" aria-label="Slide 4"></button>
                 </div>
 
+                <!-- Left & Right Swipe Navigation Buttons -->
+                <button type="button" onclick="HeroShowcase.prev()" aria-label="Previous Delicacy"
+                  class="absolute left-2.5 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/45 hover:bg-burgundy text-white hover:text-gold backdrop-blur-md border border-white/20 hover:border-gold transition-all duration-200 flex items-center justify-center shadow-lg active:scale-95 cursor-pointer pointer-events-auto">
+                  <i class="fa-solid fa-chevron-left text-xs sm:text-sm pointer-events-none"></i>
+                </button>
+                <button type="button" onclick="HeroShowcase.next()" aria-label="Next Delicacy"
+                  class="absolute right-2.5 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/45 hover:bg-burgundy text-white hover:text-gold backdrop-blur-md border border-white/20 hover:border-gold transition-all duration-200 flex items-center justify-center shadow-lg active:scale-95 cursor-pointer pointer-events-auto">
+                  <i class="fa-solid fa-chevron-right text-xs sm:text-sm pointer-events-none"></i>
+                </button>
+
                 <!-- Dynamic Animated Text Content Overlay (Unobstructed at bottom) -->
                 <div class="absolute bottom-6 left-6 right-6 z-20 text-white pointer-events-none">
                   <div id="heroSlideTextContainer" class="animate-text-slide-up">
