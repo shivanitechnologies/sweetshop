@@ -596,6 +596,8 @@ function closeCartDrawer() {
 // WISHLIST DRAWER (ROYAL FAVORITES)
 // ==========================================
 function injectSharedWishlistDrawer() {
+  // Wishlist removed per design request
+  return;
   if (document.getElementById('wishlistDrawer')) return;
 
   const drawerMarkup = `
@@ -1334,9 +1336,7 @@ function renderProductCard(product) {
         
         <!-- Hover Quick Actions -->
         <div class="absolute top-3 right-3 flex flex-col gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <button onclick="toggleWishlist('${product.id}', this)" class="w-8 h-8 rounded-full bg-white/90 dark:bg-neutral-800/90 text-neutral-700 dark:text-neutral-200 hover:text-rose-500 flex items-center justify-center shadow transition ${isWishlisted ? 'text-rose-500' : ''}" title="Add to Wishlist">
-            <i class="fa-solid fa-heart text-xs"></i>
-          </button>
+
           <button onclick="openQuickView('${product.id}')" class="w-8 h-8 rounded-full bg-white/90 dark:bg-neutral-800/90 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold flex items-center justify-center shadow transition" title="Quick View">
             <i class="fa-solid fa-eye text-xs"></i>
           </button>
@@ -2146,13 +2146,7 @@ function injectSharedMobileMenuDrawer() {
           class="rtl-toggle-btn text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5 cursor-pointer">
           <i class="fa-solid fa-language text-gold"></i> RTL Mode
         </button>
-        <button onclick="closeMobileMenu(); openWishlistDrawer()"
-          class="text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5 cursor-pointer">
-          <i class="fa-regular fa-heart text-burgundy dark:text-gold pointer-events-none"></i> Wishlist
-          <span
-            class="wishlist-count-badge w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full inline-flex items-center justify-center"
-            style="display: none;">0</span>
-        </button>
+
       </div>
 
       <!-- Navigation Links Matching Navbar -->
