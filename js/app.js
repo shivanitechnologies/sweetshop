@@ -2171,10 +2171,6 @@ function injectSharedMobileMenuDrawer() {
           <span>Bulk &amp; Corporate</span>
           <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
         </a>
-        <a href="track-order.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
-          <span>Track Order</span>
-          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
-        </a>
         <a href="about.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
           <span>About Us</span>
           <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
@@ -2797,8 +2793,7 @@ function initActiveNavigationIndicators() {
       'festivals.html': 'festivals',
       'weddings.html': 'home',
       'pricing.html': 'pricing',
-      'track-order.html': 'track-order',
-      'about.html': 'about',
+            'about.html': 'about',
       'contact.html': 'contact',
       'blog.html': 'about',
       'blog-details.html': 'about'
@@ -2821,8 +2816,6 @@ function initActiveNavigationIndicators() {
         } else if (activeKey === 'festivals' && href === 'festivals.html') {
           isMatch = true;
         } else if (activeKey === 'pricing' && href === 'pricing.html') {
-          isMatch = true;
-        } else if (activeKey === 'track-order' && href === 'track-order.html') {
           isMatch = true;
         } else if (activeKey === 'about' && (href === 'about.html' || href === 'blog.html' || href === 'blog-details.html')) {
           isMatch = true;
@@ -2849,7 +2842,6 @@ function initActiveNavigationIndicators() {
         else if (activeKey === 'products' && href === 'services.html') isMatch = true;
         else if (activeKey === 'festivals' && href === 'festivals.html') isMatch = true;
         else if (activeKey === 'pricing' && href === 'pricing.html') isMatch = true;
-        else if (activeKey === 'track-order' && href === 'track-order.html') isMatch = true;
         else if (activeKey === 'about' && href === 'about.html') isMatch = true;
         else if (activeKey === 'contact' && href === 'contact.html') isMatch = true;
 
