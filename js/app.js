@@ -533,45 +533,29 @@ function triggerCartBounce() {
   });
 }
 
-function addToCart(productId, weight = '250g', quantity = 1, triggerBtn = null) {
-  const product = SWEETBLISS_PRODUCTS.find(p => p.id === productId);
-  if (!product) return;
-
-  const price = product.prices[weight] || product.basePrice;
-  const existingIndex = AppState.cart.findIndex(
-    item => item.id === productId && item.weight === weight
-  );
-
-  if (existingIndex > -1) {
-    AppState.cart[existingIndex].quantity += quantity;
+// Central Product Enquiry Handler (Direct Redirect to Contact Us)
+function enquireProduct(productId, weight = null, qty = 1) {
+  let productName = '';
+  if (typeof productId === 'object' && productId !== null) {
+    productName = productId.name || 'Custom Assortment';
+  } else if (typeof productId === 'string' && (productId.startsWith('Custom') || productId.startsWith('The '))) {
+    productName = productId;
   } else {
-    AppState.cart.push({
-      id: product.id,
-      name: product.name,
-      image: product.image,
-      weight: weight,
-      price: price,
-      quantity: quantity
-    });
+    const prod = (typeof SWEETBLISS_PRODUCTS !== 'undefined') ? SWEETBLISS_PRODUCTS.find(p => p.id === productId) : null;
+    productName = prod ? prod.name : productId;
   }
 
-  AppState.saveCart();
-  renderCartDrawer();
-  triggerCartBounce();
+  const params = new URLSearchParams();
+  if (productName) params.set('enquiry', productName);
+  if (weight) params.set('weight', weight);
+  if (qty && qty > 1) params.set('qty', qty);
 
-  // Button Morph Feedback
-  if (triggerBtn) {
-    const originalText = triggerBtn.innerHTML;
-    triggerBtn.innerHTML = '<i class="fa-solid fa-check text-[10px] mr-1"></i> Added!';
-    triggerBtn.classList.add('btn-added-feedback');
-    setTimeout(() => {
-      triggerBtn.innerHTML = originalText;
-      triggerBtn.classList.remove('btn-added-feedback');
-    }, 1200);
-  }
+  window.location.href = `contact.html?${params.toString()}#contactFormSection`;
+}
 
-  openCartDrawer();
-  // Automatically added to bag drawer without popup notification
+// Seamless backwards-compatibility alias: redirects to contact enquiry
+function addToCart(productId, weight = '250g', quantity = 1, triggerBtn = null) {
+  enquireProduct(productId, weight, quantity);
 }
 
 function updateCartQuantity(index, delta) {
@@ -596,11 +580,8 @@ function getCartSubtotal() {
 }
 
 function openCartDrawer() {
-  const drawer = document.getElementById('cartDrawer');
-  if (drawer) {
-    drawer.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
+  // Cart feature replaced with enquiry - redirect directly to Contact Us
+  window.location.href = 'contact.html#contactFormSection';
 }
 
 function closeCartDrawer() {
@@ -656,9 +637,9 @@ function injectSharedWishlistDrawer() {
 
         <!-- Footer Actions -->
         <div id="wishlistFooter" class="p-4 sm:p-5 border-t border-neutral-100 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 space-y-2.5">
-          <button onclick="moveAllWishlistToCart()" class="w-full bg-burgundy hover:bg-burgundy-800 text-white font-bold py-3 rounded-full text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-md cursor-pointer">
-            <i class="fa-solid fa-bag-shopping text-gold"></i>
-            <span>Add All to Sweet Bag</span>
+          <button onclick="enquireWishlistAll()" class="w-full bg-burgundy hover:bg-burgundy-800 text-white font-bold py-3 rounded-full text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-md cursor-pointer">
+            <i class="fa-regular fa-paper-plane text-gold"></i>
+            <span>Enquire All Delicacies</span>
           </button>
           <button onclick="clearWishlist()" class="w-full text-xs font-semibold text-neutral-500 hover:text-burgundy dark:hover:text-gold py-1 text-center transition cursor-pointer">
             Clear All Favorites
@@ -725,8 +706,8 @@ function renderWishlistDrawer() {
             <span class="text-[10px] text-neutral-400">/${weightLabel}</span>
           </div>
           <div class="flex items-center gap-3 mt-1.5">
-            <button onclick="moveWishlistItemToCart('${prod.id}')" class="px-2.5 py-1 rounded-full bg-burgundy/10 hover:bg-burgundy text-burgundy hover:text-white dark:bg-gold/15 dark:hover:bg-gold dark:text-gold dark:hover:text-neutral-900 text-[10.5px] font-bold transition flex items-center gap-1 cursor-pointer">
-              <i class="fa-solid fa-bag-shopping text-[9px]"></i> Add to Bag
+            <button onclick="enquireProduct('${prod.id}')" class="px-2.5 py-1 rounded-full bg-burgundy/10 hover:bg-burgundy text-burgundy hover:text-white dark:bg-gold/15 dark:hover:bg-gold dark:text-gold dark:hover:text-neutral-900 text-[10.5px] font-bold transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-paper-plane text-[9px]"></i> Enquire
             </button>
             <button onclick="removeFromWishlist('${prod.id}')" class="text-[10.5px] text-neutral-400 hover:text-rose-500 font-medium transition cursor-pointer">
               Remove
@@ -839,6 +820,8 @@ function renderCartDrawer() {
 
 // Injects the shared Cart Drawer into the page if not present
 function injectSharedCartDrawer() {
+  // Cart drawer feature removed - product enquiries redirect to contact.html
+  return;
   if (document.getElementById('cartDrawer')) return;
 
   const drawerMarkup = `
@@ -1272,8 +1255,8 @@ function openQuickView(productId) {
         </div>
 
         <div class="flex gap-3">
-          <button id="qvAddToCartBtn" onclick="addToCart('${product.id}', '250g', 1); closeQuickView();" class="btn-primary flex-1 text-xs py-3">
-            <i class="fa-solid fa-cart-plus"></i> Add To Bag
+          <button id="qvAddToCartBtn" onclick="enquireProduct('${product.id}'); closeQuickView();" class="btn-primary flex-1 text-xs py-3 flex items-center justify-center gap-2">
+            <i class="fa-regular fa-paper-plane"></i> Enquire Now
           </button>
           <a href="service-details.html?id=${product.id}" class="btn-outline text-xs px-3 py-3" title="Full Details">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -1301,7 +1284,7 @@ function selectQuickViewWeight(productId, weight, btn) {
 
   const addBtn = document.getElementById('qvAddToCartBtn');
   if (addBtn) {
-    addBtn.setAttribute('onclick', `addToCart('${product.id}', '${weight}', 1); closeQuickView();`);
+    addBtn.setAttribute('onclick', `enquireProduct('${product.id}', '${weight}'); closeQuickView();`);
   }
 }
 
@@ -1377,8 +1360,8 @@ function renderProductCard(product) {
             <span class="text-lg font-black text-burgundy dark:text-gold">₹${product.basePrice}</span>
             <span class="text-[11px] text-neutral-400 font-normal">/ 250g</span>
           </div>
-          <button onclick="addToCart('${product.id}', '250g', 1, this)" class="btn-primary text-xs py-2 px-3.5" title="Add 250g pack to bag">
-            <i class="fa-solid fa-plus text-[10px]"></i> Add
+          <button onclick="enquireProduct('${product.id}')" class="btn-primary text-xs py-2 px-3.5 flex items-center gap-1.5" title="Enquire about ${product.name}">
+            <i class="fa-regular fa-paper-plane text-[10px]"></i> Enquire
           </button>
         </div>
       </div>
@@ -2066,17 +2049,13 @@ const BoxBuilder = {
     this.isPacking = false;
   },
 
-    finalizeAddToCart(itemsList, discountedTotal) {
-    addCustomItemToCart(
-      `Custom 4-in-1 Box (${itemsList})`,
-      discountedTotal,
-      '1kg Curated Box',
-      this.slots[1].image,
-      1
-    );
-    if (typeof triggerCartBounce === 'function') {
-      triggerCartBounce();
-    }
+  enquireBox() {
+    this.addBoxToCart();
+  },
+
+  finalizeAddToCart(itemsList, discountedTotal) {
+    const customDesc = `Custom 4-in-1 Box (${itemsList}) - ₹${discountedTotal}`;
+    enquireProduct(customDesc);
   }
 };
 
@@ -2819,6 +2798,7 @@ document.addEventListener('DOMContentLoaded', () => {
   injectSharedModal();
   injectSharedMobileMenuDrawer();
   injectSharedOrderModal();
+  initContactEnquiryAutoFill();
   AppState.updateCartBadges();
   AppState.updateWishlistBadges();
   initMobileMenu();
@@ -3201,3 +3181,77 @@ function closePolicyModal() {
   }
 }
 
+
+
+// Enquire all delicacies currently in the customer wishlist
+function enquireWishlistAll() {
+  if (!AppState.wishlist || AppState.wishlist.length === 0) return;
+  const names = AppState.wishlist.map(id => {
+    const p = (typeof SWEETBLISS_PRODUCTS !== 'undefined') ? SWEETBLISS_PRODUCTS.find(item => item.id === id) : null;
+    return p ? p.name : id;
+  }).join(', ');
+  enquireProduct(`Wishlist Selection: ${names}`);
+}
+
+// ==========================================
+// 17. CONTACT US ENQUIRY AUTO-FILL & HIGHLIGHT
+// ==========================================
+function initContactEnquiryAutoFill() {
+  const formSection = document.getElementById('contactFormSection');
+  if (!formSection) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const enquiryItem = params.get('enquiry') || params.get('product');
+  const weight = params.get('weight');
+  const qty = params.get('qty');
+
+  if (enquiryItem) {
+    const messageField = document.querySelector('textarea[name="message"]');
+    const typeSelect = document.querySelector('select[name="type"]');
+
+    let details = enquiryItem;
+    if (weight) details += ` (${weight})`;
+    if (qty && Number(qty) > 1) details += ` × ${qty} packs`;
+
+    if (messageField) {
+      messageField.value = `Hello SweetBliss Team,\n\nI would like to enquire about ordering: ${details}.\nPlease share availability, pricing, and dispatch timelines.\n\nThank you!`;
+    }
+
+    if (typeSelect) {
+      const lower = enquiryItem.toLowerCase();
+      if (lower.includes('wedding') || lower.includes('shagun') || lower.includes('trunk')) {
+        typeSelect.value = 'wedding';
+      } else if (lower.includes('corporate') || lower.includes('bulk') || lower.includes('darbar')) {
+        typeSelect.value = 'corporate';
+      } else {
+        typeSelect.value = 'retail';
+      }
+    }
+
+    if (!document.getElementById('enquiryHighlightBanner')) {
+      const banner = document.createElement('div');
+      banner.id = 'enquiryHighlightBanner';
+      banner.className = 'mb-5 p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-700/60 flex items-center justify-between text-xs text-amber-900 dark:text-amber-200 shadow-sm animate-fade-in';
+      banner.innerHTML = `
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-paper-plane text-burgundy dark:text-gold text-xs"></i>
+          </div>
+          <div>
+            <span class="font-bold block text-burgundy dark:text-gold">Active Delicacy Enquiry</span>
+            <span class="text-neutral-600 dark:text-neutral-300">Selected: <strong>${escapeHTML(enquiryItem)}</strong></span>
+          </div>
+        </div>
+        <a href="contact.html" class="text-[11px] font-semibold text-burgundy dark:text-gold hover:underline ml-2">Clear</a>
+      `;
+      const formEl = formSection.querySelector('form');
+      if (formEl) {
+        formSection.insertBefore(banner, formEl);
+      }
+    }
+
+    setTimeout(() => {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 250);
+  }
+}

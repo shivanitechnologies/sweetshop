@@ -107,12 +107,12 @@
             style="display: none;">0</span>
         </button>
 
-        <!-- Order Now Button -->
-        <button onclick="openCartDrawer()" aria-label="Order Now" class="relative bg-burgundy text-white hover:bg-burgundy-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 transition shadow-md whitespace-nowrap">
-          <i class="fa-solid fa-bag-shopping text-gold text-xs sm:text-sm"></i>
-          <span>Order Now</span>
-          <span class="cart-count-badge w-4 h-4 sm:w-4.5 sm:h-4.5 bg-gold text-neutral-900 font-extrabold text-[10px] rounded-full flex items-center justify-center ml-0.5" style="display: none;">0</span>
-        </button>
+        <!-- Enquire Now Button -->
+        <a href="contact.html" aria-label="Enquire Now"
+          class="relative bg-burgundy text-white hover:bg-burgundy-800 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 transition shadow-md whitespace-nowrap">
+          <i class="fa-regular fa-paper-plane text-gold text-xs sm:text-sm"></i>
+          <span>Enquire Now</span>
+        </a>
 
         <!-- Mobile Menu Toggle -->
         <button id="mobileMenuToggle" onclick="toggleMobileMenu(event)"
@@ -572,8 +572,8 @@
                   <span class="text-lg font-black text-burgundy dark:text-gold">₹320</span>
                   <span class="text-[11px] text-neutral-400 font-normal">/ 250g</span>
                 </div>
-                <button onclick="addToCart('sb-01', '250g', 1)" class="btn-primary text-xs py-2 px-3.5">
-                  <i class="fa-solid fa-plus text-[10px]"></i> Add
+                <button onclick="enquireProduct('sb-01')" class="btn-primary text-xs py-2 px-3.5 flex items-center gap-1.5" title="Enquire about Royal Silver Kaju Katli">
+                  <i class="fa-regular fa-paper-plane text-[10px]"></i> Enquire
                 </button>
               </div>
             </div>
@@ -600,8 +600,8 @@
                   <span class="text-lg font-black text-burgundy dark:text-gold">₹240</span>
                   <span class="text-[11px] text-neutral-400 font-normal">/ 250g</span>
                 </div>
-                <button onclick="addToCart('sb-02', '250g', 1)" class="btn-primary text-xs py-2 px-3.5">
-                  <i class="fa-solid fa-plus text-[10px]"></i> Add
+                <button onclick="enquireProduct('sb-02')" class="btn-primary text-xs py-2 px-3.5 flex items-center gap-1.5" title="Enquire about Pure Desi Ghee Gulab Jamun">
+                  <i class="fa-regular fa-paper-plane text-[10px]"></i> Enquire
                 </button>
               </div>
             </div>
@@ -628,8 +628,8 @@
                   <span class="text-lg font-black text-burgundy dark:text-gold">₹220</span>
                   <span class="text-[11px] text-neutral-400 font-normal">/ 250g</span>
                 </div>
-                <button onclick="addToCart('sb-03', '250g', 1)" class="btn-primary text-xs py-2 px-3.5">
-                  <i class="fa-solid fa-plus text-[10px]"></i> Add
+                <button onclick="enquireProduct('sb-03')" class="btn-primary text-xs py-2 px-3.5 flex items-center gap-1.5" title="Enquire about Kashmiri Saffron Motichoor Ladoo">
+                  <i class="fa-regular fa-paper-plane text-[10px]"></i> Enquire
                 </button>
               </div>
             </div>
@@ -656,8 +656,8 @@
                   <span class="text-lg font-black text-burgundy dark:text-gold">₹160</span>
                   <span class="text-[11px] text-neutral-400 font-normal">/ 250g</span>
                 </div>
-                <button onclick="addToCart('sb-07', '250g', 1)" class="btn-primary text-xs py-2 px-3.5">
-                  <i class="fa-solid fa-plus text-[10px]"></i> Add
+                <button onclick="enquireProduct('sb-07')" class="btn-primary text-xs py-2 px-3.5 flex items-center gap-1.5" title="Enquire about Mathura Special Kesar Peda">
+                  <i class="fa-regular fa-paper-plane text-[10px]"></i> Enquire
                 </button>
               </div>
             </div>
@@ -780,8 +780,8 @@
                 </div>
               </div>
               <button id="addBoxToBagBtn" onclick="BoxBuilder.addBoxToCart()" class="btn-primary btn-shimmer text-xs py-3 px-5 shadow-lg flex items-center gap-2 group">
-                <i class="fa-solid fa-cart-plus transition-transform group-hover:scale-110"></i>
-                <span>Add Box to Bag</span>
+                <i class="fa-regular fa-paper-plane transition-transform group-hover:scale-110"></i>
+                <span>Enquire This Box</span>
               </button>
             </div>
           </div>
