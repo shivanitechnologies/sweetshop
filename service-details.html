@@ -516,8 +516,8 @@
     <div class="container mx-auto px-4 lg:px-8">
       <!-- Trust Guarantee Highlights Bar -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-5 mb-10 rounded-2xl bg-amber-50/70 dark:bg-neutral-900/60 border border-amber-200/60 dark:border-neutral-800">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 flex items-center justify-center text-lg flex-shrink-0">
+        <div class="flex items-center gap-2.5 sm:gap-3">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 flex items-center justify-center text-base sm:text-lg flex-shrink-0">
             <i class="fa-solid fa-leaf"></i>
           </div>
           <div>
@@ -525,8 +525,8 @@
             <p class="text-[11px] text-neutral-500 dark:text-neutral-400">Green Dot Certified</p>
           </div>
         </div>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 flex items-center justify-center text-lg flex-shrink-0">
+        <div class="flex items-center gap-2.5 sm:gap-3">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 flex items-center justify-center text-base sm:text-lg flex-shrink-0">
             <i class="fa-solid fa-bowl-food"></i>
           </div>
           <div>
@@ -534,8 +534,8 @@
             <p class="text-[11px] text-neutral-500 dark:text-neutral-400">Zero Palm Oil / Dalda</p>
           </div>
         </div>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-amber-200/50 dark:bg-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-lg flex-shrink-0">
+        <div class="flex items-center gap-2.5 sm:gap-3">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-200/50 dark:bg-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-base sm:text-lg flex-shrink-0">
             <i class="fa-solid fa-box-archive"></i>
           </div>
           <div>
@@ -543,8 +543,8 @@
             <p class="text-[11px] text-neutral-500 dark:text-neutral-400">Aroma-Lock Freshness</p>
           </div>
         </div>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 flex items-center justify-center text-lg flex-shrink-0">
+        <div class="flex items-center gap-2.5 sm:gap-3">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 flex items-center justify-center text-base sm:text-lg flex-shrink-0">
             <i class="fa-solid fa-truck-fast"></i>
           </div>
           <div>
@@ -665,6 +665,12 @@
               </a>
             </li>
             <li>
+              <button type="button" onclick="openPolicyModal('shipping')" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2 text-left">
+                <i class="fa-solid fa-shield-halved text-[11px] text-amber-600 dark:text-amber-400"></i>
+                <span>Shipping &amp; Freshness Policy</span>
+              </button>
+            </li>
+            <li>
               <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition flex items-center gap-2 font-medium">
                 <i class="fa-brands fa-whatsapp text-[12px] text-emerald-600"></i>
                 <span>WhatsApp Sweet Concierge</span>
@@ -717,23 +723,14 @@
         </div>
       </div>
 
-      <!-- Bottom Bar with Protected Right Margin for Floating Widget -->
-      <div class="pt-6 border-t border-amber-100 dark:border-neutral-800 flex flex-col md:flex-row items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 gap-4 pr-0 sm:pr-20 lg:pr-24">
-        <div class="flex flex-col sm:flex-row items-center gap-2 text-center md:text-left">
-          <p>&copy; 2026 SweetBliss Confectionery Private Limited. All rights reserved.</p>
-          <span class="hidden sm:inline text-neutral-300 dark:text-neutral-700">&bull;</span>
-          <span class="text-neutral-400">Pure Desi Ghee Since 1974</span>
-        </div>
-        <div class="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2 text-[11px]">
-          <button type="button" onclick="openPolicyModal('privacy')" class="hover:text-burgundy dark:hover:text-gold transition">Privacy Policy</button>
-          <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">&bull;</span>
-          <button type="button" onclick="openPolicyModal('terms')" class="hover:text-burgundy dark:hover:text-gold transition">Terms of Service</button>
-          <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">&bull;</span>
-          <button type="button" onclick="openPolicyModal('shipping')" class="hover:text-burgundy dark:hover:text-gold transition">Shipping &amp; Delivery</button>
-          <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">&bull;</span>
-          <button type="button" onclick="openPolicyModal('refund')" class="hover:text-burgundy dark:hover:text-gold transition">Refund &amp; Freshness</button>
-          <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">&bull;</span>
-          <a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition">Help &amp; Support</a>
+      <!-- Bottom Bar with Proper Mobile & Desktop Alignment -->
+      <div class="pt-6 border-t border-amber-100 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 gap-3 text-center sm:text-left pr-0 sm:pr-20 lg:pr-24">
+        <p class="leading-relaxed">&copy; 2026 SweetBliss Confectionery Private Limited. All rights reserved.</p>
+        <div class="flex items-center justify-center gap-2 text-[11px] text-amber-700/90 dark:text-amber-400/90 font-medium">
+          <i class="fa-solid fa-certificate text-gold text-xs"></i>
+          <span>Pure Desi Ghee Since 1974</span>
+          <span class="text-neutral-300 dark:text-neutral-700">&bull;</span>
+          <span>FSSAI Central Lic. 10019011002345</span>
         </div>
       </div>
     </div>
