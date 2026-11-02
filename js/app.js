@@ -1811,32 +1811,25 @@ const BoxBuilder = {
   },
 
   addBoxToCart() {
-    const itemsList = Object.values(this.slots).map(s => s.name).join(', ');
-    const rawTotal = Object.values(this.slots).reduce((sum, item) => sum + (item ? item.price : 0), 0);
-    const discountedTotal = Math.round(rawTotal * 0.9);
-
-    addCustomItemToCart(
-      `Custom 4-in-1 Box (${itemsList})`,
-      discountedTotal,
-      '1kg Curated Box',
-      this.slots[1].image,
-      1
-    );
-
-    const btn = document.getElementById('addBoxToBagBtn');
-    if (btn) {
-      const origText = btn.innerHTML;
-      btn.innerHTML = '<i class="fa-solid fa-check text-xs mr-1 text-gold"></i> Added to Bag!';
-      setTimeout(() => {
-        btn.innerHTML = origText;
-      }, 1500);
-    }
+    if (this.isPacking) return;
+    this.startPackagingCeremony();
   },
 
   startPackagingCeremony() {
+    this.isPacking = true;
+
     // Clear any leftover timers
     this.packagingTimers.forEach(t => clearTimeout(t));
     this.packagingTimers = [];
+
+    // Tactile button loading state on the card
+    const btn = document.getElementById('addBoxToBagBtn');
+    let origBtnHTML = '';
+    if (btn) {
+      origBtnHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles text-gold fa-spin mr-1.5"></i> Assembling Royal Box...';
+      btn.classList.add('opacity-90', 'pointer-events-none');
+    }
 
     // Remove old modal if exists
     const oldModal = document.getElementById('boxPackagingModal');
@@ -1850,6 +1843,11 @@ const BoxBuilder = {
       <div id="boxPackagingModal" class="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300">
         <div class="relative w-full max-w-lg mx-auto flex flex-col items-center">
           
+          <!-- Skip Button in Corner -->
+          <button type="button" onclick="BoxBuilder.skipAndAddToCart()" class="absolute -top-3 -right-3 sm:-top-2 sm:-right-2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 text-amber-200 hover:text-white flex items-center justify-center border border-gold/40 text-xs transition shadow-lg z-50" aria-label="Skip animation and add directly">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
           <!-- Header Announcement -->
           <div id="packHeader" class="text-center mb-5 transition-all duration-300">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/20 text-gold text-[11px] font-bold uppercase tracking-widest mb-1.5 border border-gold/30 shadow-sm">
@@ -1932,6 +1930,11 @@ const BoxBuilder = {
             <i id="packStatusIcon" class="fa-solid fa-circle-notch fa-spin text-gold"></i>
             <span id="packStatusText">Placing fresh confections into golden compartments...</span>
           </div>
+
+          <!-- Skip Text Link -->
+          <button type="button" onclick="BoxBuilder.skipAndAddToCart()" class="mt-2 text-[11px] text-amber-200/70 hover:text-gold uppercase tracking-wider font-semibold transition hover:underline">
+            Skip animation &amp; add to bag &rarr;
+          </button>
 
         </div>
       </div>
@@ -2025,6 +2028,13 @@ const BoxBuilder = {
         modal.classList.remove('active');
         setTimeout(() => modal.remove(), 400);
       }
+      if (btn) {
+        btn.innerHTML = '<i class="fa-solid fa-check text-gold text-xs mr-1"></i> Box Added to Bag!';
+        btn.classList.remove('opacity-90', 'pointer-events-none');
+        setTimeout(() => {
+          btn.innerHTML = origBtnHTML || '<i class="fa-solid fa-cart-plus mr-1.5"></i> Add Box to Bag';
+        }, 1500);
+      }
       this.isPacking = false;
     }, 3200);
   },
@@ -2043,11 +2053,20 @@ const BoxBuilder = {
       setTimeout(() => modal.remove(), 300);
     }
 
+    const btn = document.getElementById('addBoxToBagBtn');
+    if (btn) {
+      btn.innerHTML = '<i class="fa-solid fa-check text-gold text-xs mr-1"></i> Box Added to Bag!';
+      btn.classList.remove('opacity-90', 'pointer-events-none');
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-cart-plus mr-1.5"></i> Add Box to Bag';
+      }, 1500);
+    }
+
     this.finalizeAddToCart(itemsList, discountedTotal);
     this.isPacking = false;
   },
 
-  finalizeAddToCart(itemsList, discountedTotal) {
+    finalizeAddToCart(itemsList, discountedTotal) {
     addCustomItemToCart(
       `Custom 4-in-1 Box (${itemsList})`,
       discountedTotal,
