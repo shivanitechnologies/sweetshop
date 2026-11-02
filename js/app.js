@@ -3042,5 +3042,143 @@ function fireFestiveConfetti() {
   }
 }
 
+// ==========================================
+// 21. BESPOKE POLICY & TRUST MODAL SYSTEM
+// ==========================================
+const SWEETBLISS_POLICIES = {
+  privacy: {
+    title: "Privacy & Customer Data Protection",
+    badge: "100% Confidential",
+    badgeClass: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300",
+    content: `
+      <p class="mb-3 text-xs leading-relaxed text-neutral-600 dark:text-neutral-300">At SweetBliss Confectionery, we treat your personal privacy with the highest integrity, matching the pure ingredients we pour into our traditional mithai recipes.</p>
+      <div class="space-y-3 text-xs text-neutral-600 dark:text-neutral-300">
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-lock text-gold"></i>Zero Third-Party Data Sharing</h4>
+          <p>We never sell, trade, or distribute your email address, phone number, or delivery address to marketing brokers or third parties.</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-shield-halved text-emerald-600"></i>RBI-Authorized Encrypted Payments</h4>
+          <p>All online transactions (UPI, RuPay, Visa, Mastercard, NetBanking) are processed via 256-bit bank-grade PCI-DSS encrypted payment gateways. We never store credit card CVVs or bank credentials.</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-bell text-amber-600"></i>Order Fulfillment Notifications</h4>
+          <p>Your contact information is strictly utilized to send dispatch notifications, live delivery courier tracking links, and official GST invoices via WhatsApp and SMS.</p>
+        </div>
+      </div>
+    `
+  },
+  shipping: {
+    title: "Shipping & Express Delivery Policy",
+    badge: "Pan-India Express",
+    badgeClass: "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300",
+    content: `
+      <p class="mb-3 text-xs leading-relaxed text-neutral-600 dark:text-neutral-300">Every box is crafted fresh in our morning batch and packed in proprietary aroma-lock, shock-resistant food grade packaging with food-safe cold gel pads when required.</p>
+      <div class="space-y-3 text-xs text-neutral-600 dark:text-neutral-300">
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-bolt text-gold"></i>Same-Day Kitchen Dispatch</h4>
+          <p>Orders received before 2:00 PM IST are dispatched on the same calendar day. Delhi NCR deliveries arrive within 4 to 8 hours.</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-plane text-blue-600"></i>Express Air Logistics (Pan-India)</h4>
+          <p>Tier-1 metros (Mumbai, Bengaluru, Hyderabad, Chennai, Kolkata, Pune) reach in 24–48 hours via premium air courier logistics (BlueDart &amp; Delhivery Express).</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-truck-fast text-emerald-600"></i>Free Shipping Across India</h4>
+          <p>Enjoy complimentary express delivery across India on all orders above ₹999. Live tracking number provided immediately upon courier pickup.</p>
+        </div>
+      </div>
+    `
+  },
+  refund: {
+    title: "100% Freshness & Replacement Guarantee",
+    badge: "Zero-Risk Assurance",
+    badgeClass: "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300",
+    content: `
+      <p class="mb-3 text-xs leading-relaxed text-neutral-600 dark:text-neutral-300">We stand firmly behind our 50-year heritage of 100% pure cow desi ghee sweets. Your complete delight is unconditionally guaranteed.</p>
+      <div class="space-y-3 text-xs text-neutral-600 dark:text-neutral-300">
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-award text-gold"></i>Zero-Hassle Freshness Guarantee</h4>
+          <p>If any sweet or savory product arrives damaged, broken, melted, or compromised in transit, we provide an immediate free replacement or 100% full refund.</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-600"></i>Instant WhatsApp Settlement</h4>
+          <p>Simply take a quick photo of the box and message our Order Desk on WhatsApp at +91 98765 43210 within 24 hours of delivery. Refunds are credited within 2 to 4 hours.</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-leaf text-emerald-600"></i>No Return Shipping Required</h4>
+          <p>For food safety and hygiene reasons, you are never asked to return perishable sweets back to us.</p>
+        </div>
+      </div>
+    `
+  },
+  terms: {
+    title: "Terms of Service & Quality Standards",
+    badge: "FSSAI Lic. 10019011002345",
+    badgeClass: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300",
+    content: `
+      <p class="mb-3 text-xs leading-relaxed text-neutral-600 dark:text-neutral-300">By ordering on SweetBliss, you are guaranteed authentic preparation under strict FSSAI central regulatory hygiene standards.</p>
+      <div class="space-y-3 text-xs text-neutral-600 dark:text-neutral-300">
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-seedling text-emerald-600"></i>100% Pure Vegetarian Kitchens</h4>
+          <p>All items are crafted in dedicated egg-free vegetarian kitchens using certified A2 cow desi ghee, sulfur-free sugar, and highest-grade dry fruits.</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-calendar-check text-amber-600"></i>Shelf Life &amp; Storage Instructions</h4>
+          <p>Dry fruit and ghee sweets maintain full freshness for 15–20 days at room temperature. Milk and mawa sweets have a 4–7 day shelf life and should be refrigerated upon unboxing.</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-handshake-angle text-gold"></i>Wedding &amp; Bespoke Bulk Gifting</h4>
+          <p>Custom ribbon branding, foil gold invitation tags, and personalized cards are confirmed with a digital proof prior to kitchen batch production.</p>
+        </div>
+      </div>
+    `
+  }
+};
 
+function openPolicyModal(policyKey) {
+  const policy = SWEETBLISS_POLICIES[policyKey] || SWEETBLISS_POLICIES['privacy'];
+  let modal = document.getElementById('sweetPolicyModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'sweetPolicyModal';
+    modal.className = 'fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300';
+    modal.innerHTML = `
+      <div class="bg-white dark:bg-[#1E191B] border border-amber-200/80 dark:border-neutral-700 rounded-3xl w-full max-w-lg max-h-[85vh] flex flex-col shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+        <div class="p-5 border-b border-amber-100 dark:border-neutral-800 flex items-center justify-between bg-amber-50/50 dark:bg-neutral-900/50">
+          <div class="flex items-center gap-2.5">
+            <span id="spmBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold"></span>
+            <h3 id="spmTitle" class="text-sm font-bold text-neutral-900 dark:text-white"></h3>
+          </div>
+          <button type="button" onclick="closePolicyModal()" class="w-8 h-8 rounded-full bg-white dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center shadow-sm border border-neutral-200 dark:border-neutral-700 transition" aria-label="Close modal">
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+        <div id="spmContent" class="p-5 sm:p-6 overflow-y-auto space-y-3"></div>
+        <div class="p-4 border-t border-amber-100 dark:border-neutral-800 bg-amber-50/30 dark:bg-neutral-900/30 flex items-center justify-between gap-3 text-xs">
+          <span class="text-[11px] text-neutral-500 dark:text-neutral-400">SweetBliss Customer Protection</span>
+          <button type="button" onclick="closePolicyModal()" class="btn-primary text-xs py-1.5 px-4 font-semibold">Understood</button>
+        </div>
+      </div>
+    `;
+    modal.addEventListener('click', closePolicyModal);
+    document.body.appendChild(modal);
+  }
+
+  document.getElementById('spmTitle').textContent = policy.title;
+  const badgeEl = document.getElementById('spmBadge');
+  badgeEl.className = `px-2.5 py-0.5 rounded-full text-xs font-bold ${policy.badgeClass}`;
+  badgeEl.textContent = policy.badge;
+  document.getElementById('spmContent').innerHTML = policy.content;
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePolicyModal() {
+  const modal = document.getElementById('sweetPolicyModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+}
 

@@ -571,113 +571,232 @@
     </main>
 
     <!-- Shared Master Footer -->
-    <footer
-      class="bg-white dark:bg-[#120F10] text-neutral-700 dark:text-neutral-300 border-t border-amber-100 dark:border-neutral-800 pt-16 pb-10">
-      <div class="container mx-auto px-4 lg:px-8">
-        <!-- Main Footer 4-Column Balanced Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-12 mb-12 items-start">
-          <!-- Col 1: Brand & Heritage Trust -->
-          <div class="space-y-4">
-            <a href="index.html" class="inline-block" aria-label="SweetBliss Home">
-              <img src="assets/logo.svg" alt="SweetBliss Traditional Mithai &amp; Snacks" class="h-10 w-auto" />
-            </a>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              SweetBliss is a celebrated heritage confectionery committed to pure ingredients, 100% A2 cow desi ghee,
-              and authentic Indian mithai &amp; savory namkeen recipes handcrafted since 1974.
-            </p>
-            <div class="pt-1 flex items-center gap-2 text-[11px] font-semibold text-amber-700 dark:text-amber-400">
-              <i class="fa-solid fa-certificate text-gold"></i>
-              <span>FSSAI Central Lic. 10019011002345</span>
-            </div>
-            <div class="flex items-center gap-2.5 pt-1 text-burgundy dark:text-gold">
-              <a href="#"
-                class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition shadow-sm"
-                aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-              <a href="#"
-                class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition shadow-sm"
-                aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
-              <a href="#"
-                class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition shadow-sm"
-                aria-label="YouTube"><i class="fa-brands fa-youtube text-xs"></i></a>
-              <a href="https://wa.me/919876543210" target="_blank"
-                class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition shadow-sm"
-                aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
-            </div>
+    <footer class="bg-white dark:bg-[#120F10] text-neutral-700 dark:text-neutral-300 border-t border-amber-100 dark:border-neutral-800 pt-14 pb-10">
+    <div class="container mx-auto px-4 lg:px-8">
+      <!-- Trust Guarantee Highlights Bar -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-5 mb-10 rounded-2xl bg-amber-50/70 dark:bg-neutral-900/60 border border-amber-200/60 dark:border-neutral-800">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 flex items-center justify-center text-lg flex-shrink-0">
+            <i class="fa-solid fa-leaf"></i>
           </div>
-
-          <!-- Col 2: Quick Links -->
           <div>
-            <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Quick Links</h4>
-            <ul class="space-y-2 text-xs">
-              <li><a href="index.html" class="hover:text-burgundy dark:hover:text-gold transition">Classic Home</a></li>
-              <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">Products (Sweets &amp; Snacks)</a></li>
-              <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Festival Specials</a></li>
-              <li><a href="home-2.html" class="hover:text-burgundy dark:hover:text-gold transition">Wedding Shagun</a></li>
-              <li><a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition font-bold">Bulk &amp; Corporate</a></li>
-              <li><a href="track-order.html" class="hover:text-burgundy dark:hover:text-gold transition">Track Your Order</a></li>
-            </ul>
-          </div>
-
-          <!-- Col 3: Festival Specials -->
-          <div>
-            <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4">Festival Specials</h4>
-            <ul class="space-y-2 text-xs">
-              <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Diwali Kaju Hampers</a></li>
-              <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Holi Mawa Gujiya</a></li>
-              <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Rakhi Sweet Trunks</a></li>
-              <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Ganesh Kesar Modak</a></li>
-              <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Lohri Gur &amp; Til Gajak</a></li>
-            </ul>
-          </div>
-
-          <!-- Col 4: Stay Sweet & Store Timings -->
-          <div>
-            <h4
-              class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-              <span>Stay Sweet</span>
-            </h4>
-            <p class="text-xs text-neutral-500 dark:text-neutral-400 mb-3 leading-relaxed">
-              Subscribe for seasonal festive privileges, morning fresh batch updates &amp; exclusive gifting previews.
-            </p>
-            <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2 mb-4">
-              <input type="email" placeholder="Your email address" required
-                class="w-full px-3 py-2 text-xs rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold transition" />
-              <button type="submit" class="btn-primary w-full text-xs py-2">Join SweetBliss Club</button>
-            </form>
-            <div
-              class="pt-3 border-t border-neutral-100 dark:border-neutral-800 space-y-1.5 text-[11px] text-neutral-500 dark:text-neutral-400">
-              <div class="flex items-center gap-1.5">
-                <i class="fa-regular fa-clock text-gold"></i>
-                <span>Open Daily: 8:00 AM – 10:30 PM</span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <i class="fa-solid fa-phone text-gold"></i>
-                <span>Order Desk: +91 98765 43210</span>
-              </div>
-            </div>
+            <h5 class="text-xs font-bold text-neutral-900 dark:text-white">100% Pure Veg</h5>
+            <p class="text-[11px] text-neutral-500 dark:text-neutral-400">Green Dot Certified</p>
           </div>
         </div>
-
-        <!-- Bottom Bar with Protected Right Margin for Floating Widget -->
-        <div
-          class="pt-6 border-t border-amber-100 dark:border-neutral-800 flex flex-col md:flex-row items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 gap-4 pr-0 sm:pr-20 lg:pr-24">
-          <p class="text-center md:text-left">© 2026 SweetBliss Confectionery Private Limited. All rights reserved.</p>
-          <div class="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2 text-[11px]">
-            <span class="text-neutral-400">Pure Desi Ghee Since 1974</span>
-            <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">•</span>
-            <a href="about.html" class="hover:text-burgundy dark:hover:text-gold transition">Our Story</a>
-            <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">•</span>
-            <a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition">Support</a>
-            <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">•</span>
-            <a href="404.html" class="hover:text-burgundy dark:hover:text-gold transition">404 Demo</a>
-            <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">•</span>
-            <a href="coming-soon.html" class="hover:text-burgundy dark:hover:text-gold transition">Coming Soon</a>
-            <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">•</span>
-            <a href="maintenance.html" class="hover:text-burgundy dark:hover:text-gold transition">Maintenance</a>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 flex items-center justify-center text-lg flex-shrink-0">
+            <i class="fa-solid fa-bowl-food"></i>
+          </div>
+          <div>
+            <h5 class="text-xs font-bold text-neutral-900 dark:text-white">Pure Desi Ghee</h5>
+            <p class="text-[11px] text-neutral-500 dark:text-neutral-400">Zero Palm Oil / Dalda</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-200/50 dark:bg-neutral-800 text-burgundy dark:text-gold flex items-center justify-center text-lg flex-shrink-0">
+            <i class="fa-solid fa-box-archive"></i>
+          </div>
+          <div>
+            <h5 class="text-xs font-bold text-neutral-900 dark:text-white">Tamper-Proof Seal</h5>
+            <p class="text-[11px] text-neutral-500 dark:text-neutral-400">Aroma-Lock Freshness</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 flex items-center justify-center text-lg flex-shrink-0">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <div>
+            <h5 class="text-xs font-bold text-neutral-900 dark:text-white">Pan-India Express</h5>
+            <p class="text-[11px] text-neutral-500 dark:text-neutral-400">Same-Day Dispatch</p>
           </div>
         </div>
       </div>
-    </footer>
+
+      <!-- Main Footer 4-Column Balanced Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-12 mb-12 items-start">
+        <!-- Col 1: Brand & Heritage Trust -->
+        <div class="space-y-4">
+          <a href="index.html" class="inline-block" aria-label="SweetBliss Home">
+            <img src="assets/logo.svg" alt="SweetBliss Traditional Mithai &amp; Snacks" class="h-10 w-auto" />
+          </a>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            SweetBliss is a celebrated heritage confectionery committed to pure ingredients, 100% A2 cow desi ghee, and authentic Indian mithai &amp; savory namkeen recipes handcrafted since 1974.
+          </p>
+          <div class="pt-1 flex flex-wrap items-center gap-2 text-[11px] font-semibold text-amber-700 dark:text-amber-400">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 dark:bg-neutral-800 border border-amber-200/80 dark:border-neutral-700">
+              <i class="fa-solid fa-certificate text-gold"></i>
+              <span>FSSAI Central Lic. 10019011002345</span>
+            </span>
+          </div>
+          <div class="pt-1">
+            <p class="text-[11px] font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-2">Connect With Us</p>
+            <div class="flex items-center gap-2.5 text-burgundy dark:text-gold">
+              <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition shadow-sm" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+              <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition shadow-sm" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
+              <a href="#" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-burgundy hover:text-white transition shadow-sm" aria-label="YouTube"><i class="fa-brands fa-youtube text-xs"></i></a>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-amber-50 dark:bg-neutral-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition shadow-sm" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Shop by Category -->
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4 flex items-center gap-1.5">
+            <i class="fa-solid fa-cookie-bite text-gold"></i>
+            <span>Shop Categories</span>
+          </h4>
+          <ul class="space-y-2.5 text-xs text-neutral-600 dark:text-neutral-400">
+            <li>
+              <a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                <span>Pure Desi Ghee Mithai</span>
+              </a>
+            </li>
+            <li>
+              <a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                <span>Crispy Namkeen &amp; Savories</span>
+              </a>
+            </li>
+            <li>
+              <a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                <span>Festive Gift Boxes &amp; Hampers</span>
+              </a>
+            </li>
+            <li>
+              <a href="home-2.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                <span>Wedding Shagun &amp; Royal Hampers</span>
+              </a>
+            </li>
+            <li>
+              <a href="index.html#customBoxBuilder" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                <span>Bespoke 4-in-1 Box Builder</span>
+              </a>
+            </li>
+            <li>
+              <a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2 font-semibold text-burgundy dark:text-gold">
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                <span>View All 24+ Delicacies</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care & Help -->
+        <div>
+          <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-4 flex items-center gap-1.5">
+            <i class="fa-solid fa-headset text-gold"></i>
+            <span>Customer Help &amp; Care</span>
+          </h4>
+          <ul class="space-y-2.5 text-xs text-neutral-600 dark:text-neutral-400">
+            <li>
+              <a href="track-order.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2">
+                <i class="fa-solid fa-truck text-[11px] text-amber-600 dark:text-amber-400"></i>
+                <span>Track Your Order (Live Status)</span>
+              </a>
+            </li>
+            <li>
+              <a href="index.html#homePincodeInput" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-[11px] text-amber-600 dark:text-amber-400"></i>
+                <span>Check Delivery Pincode</span>
+              </a>
+            </li>
+            <li>
+              <a href="pricing.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2">
+                <i class="fa-solid fa-briefcase text-[11px] text-amber-600 dark:text-amber-400"></i>
+                <span>Corporate &amp; Bulk Gifting</span>
+              </a>
+            </li>
+            <li>
+              <a href="about.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-[11px] text-amber-600 dark:text-amber-400"></i>
+                <span>Our Heritage Story (Since 1974)</span>
+              </a>
+            </li>
+            <li>
+              <a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition flex items-center gap-2">
+                <i class="fa-solid fa-store text-[11px] text-amber-600 dark:text-amber-400"></i>
+                <span>Contact &amp; Store Location</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition flex items-center gap-2 font-medium">
+                <i class="fa-brands fa-whatsapp text-[12px] text-emerald-600"></i>
+                <span>WhatsApp Sweet Concierge</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Order Desk & Sweet Club -->
+        <div class="space-y-4">
+          <div>
+            <h4 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <i class="fa-solid fa-bell-concierge text-gold"></i>
+              <span>Order &amp; Support Desk</span>
+            </h4>
+            <div class="p-3.5 rounded-xl bg-amber-50/90 dark:bg-neutral-800/80 border border-amber-200/70 dark:border-neutral-700 space-y-2 text-xs">
+              <a href="tel:+919876543210" class="flex items-center gap-2 font-bold text-neutral-900 dark:text-white hover:text-burgundy dark:hover:text-gold transition">
+                <i class="fa-solid fa-phone text-burgundy dark:text-gold"></i>
+                <span>+91 98765 43210</span>
+              </a>
+              <div class="flex items-center gap-2 text-[11px] text-neutral-600 dark:text-neutral-400">
+                <i class="fa-regular fa-clock text-amber-600 dark:text-amber-400"></i>
+                <span>Open Daily: 8:00 AM – 10:30 PM</span>
+              </div>
+              <div class="flex items-center gap-2 text-[11px] text-emerald-700 dark:text-emerald-400 font-medium">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Morning Fresh Batches Dispatched Daily</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h5 class="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-wider mb-1">
+              Join SweetBliss Club
+            </h5>
+            <p class="text-[11px] text-neutral-500 dark:text-neutral-400 mb-2 leading-relaxed">
+              Get ₹100 discount coupon &amp; festive tasting previews.
+            </p>
+            <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2">
+              <div class="relative">
+                <input type="email" placeholder="Your email address" required
+                  class="w-full px-3 py-2 text-xs rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:border-burgundy dark:focus:border-gold transition" />
+              </div>
+              <button type="submit" class="btn-primary w-full text-xs py-2 shadow-sm flex items-center justify-center gap-1.5 font-semibold">
+                <span>Join SweetBliss Club</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar with Protected Right Margin for Floating Widget -->
+      <div class="pt-6 border-t border-amber-100 dark:border-neutral-800 flex flex-col md:flex-row items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 gap-4 pr-0 sm:pr-20 lg:pr-24">
+        <div class="flex flex-col sm:flex-row items-center gap-2 text-center md:text-left">
+          <p>&copy; 2026 SweetBliss Confectionery Private Limited. All rights reserved.</p>
+          <span class="hidden sm:inline text-neutral-300 dark:text-neutral-700">&bull;</span>
+          <span class="text-neutral-400">Pure Desi Ghee Since 1974</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2 text-[11px]">
+          <button type="button" onclick="openPolicyModal('privacy')" class="hover:text-burgundy dark:hover:text-gold transition">Privacy Policy</button>
+          <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">&bull;</span>
+          <button type="button" onclick="openPolicyModal('terms')" class="hover:text-burgundy dark:hover:text-gold transition">Terms of Service</button>
+          <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">&bull;</span>
+          <button type="button" onclick="openPolicyModal('shipping')" class="hover:text-burgundy dark:hover:text-gold transition">Shipping &amp; Delivery</button>
+          <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">&bull;</span>
+          <button type="button" onclick="openPolicyModal('refund')" class="hover:text-burgundy dark:hover:text-gold transition">Refund &amp; Freshness</button>
+          <span class="text-neutral-300 dark:text-neutral-700 hidden sm:inline">&bull;</span>
+          <a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition">Help &amp; Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
     <script src="js/app.js"></script>
 </body>
