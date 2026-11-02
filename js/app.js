@@ -571,7 +571,7 @@ function addToCart(productId, weight = '250g', quantity = 1, triggerBtn = null) 
   }
 
   openCartDrawer();
-  showToast(`Added ${quantity}x ${product.name} (${weight}) to your bag!`, 'success');
+  // Automatically added to bag drawer without popup notification
 }
 
 function updateCartQuantity(index, delta) {
@@ -579,7 +579,6 @@ function updateCartQuantity(index, delta) {
   AppState.cart[index].quantity += delta;
   if (AppState.cart[index].quantity <= 0) {
     AppState.cart.splice(index, 1);
-    showToast('Item removed from cart', 'primary', 2000);
   }
   AppState.saveCart();
   renderCartDrawer();
@@ -587,11 +586,9 @@ function updateCartQuantity(index, delta) {
 
 function removeFromCart(index) {
   if (!AppState.cart[index]) return;
-  const item = AppState.cart[index];
   AppState.cart.splice(index, 1);
   AppState.saveCart();
   renderCartDrawer();
-  showToast(`Removed ${item.name} from cart`, 'primary', 2000);
 }
 
 function getCartSubtotal() {
@@ -744,7 +741,6 @@ function renderWishlistDrawer() {
 function moveWishlistItemToCart(productId) {
   addToCart(productId, '250g', 1);
   removeFromWishlist(productId);
-  showToast('Moved delicacy to your Bag!', 'gold', 2500);
 }
 
 function moveAllWishlistToCart() {
@@ -758,7 +754,6 @@ function moveAllWishlistToCart() {
   renderWishlistDrawer();
   closeWishlistDrawer();
   openCartDrawer();
-  showToast('All saved delicacies added to your Bag!', 'gold', 3000);
 }
 
 function removeFromWishlist(productId) {
@@ -1632,7 +1627,7 @@ function addCustomItemToCart(name, price, weight, image, quantity = 1) {
   AppState.saveCart();
   renderCartDrawer();
   openCartDrawer();
-  showToast(`Added "${name}" to your bag!`, 'gold', 3000);
+  // Automatically added to bag drawer without popup notification
 }
 
 // ==========================================
@@ -1816,9 +1811,26 @@ const BoxBuilder = {
   },
 
   addBoxToCart() {
-    if (this.isPacking) return;
-    this.isPacking = true;
-    this.startPackagingCeremony();
+    const itemsList = Object.values(this.slots).map(s => s.name).join(', ');
+    const rawTotal = Object.values(this.slots).reduce((sum, item) => sum + (item ? item.price : 0), 0);
+    const discountedTotal = Math.round(rawTotal * 0.9);
+
+    addCustomItemToCart(
+      `Custom 4-in-1 Box (${itemsList})`,
+      discountedTotal,
+      '1kg Curated Box',
+      this.slots[1].image,
+      1
+    );
+
+    const btn = document.getElementById('addBoxToBagBtn');
+    if (btn) {
+      const origText = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-check text-xs mr-1 text-gold"></i> Added to Bag!';
+      setTimeout(() => {
+        btn.innerHTML = origText;
+      }, 1500);
+    }
   },
 
   startPackagingCeremony() {
