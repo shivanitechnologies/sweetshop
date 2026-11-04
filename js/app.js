@@ -1256,7 +1256,7 @@ function openQuickView(productId) {
 
         <div class="flex gap-3">
           <button id="qvAddToCartBtn" onclick="enquireProduct('${product.id}'); closeQuickView();" class="btn-primary flex-1 text-xs py-3 flex items-center justify-center gap-2">
-            <i class="fa-regular fa-paper-plane"></i> Enquire Now
+            <i class="fa-solid fa-bag-shopping"></i> Order Now
           </button>
           <a href="service-details.html?id=${product.id}" class="btn-outline text-xs px-3 py-3" title="Full Details">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
