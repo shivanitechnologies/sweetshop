@@ -189,67 +189,126 @@
       </div>
     </aside>
 
-    <main>
-      <!-- Festive Hero with Live Countdown -->
-      <section
-        class="py-14 sm:py-20 bg-gradient-to-r from-burgundy via-[#8F273E] to-burgundy-900 text-white relative overflow-hidden">
+        <main>
+      <!-- SECTION 1: Auspicious Celebratory Festive Hero -->
+      <section class="relative bg-gradient-to-b from-[#380e18] via-[#521223] to-[#2b0a13] text-white overflow-hidden pt-12 pb-16 md:pt-16 md:pb-24 border-b border-amber-900/40">
+        <!-- Ambient Festive Diya Glow & Traditional Pattern -->
         <div class="absolute inset-0 ornament-pattern opacity-10 pointer-events-none"></div>
-        <div class="absolute -top-32 -left-32 w-96 h-96 bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="container mx-auto px-4 lg:px-8 text-center max-w-4xl relative z-10">
-          <div
-            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/20 border border-gold/40 text-gold text-xs font-bold uppercase tracking-widest mb-4">
-            <i class="fa-solid fa-sparkles"></i> Auspicious Celebrations Calendar 2026
-          </div>
-
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
-            Celebrate Sacred Milestones with <br class="hidden sm:inline" />
-            <span class="gold-gradient-text gold-sweep-text">Ancestral Purity</span>
-          </h1>
-
-          <p class="text-xs sm:text-sm md:text-base text-neutral-200 max-w-2xl mx-auto leading-relaxed mb-8">
-            In India, every festival begins with sweet blessings. Explore our seasonal artisanal delicacies prepared
-            exclusively for upcoming festivals, slow-cooked in 100% pure A2 cow ghee and consecrated with saffron.
-          </p>
-
-          <!-- Live Festival Countdown Card -->
-          <div
-            class="max-w-xl mx-auto bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-3xl border border-white/20 shadow-2xl mb-8">
-            <span class="text-xs font-bold uppercase tracking-wider text-amber-200 block mb-3">
-              🪔 Grand Diwali Mahotsav 2026 Pre-Booking Closes In:
-            </span>
-            <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
-              <div class="bg-black/30 p-2.5 sm:p-3 rounded-2xl border border-white/10">
-                <span id="countDays" class="text-xl sm:text-3xl font-black text-gold block">14</span>
-                <span class="text-[10px] sm:text-xs text-neutral-300 uppercase">Days</span>
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Hero Left Column: Auspicious Narrative & Live Timer -->
+            <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/20 border border-gold/40 text-gold text-xs font-bold uppercase tracking-wider shadow-inner">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+                <span>🪔 Shubh Utsav 2026 • Sacred Festive Collection</span>
               </div>
-              <div class="bg-black/30 p-2.5 sm:p-3 rounded-2xl border border-white/10">
-                <span id="countHours" class="text-xl sm:text-3xl font-black text-gold block">08</span>
-                <span class="text-[10px] sm:text-xs text-neutral-300 uppercase">Hours</span>
+
+              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
+                Celebrate Sacred Milestones with <br class="hidden sm:inline" />
+                <span class="gold-gradient-text gold-sweep-text">Ancestral Purity</span> &amp; Royal Sweets
+              </h1>
+
+              <p class="text-xs sm:text-sm md:text-base text-neutral-200/90 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                In Indian tradition, every auspicious celebration begins with sacred sweet blessings. Indulge in our limited-edition festival specialties, slow-simmered in 100% bilona A2 cow desi ghee, infused with royal Pampore saffron, and packed in heirloom gift trunks.
+              </p>
+
+              <!-- Live Working Festival Countdown Card -->
+              <div class="bg-black/35 backdrop-blur-md p-5 rounded-2xl border border-gold/30 shadow-2xl max-w-lg mx-auto lg:mx-0">
+                <div class="flex items-center justify-between mb-3 text-xs">
+                  <span class="font-bold text-amber-200 uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="fa-solid fa-sparkles text-gold"></i> Diwali &amp; Festive Pre-Booking Closes In:
+                  </span>
+                  <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold">
+                    Slots Open
+                  </span>
+                </div>
+                <div class="grid grid-cols-4 gap-2 sm:gap-3 text-center">
+                  <div class="bg-white/5 p-2 sm:p-2.5 rounded-xl border border-white/10">
+                    <span id="countDays" class="text-xl sm:text-2xl font-black text-gold block">12</span>
+                    <span class="text-[10px] text-neutral-300 uppercase tracking-wider">Days</span>
+                  </div>
+                  <div class="bg-white/5 p-2 sm:p-2.5 rounded-xl border border-white/10">
+                    <span id="countHours" class="text-xl sm:text-2xl font-black text-gold block">18</span>
+                    <span class="text-[10px] text-neutral-300 uppercase tracking-wider">Hours</span>
+                  </div>
+                  <div class="bg-white/5 p-2 sm:p-2.5 rounded-xl border border-white/10">
+                    <span id="countMinutes" class="text-xl sm:text-2xl font-black text-gold block">34</span>
+                    <span class="text-[10px] text-neutral-300 uppercase tracking-wider">Mins</span>
+                  </div>
+                  <div class="bg-white/5 p-2 sm:p-2.5 rounded-xl border border-white/10">
+                    <span id="countSeconds" class="text-xl sm:text-2xl font-black text-gold block">52</span>
+                    <span class="text-[10px] text-neutral-300 uppercase tracking-wider">Secs</span>
+                  </div>
+                </div>
               </div>
-              <div class="bg-black/30 p-2.5 sm:p-3 rounded-2xl border border-white/10">
-                <span id="countMinutes" class="text-xl sm:text-3xl font-black text-gold block">42</span>
-                <span class="text-[10px] sm:text-xs text-neutral-300 uppercase">Mins</span>
-              </div>
-              <div class="bg-black/30 p-2.5 sm:p-3 rounded-2xl border border-white/10">
-                <span id="countSeconds" class="text-xl sm:text-3xl font-black text-gold block">18</span>
-                <span class="text-[10px] sm:text-xs text-neutral-300 uppercase">Secs</span>
+
+              <!-- Action CTAs -->
+              <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+                <a href="#festivalsCatalog" class="btn-gold min-w-[210px] h-12 px-7 text-sm font-bold inline-flex items-center justify-center gap-2.5 rounded-full shadow-xl hover:scale-105 transition-all">
+                  <i class="fa-solid fa-box-open text-neutral-900 text-xs"></i>
+                  <span>Pre-Book Festival Boxes</span>
+                </a>
+                <a href="#festiveEstimator" class="btn-outline-gold min-w-[210px] h-12 px-7 text-sm font-bold inline-flex items-center justify-center gap-2.5 rounded-full shadow hover:bg-gold/10 transition-all">
+                  <i class="fa-solid fa-file-invoice text-gold text-xs"></i>
+                  <span>Corporate Festive Quotes</span>
+                </a>
               </div>
             </div>
-          </div>
 
-          <div class="flex flex-wrap items-center justify-center gap-3.5">
-            <a href="#festivalsCatalog" class="btn-gold text-xs sm:text-sm py-3 px-6 shadow-lg">
-              <i class="fa-solid fa-box-open mr-1"></i> Pre-Book Festival Boxes
-            </a>
-            <a href="pricing.html#bulkEnquiryForm" class="btn-outline-gold text-xs sm:text-sm py-3 px-6">
-              <i class="fa-solid fa-file-invoice mr-1"></i> Corporate Festive Quotes
-            </a>
+            <!-- Hero Right Column: Featured Festival Masterpiece Card -->
+            <div class="lg:col-span-5">
+              <div class="relative bg-gradient-to-b from-[#6b192c] to-[#3a0d18] rounded-3xl p-5 sm:p-6 border-2 border-gold shadow-2xl shadow-gold/20 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300">
+                <!-- Floating Crown Badge -->
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 via-gold to-amber-500 text-neutral-900 font-black text-[10px] uppercase tracking-wider px-4 py-1 rounded-full shadow-lg flex items-center gap-1.5 whitespace-nowrap">
+                  <i class="fa-solid fa-crown text-burgundy"></i> Limited Edition Festive Spotlight
+                </div>
+
+                <!-- Showcase Image -->
+                <div class="relative aspect-[16/11] rounded-2xl overflow-hidden mb-4 border border-gold/40 shadow-xl">
+                  <img src="assets/images/festive_diwali_grand_hamper.jpg" alt="Diwali Grand Luxury Gift Hamper" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+                  <div class="absolute top-3 left-3">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/90 text-white text-[10px] font-bold shadow">
+                      <span class="w-2 h-2 rounded-full bg-white animate-ping"></span> 100 Trunks Handcrafted
+                    </span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                    <span class="font-extrabold text-gold">The Shubh Laxmi Royal Trunk</span>
+                    <span class="text-neutral-200 text-[11px]"><i class="fa-solid fa-gift text-gold mr-1"></i> 1kg Velvet Box</span>
+                  </div>
+                </div>
+
+                <!-- Card Details -->
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-amber-200 font-bold uppercase tracking-wider text-[11px]">Diwali &amp; Milestones</span>
+                    <span class="text-emerald-400 font-semibold text-[11px]"><i class="fa-solid fa-certificate text-gold mr-1"></i> Pure Silver Vark</span>
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-gold transition-colors">
+                    The Shubh Laxmi Velvet Gifting Trunk
+                  </h3>
+                  <p class="text-xs text-neutral-200 leading-relaxed font-normal">
+                    Assorted Royal Kaju Katli, Saffron Motichoor, roasted whole Goan cashews, antique brass puja diya, and consecrated silver blessings.
+                  </p>
+                </div>
+
+                <!-- Action Button -->
+                <button onclick="enquireProduct('sb-01', '1kg')" class="w-full py-3 px-4 rounded-xl btn-gold text-neutral-900 font-black text-xs shadow-xl flex items-center justify-center gap-2 hover:scale-[1.02] transition-all">
+                  <i class="fa-solid fa-gift"></i>
+                  <span>Reserve Your Festive Trunk Now</span>
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      <!-- Purity & Freshness Promise Strip -->
+      <!-- SECTION 2: Purity & Freshness Promise Strip -->
       <div class="bg-amber-100 dark:bg-[#201B1D] py-4 border-y border-amber-200 dark:border-neutral-800">
         <div class="container mx-auto px-4 lg:px-8">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-xs">
@@ -259,191 +318,133 @@
             </div>
             <div class="flex items-center justify-center gap-2 font-semibold text-neutral-800 dark:text-neutral-200">
               <i class="fa-solid fa-box text-burgundy dark:text-gold text-sm"></i>
-              <span>Aroma-Lock Vacuum Seals</span>
+              <span>Aroma-Lock Nitrogen Seals</span>
             </div>
             <div class="flex items-center justify-center gap-2 font-semibold text-neutral-800 dark:text-neutral-200">
               <i class="fa-solid fa-snowflake text-burgundy dark:text-gold text-sm"></i>
-              <span>Cold-Chain Gel Packaging</span>
+              <span>Cold-Chain Express Delivery</span>
             </div>
             <div class="flex items-center justify-center gap-2 font-semibold text-neutral-800 dark:text-neutral-200">
-              <i class="fa-solid fa-truck-fast text-burgundy dark:text-gold text-sm"></i>
-              <span>Guaranteed Date Delivery</span>
+              <i class="fa-solid fa-envelope-open-text text-burgundy dark:text-gold text-sm"></i>
+              <span>Custom Gold-Embossed Cards</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Festive Seasonal Catalog Area -->
+      <!-- SECTION 3: Curated Festive Offerings by Celebration (Interactive Tabs & Rich Cards) -->
       <section id="festivalsCatalog" class="py-16 md:py-24 bg-white dark:bg-[#1A1617]">
         <div class="container mx-auto px-4 lg:px-8">
-
-          <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-xs font-bold uppercase tracking-widest text-burgundy dark:text-gold block mb-2">Sacred
-              Indian Traditions</span>
+          
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="text-xs font-bold uppercase tracking-widest text-burgundy dark:text-gold block mb-2">
+              Sacred Indian Traditions
+            </span>
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white">
               Curated Festive Offerings by Celebration
             </h2>
-            <p class="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mt-2">
-              Each festival carries its own auspicious mithai heritage. Select your festival below to explore
-              hand-picked traditional sweets.
+            <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-2">
+              Each Indian festival has its own sacred mithai heritage. Select your celebration below to explore hand-simmered auspicious sweets.
             </p>
           </div>
 
-          <!-- Festival Quick Filter Bar -->
-          <div
-            class="flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto pb-4 mb-12 scrollbar-none px-2 sm:px-0">
-            <button type="button" onclick="filterFestivals('diwali', this)"
+          <!-- Festival Filter Pill Buttons -->
+          <div class="flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto pb-6 scrollbar-hide">
+            <button onclick="filterFestivals('all', this)"
               class="festival-pill-btn active px-5 py-2.5 rounded-full text-xs font-bold transition whitespace-nowrap bg-burgundy text-white shadow-md">
+              🌟 All Celebrations
+            </button>
+            <button onclick="filterFestivals('diwali', this)"
+              class="festival-pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition whitespace-nowrap bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-amber-100 dark:hover:bg-neutral-700">
               🪔 Diwali &amp; Bhai Dooj
             </button>
-            <button type="button" onclick="filterFestivals('holi', this)"
+            <button onclick="filterFestivals('holi', this)"
               class="festival-pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition whitespace-nowrap bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-amber-100 dark:hover:bg-neutral-700">
               🌸 Holi &amp; Basant
             </button>
-            <button type="button" onclick="filterFestivals('rakhi', this)"
+            <button onclick="filterFestivals('ganesh', this)"
+              class="festival-pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition whitespace-nowrap bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-amber-100 dark:hover:bg-neutral-700">
+              🐘 Ganesh Chaturthi
+            </button>
+            <button onclick="filterFestivals('rakhi', this)"
               class="festival-pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition whitespace-nowrap bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-amber-100 dark:hover:bg-neutral-700">
               🪢 Raksha Bandhan
             </button>
-            <button type="button" onclick="filterFestivals('ganesh', this)"
+            <button onclick="filterFestivals('sankranti', this)"
               class="festival-pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition whitespace-nowrap bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-amber-100 dark:hover:bg-neutral-700">
-              🐘 Ganesh Utsav
-            </button>
-            <button type="button" onclick="filterFestivals('makar', this)"
-              class="festival-pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition whitespace-nowrap bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-amber-100 dark:hover:bg-neutral-700">
-              ☀️ Makar Sankranti &amp; Lohri
+              🪁 Makar Sankranti
             </button>
           </div>
 
-          <!-- Dynamic Festive Grid -->
-          <div id="festiveCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Festive Cards Grid (6 High-Converting Festive Offerings) -->
+          <div id="festiveCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 pt-4">
 
-            <!-- Diwali Special Card 1 -->
-            <div
-              class="festival-card bg-[#FFF8F0] dark:bg-[#201B1D] rounded-3xl border border-amber-200 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+            <!-- Card 1: Diwali Royal Hamper -->
+            <div class="festival-card bg-[#FFF8F0] dark:bg-[#201B1D] rounded-3xl border border-amber-200 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
               data-festival="diwali">
               <div class="h-60 relative overflow-hidden">
-                <img src="assets/images/imperial_velvet_shagun_trunk_1793442028061.jpg"
-                  alt="Diwali Shubh Shagun Platter"
-                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                <span
-                  class="absolute top-3 left-3 bg-burgundy text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
+                <img src="assets/images/festive_diwali_grand_hamper.jpg" alt="Diwali Lakshmi Puja Trunk"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <span class="absolute top-3 left-3 bg-burgundy text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
                   🪔 Diwali Bestseller
                 </span>
-                <span
-                  class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-amber-300 text-xs font-bold py-0.5 px-2.5 rounded-lg">
-                  Complimentary Brass Diya Pair
+                <span class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md text-gold text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                  100% Desi Cow Ghee
                 </span>
               </div>
               <div class="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <span
-                    class="text-[11px] font-bold text-amber-600 dark:text-gold uppercase tracking-wider block mb-1">Grand
-                    Laxmi Puja Special</span>
-                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">The Maharaja Laxmi Puja Platter
-                  </h3>
+                  <span class="text-[11px] font-bold text-amber-600 dark:text-gold uppercase tracking-wider block mb-1">Auspicious Family Trunk</span>
+                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">The Shubh Laxmi Grand Diwali Trunk</h3>
                   <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
-                    Royal assortment of Silver Leaf Kaju Katli, Saffron Motichoor Ladoo, Roasted Jumbo Cashews, and
-                    Auspicious Roli-Chawal set in an embossed festive gold tin.
+                    Pure Silver Kaju Katli diamonds, Saffron Motichoor, and roasted whole dry fruits packed with an antique brass diya in an embroidered velvet box.
                   </p>
-                  <div
-                    class="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400 mb-6 border-y border-amber-200/60 dark:border-neutral-800 py-3">
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> 100%
-                      Pure Cow Ghee Sweets (1kg)</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i>
-                      Handcrafted Brass Akhand Diya included</div>
-                  </div>
-                </div>
-                <div class="flex items-center justify-between pt-2">
-                  <div>
-                    <span class="text-xs text-neutral-400 block">Festive Box Price</span>
-                    <span class="text-xl font-black text-burgundy dark:text-gold">₹1,450</span>
-                  </div>
-                  <button onclick="enquireProduct('sb-14', '1kg')" class="btn-primary text-xs py-2.5 px-4 shadow flex items-center gap-1.5">
-                    <i class="fa-regular fa-paper-plane text-xs"></i> Enquire Diwali Box
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 2: Royal Silver Kaju Katli -->
-            <div
-              class="festival-card bg-[#FFF8F0] dark:bg-[#201B1D] rounded-3xl border border-amber-200 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
-              data-festival="diwali">
-              <div class="h-60 relative overflow-hidden">
-                <img src="assets/images/royal_kaju_katli_1793441959061.jpg"
-                  alt="Royal Silver Kaju Katli"
-                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                <span
-                  class="absolute top-3 left-3 bg-gold text-neutral-900 text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
-                  Pure Goan Cashew
-                </span>
-              </div>
-              <div class="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <span
-                    class="text-[11px] font-bold text-amber-600 dark:text-gold uppercase tracking-wider block mb-1">Timeless
-                    Auspicious Classic</span>
-                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">Royal Silver Kaju Katli (Diwali
-                    Edition)</h3>
-                  <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
-                    Melt-in-mouth cashew diamonds hand-rolled fresh daily with certified vegetarian silver vark. Ideal
-                    for Bhai Dooj and festive family gifting.
-                  </p>
-                  <div
-                    class="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400 mb-6 border-y border-amber-200/60 dark:border-neutral-800 py-3">
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i>
-                      20-Day Extended Freshness Guarantee</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Zero
-                      Palm Oil or Artificial Fillers</div>
+                  <div class="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400 mb-6 border-y border-amber-200/60 dark:border-neutral-800 py-3">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> 21-Day Extended Freshness Lock</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Certified 99.9% Pure Silver Vark</div>
                   </div>
                 </div>
                 <div class="flex items-center justify-between pt-2">
                   <div>
                     <span class="text-xs text-neutral-400 block">Starting from</span>
-                    <span class="text-xl font-black text-burgundy dark:text-gold">₹320</span>
+                    <span class="text-xl font-black text-burgundy dark:text-gold">₹1,150</span>
                   </div>
-                  <button onclick="enquireProduct('sb-01', '500g')" class="btn-primary text-xs py-2.5 px-4 shadow flex items-center gap-1.5">
+                  <button onclick="enquireProduct('sb-01', '1kg')" class="btn-primary text-xs py-2.5 px-4 shadow flex items-center gap-1.5">
                     <i class="fa-regular fa-paper-plane text-xs"></i> Enquire This Pack
                   </button>
                 </div>
               </div>
             </div>
 
-            <!-- Card 3: Holi Shahi Gujiya -->
-            <div
-              class="festival-card bg-[#FFF8F0] dark:bg-[#201B1D] rounded-3xl border border-amber-200 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+            <!-- Card 2: Holi Shahi Gujiya & Thandai -->
+            <div class="festival-card bg-[#FFF8F0] dark:bg-[#201B1D] rounded-3xl border border-amber-200 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
               data-festival="holi">
               <div class="h-60 relative overflow-hidden">
-                <img src="assets/images/shahi_mawa_gujiya_1793444457260.jpg" alt="Shahi Mawa Gujiya"
-                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                <span
-                  class="absolute top-3 left-3 bg-pink-700 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
-                  🌸 Holi Special
+                <img src="assets/images/festive_holi_gujiya_thandai.jpg" alt="Shahi Mawa Gujiya and Thandai"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <span class="absolute top-3 left-3 bg-pink-700 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
+                  🌸 Holi Celebration
+                </span>
+                <span class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md text-amber-300 text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                  Crisp Desi Ghee
                 </span>
               </div>
               <div class="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <span
-                    class="text-[11px] font-bold text-amber-600 dark:text-gold uppercase tracking-wider block mb-1">Crisp
-                    Desi Ghee Pastry</span>
-                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">Shahi Mawa &amp; Coconut Gujiya
-                  </h3>
+                  <span class="text-[11px] font-bold text-amber-600 dark:text-gold uppercase tracking-wider block mb-1">Festival of Colors Special</span>
+                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">Shahi Mawa Gujiya &amp; Kesari Thandai Feast</h3>
                   <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
-                    Golden fried pockets loaded with slow-cooked buffalo milk khoya, freshly grated roasted dry coconut,
-                    pistachios, and saffron essence.
+                    Golden fried flaky pockets loaded with slow-cooked khoya, roasted coconut, pistachios, alongside handcrafted saffron-almond thandai blend.
                   </p>
-                  <div
-                    class="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400 mb-6 border-y border-amber-200/60 dark:border-neutral-800 py-3">
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> 100%
-                      Pure A2 Ghee Fried</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i>
-                      Non-sticky, delicate sugar crust</div>
+                  <div class="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400 mb-6 border-y border-amber-200/60 dark:border-neutral-800 py-3">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> 100% Pure Bilona Cow Ghee Fried</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Delicate, non-sticky crystal glaze</div>
                   </div>
                 </div>
                 <div class="flex items-center justify-between pt-2">
                   <div>
                     <span class="text-xs text-neutral-400 block">Starting from</span>
-                    <span class="text-xl font-black text-burgundy dark:text-gold">₹260</span>
+                    <span class="text-xl font-black text-burgundy dark:text-gold">₹480</span>
                   </div>
                   <button onclick="enquireProduct('sb-02', '500g')" class="btn-primary text-xs py-2.5 px-4 shadow flex items-center gap-1.5">
                     <i class="fa-regular fa-paper-plane text-xs"></i> Enquire Holi Pack
@@ -452,133 +453,364 @@
               </div>
             </div>
 
+            <!-- Card 3: Ganesh Chaturthi Sacred Modak Thali -->
+            <div class="festival-card bg-[#FFF8F0] dark:bg-[#201B1D] rounded-3xl border border-amber-200 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+              data-festival="ganesh">
+              <div class="h-60 relative overflow-hidden">
+                <img src="assets/images/festive_ganesh_modak_thali.jpg" alt="Sacred 21 Modak Thali"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
+                  🐘 Bappa's Favorite
+                </span>
+                <span class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md text-amber-200 text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                  21 Modak Mahaprasad
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <span class="text-[11px] font-bold text-amber-600 dark:text-gold uppercase tracking-wider block mb-1">Ganesh Utsav Mahaprasad</span>
+                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">Sacred 21 Ukadiche &amp; Mawa Modak Thali</h3>
+                  <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
+                    Authentic steamed rice-flour ukadiche modaks filled with freshly grated coconut and organic jaggery, paired with golden fried saffron mawa modaks.
+                  </p>
+                  <div class="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400 mb-6 border-y border-amber-200/60 dark:border-neutral-800 py-3">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Steamed on Festival Morning</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Infused with Kashmiri Saffron &amp; Cardamom</div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div>
+                    <span class="text-xs text-neutral-400 block">Starting from</span>
+                    <span class="text-xl font-black text-burgundy dark:text-gold">₹580</span>
+                  </div>
+                  <button onclick="enquireProduct('sb-03', '500g')" class="btn-primary text-xs py-2.5 px-4 shadow flex items-center gap-1.5">
+                    <i class="fa-regular fa-paper-plane text-xs"></i> Enquire Modak Thali
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Raksha Bandhan Royal Hamper -->
+            <div class="festival-card bg-[#FFF8F0] dark:bg-[#201B1D] rounded-3xl border border-amber-200 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+              data-festival="rakhi">
+              <div class="h-60 relative overflow-hidden">
+                <img src="assets/images/festive_rakhi_royal_hamper.jpg" alt="Raksha Bandhan Hamper"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <span class="absolute top-3 left-3 bg-teal-700 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
+                  🪢 Sibling Bond Special
+                </span>
+                <span class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md text-gold text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                  Designer Rakhi Included
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <span class="text-[11px] font-bold text-amber-600 dark:text-gold uppercase tracking-wider block mb-1">Bespoke Rakhi Keepsake</span>
+                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">The Royal Sibling Velvet Zari Hamper</h3>
+                  <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
+                    Handmade floral zari rakhi, sterling silver peacock roli-chawal dabbi, melt-in-mouth Kaju rolls, anjeer barfi, and golden silk dry fruit potlis.
+                  </p>
+                  <div class="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400 mb-6 border-y border-amber-200/60 dark:border-neutral-800 py-3">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Heirloom Keepsake Box Included</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Pan-India Guaranteed Pre-Rakhi Arrival</div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div>
+                    <span class="text-xs text-neutral-400 block">Starting from</span>
+                    <span class="text-xl font-black text-burgundy dark:text-gold">₹890</span>
+                  </div>
+                  <button onclick="enquireProduct('sb-04', '750g')" class="btn-primary text-xs py-2.5 px-4 shadow flex items-center gap-1.5">
+                    <i class="fa-regular fa-paper-plane text-xs"></i> Enquire Rakhi Hamper
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Makar Sankranti & Winter Harvest -->
+            <div class="festival-card bg-[#FFF8F0] dark:bg-[#201B1D] rounded-3xl border border-amber-200 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+              data-festival="sankranti">
+              <div class="h-60 relative overflow-hidden">
+                <img src="assets/images/festive_makar_sankranti_til.jpg" alt="Makar Sankranti Til Laddu"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <span class="absolute top-3 left-3 bg-amber-700 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
+                  🪁 Harvest &amp; Lohri
+                </span>
+                <span class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md text-amber-200 text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                  Organic Jaggery
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <span class="text-[11px] font-bold text-amber-600 dark:text-gold uppercase tracking-wider block mb-1">Winter Harvest Tradition</span>
+                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">Golden Til-Gud Laddu &amp; Crunchy Chikki Platter</h3>
+                  <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
+                    Roasted aromatic sesame seeds simmered in sticky organic desi gur, paired with crisp caramelized peanut and almond chikki brittle.
+                  </p>
+                  <div class="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400 mb-6 border-y border-amber-200/60 dark:border-neutral-800 py-3">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> 100% Unrefined Desi Jaggery</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Rich in Natural Iron &amp; Minerals</div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div>
+                    <span class="text-xs text-neutral-400 block">Starting from</span>
+                    <span class="text-xl font-black text-burgundy dark:text-gold">₹380</span>
+                  </div>
+                  <button onclick="enquireProduct('sb-08', '500g')" class="btn-primary text-xs py-2.5 px-4 shadow flex items-center gap-1.5">
+                    <i class="fa-regular fa-paper-plane text-xs"></i> Enquire Harvest Pack
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Teej & Royal Malai Ghevar -->
+            <div class="festival-card bg-[#FFF8F0] dark:bg-[#201B1D] rounded-3xl border border-amber-200 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+              data-festival="diwali">
+              <div class="h-60 relative overflow-hidden">
+                <img src="assets/images/royal_malai_ghevar_1793442193024.jpg" alt="Royal Malai Ghevar"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <span class="absolute top-3 left-3 bg-purple-700 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow">
+                  👑 Rajasthani Royal
+                </span>
+                <span class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md text-gold text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                  Pistachio Rabdi Crown
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <span class="text-[11px] font-bold text-amber-600 dark:text-gold uppercase tracking-wider block mb-1">Auspicious Heritage Classic</span>
+                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">The Royal Malai Saffron Ghevar Platter</h3>
+                  <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
+                    Intricate honeycombed golden disc fried in pure desi ghee, soaked in saffron syrup, smothered with thick creamy rabdi and silver foil.
+                  </p>
+                  <div class="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400 mb-6 border-y border-amber-200/60 dark:border-neutral-800 py-3">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Slow-cooked buffalo milk rabdi</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> 24-Hour Express Cold-Chain Delivery</div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div>
+                    <span class="text-xs text-neutral-400 block">Starting from</span>
+                    <span class="text-xl font-black text-burgundy dark:text-gold">₹520</span>
+                  </div>
+                  <button onclick="enquireProduct('sb-05', '500g')" class="btn-primary text-xs py-2.5 px-4 shadow flex items-center gap-1.5">
+                    <i class="fa-regular fa-paper-plane text-xs"></i> Enquire Ghevar Platter
+                  </button>
+                </div>
+              </div>
+            </div>
+
           </div>
 
         </div>
       </section>
 
-      <!-- Festival Pre-Order Benefits Section -->
-      <section class="py-16 bg-[#FFF8F0] dark:bg-[#151112] border-t border-amber-100 dark:border-neutral-800">
-        <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
-          <div class="text-center mb-12">
-            <span class="text-xs font-bold uppercase tracking-widest text-burgundy dark:text-gold block mb-1">Peace of
-              Mind</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-white">Why Pre-Order Your Festival
-              Sweets Early?</h2>
+      <!-- SECTION 4: Exclusive Festive Gift Hamper Packaging Tiers -->
+      <section class="py-16 md:py-20 bg-[#FFF8F0] dark:bg-[#151112] border-t border-amber-100 dark:border-neutral-800">
+        <div class="container mx-auto px-4 lg:px-8">
+          
+          <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-burgundy dark:text-gold block mb-2">
+              Heirloom Gifting Suites
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-white">
+              Bespoke Festive Hamper Packaging Tiers
+            </h2>
+            <p class="text-xs sm:text-sm text-neutral-500 mt-2">
+              Elevate your festive gifting with artisanal boxes crafted from royal velvet, lacquered wood, and antique brass.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            
+            <!-- Hamper Tier 1 -->
+            <div class="bg-white dark:bg-[#1E191B] rounded-3xl p-6 border border-amber-200 dark:border-neutral-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div class="aspect-[16/10] rounded-2xl overflow-hidden mb-5 border border-amber-200/60 dark:border-neutral-700">
+                  <img src="assets/images/imperial_velvet_shagun_trunk_1793442028061.jpg" alt="The Imperial Velvet Trunk" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+                </div>
+                <span class="text-[10px] font-extrabold uppercase tracking-widest text-gold bg-burgundy/10 dark:bg-gold/10 px-2.5 py-1 rounded-full inline-block mb-2">
+                  Tier 1: Royal Keepsake
+                </span>
+                <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">The Imperial Velvet Shagun Trunk</h3>
+                <p class="text-xs text-neutral-500 leading-relaxed mb-4">
+                  Rich maroon velvet casket with brass hasp and embossed gold foil motif. Holds 4 bespoke sweet chambers and silk dry fruit pouches.
+                </p>
+                <ul class="text-xs text-neutral-600 dark:text-neutral-400 space-y-2 border-t border-neutral-100 dark:border-neutral-800 pt-3 mb-6">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-gift text-gold text-xs"></i> 750g Sweets + 250g Savouries</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-stamp text-gold text-xs"></i> Personalized Brass Nameplate</li>
+                </ul>
+              </div>
+              <button onclick="enquireProduct('sb-01', '1kg')" class="w-full py-2.5 px-4 rounded-xl btn-primary text-xs font-bold shadow flex items-center justify-center gap-2">
+                <i class="fa-regular fa-paper-plane text-xs"></i> Enquire Velvet Trunk
+              </button>
+            </div>
+
+            <!-- Hamper Tier 2 -->
+            <div class="bg-white dark:bg-[#1E191B] rounded-3xl p-6 border-2 border-gold shadow-xl flex flex-col justify-between relative group">
+              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold text-neutral-900 font-extrabold text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow">
+                Most Popular
+              </div>
+              <div>
+                <div class="aspect-[16/10] rounded-2xl overflow-hidden mb-5 border border-gold/40">
+                  <img src="assets/images/festive_sweet_box.jpg" alt="The Heritage Wooden Baithak Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                </div>
+                <span class="text-[10px] font-extrabold uppercase tracking-widest text-gold bg-gold/15 px-2.5 py-1 rounded-full inline-block mb-2">
+                  Tier 2: Heritage Lacquer
+                </span>
+                <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">The Heritage Wooden Baithak Box</h3>
+                <p class="text-xs text-neutral-500 leading-relaxed mb-4">
+                  Hand-polished seasoned Sheesham wood box with gold metallic inlay. Includes custom engraved family or company greetings.
+                </p>
+                <ul class="text-xs text-neutral-600 dark:text-neutral-400 space-y-2 border-t border-neutral-100 dark:border-neutral-800 pt-3 mb-6">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-gift text-gold text-xs"></i> 1kg Assorted Ghee Delicacies</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-feather text-gold text-xs"></i> Gold-Foil Calligraphy Card</li>
+                </ul>
+              </div>
+              <button onclick="enquireProduct('sb-04', '1kg')" class="w-full py-3 px-4 rounded-xl btn-gold text-neutral-900 text-xs font-black shadow-lg flex items-center justify-center gap-2">
+                <i class="fa-solid fa-gift text-xs"></i> Enquire Wooden Box
+              </button>
+            </div>
+
+            <!-- Hamper Tier 3 -->
+            <div class="bg-white dark:bg-[#1E191B] rounded-3xl p-6 border border-amber-200 dark:border-neutral-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div class="aspect-[16/10] rounded-2xl overflow-hidden mb-5 border border-amber-200/60 dark:border-neutral-700">
+                  <img src="assets/images/festive_diwali_grand_hamper.jpg" alt="The Royal Connoisseur Collection" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+                </div>
+                <span class="text-[10px] font-extrabold uppercase tracking-widest text-gold bg-burgundy/10 dark:bg-gold/10 px-2.5 py-1 rounded-full inline-block mb-2">
+                  Tier 3: Grand Connoisseur
+                </span>
+                <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">The Royal Connoisseur Grand Trunk</h3>
+                <p class="text-xs text-neutral-500 leading-relaxed mb-4">
+                  Multi-tier celebratory hamper featuring pure silver vark mithai, organic namkeen, certified silver coin, and handcrafted antique brass diya.
+                </p>
+                <ul class="text-xs text-neutral-600 dark:text-neutral-400 space-y-2 border-t border-neutral-100 dark:border-neutral-800 pt-3 mb-6">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-gift text-gold text-xs"></i> 1.5kg Sweets, Savouries &amp; Nuts</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-coins text-gold text-xs"></i> 10g Silver Coin &amp; Brass Diya</li>
+                </ul>
+              </div>
+              <button onclick="enquireProduct('sb-01', '1kg')" class="w-full py-2.5 px-4 rounded-xl btn-primary text-xs font-bold shadow flex items-center justify-center gap-2">
+                <i class="fa-regular fa-paper-plane text-xs"></i> Enquire Grand Trunk
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 5: Why Pre-Order Festive Sweets (Value Pillars) -->
+      <section class="py-16 bg-white dark:bg-[#1A1617] border-t border-amber-100 dark:border-neutral-800">
+        <div class="container mx-auto px-4 lg:px-8">
+          <div class="text-center max-w-xl mx-auto mb-10">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-white">
+              Why Discerning Families Pre-Order
+            </h2>
+            <p class="text-xs text-neutral-500 mt-1">
+              Festivals are sacred. Here is why planning your mithai orders early guarantees perfection.
+            </p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div
-              class="bg-white dark:bg-[#1E191B] p-6 rounded-2xl border border-amber-100 dark:border-neutral-800 shadow-sm text-center">
-              <div
-                class="w-12 h-12 mx-auto rounded-2xl bg-amber-50 dark:bg-neutral-800 text-gold flex items-center justify-center text-xl mb-4">
+            <div class="p-6 rounded-2xl bg-amber-50/60 dark:bg-neutral-800/50 border border-amber-100 dark:border-neutral-700/60 text-center">
+              <div class="w-12 h-12 rounded-full bg-burgundy/10 dark:bg-gold/10 text-burgundy dark:text-gold flex items-center justify-center mx-auto mb-4 text-xl">
+                <i class="fa-solid fa-ban-smoking"></i>
+              </div>
+              <h3 class="font-bold text-sm text-neutral-900 dark:text-white mb-2">Zero Palm Oil / Zero Adulteration</h3>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                During festival peak rushes, commercial markets substitute ghee with cheap fats. SweetBliss promises 100% grass-fed A2 bilona cow ghee on every single batch.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-amber-50/60 dark:bg-neutral-800/50 border border-amber-100 dark:border-neutral-700/60 text-center">
+              <div class="w-12 h-12 rounded-full bg-burgundy/10 dark:bg-gold/10 text-burgundy dark:text-gold flex items-center justify-center mx-auto mb-4 text-xl">
                 <i class="fa-solid fa-calendar-check"></i>
               </div>
-              <h4 class="text-sm font-bold text-neutral-900 dark:text-white mb-2">Guaranteed Delivery Date</h4>
-              <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                Lock in your exact delivery slot (such as Dhanteras eve or Rakhi morning) so your sweets arrive fresh
-                and ready for puja.
+              <h3 class="font-bold text-sm text-neutral-900 dark:text-white mb-2">Festival-Eve Fresh Kadhai Simmer</h3>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Pre-ordered boxes are cooked fresh on the eve of your specified festival and sealed with food-grade nitrogen aroma-lock packaging.
               </p>
             </div>
 
-            <div
-              class="bg-white dark:bg-[#1E191B] p-6 rounded-2xl border border-amber-100 dark:border-neutral-800 shadow-sm text-center">
-              <div
-                class="w-12 h-12 mx-auto rounded-2xl bg-amber-50 dark:bg-neutral-800 text-gold flex items-center justify-center text-xl mb-4">
-                <i class="fa-solid fa-hand-holding-heart"></i>
+            <div class="p-6 rounded-2xl bg-amber-50/60 dark:bg-neutral-800/50 border border-amber-100 dark:border-neutral-700/60 text-center">
+              <div class="w-12 h-12 rounded-full bg-burgundy/10 dark:bg-gold/10 text-burgundy dark:text-gold flex items-center justify-center mx-auto mb-4 text-xl">
+                <i class="fa-solid fa-truck-ramp-box"></i>
               </div>
-              <h4 class="text-sm font-bold text-neutral-900 dark:text-white mb-2">Small-Batch Simmering</h4>
-              <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                Unlike factory sweets made weeks prior, your pre-ordered mithais are cooked specifically for your order
-                24 hours before dispatch.
-              </p>
-            </div>
-
-            <div
-              class="bg-white dark:bg-[#1E191B] p-6 rounded-2xl border border-amber-100 dark:border-neutral-800 shadow-sm text-center">
-              <div
-                class="w-12 h-12 mx-auto rounded-2xl bg-amber-50 dark:bg-neutral-800 text-gold flex items-center justify-center text-xl mb-4">
-                <i class="fa-solid fa-percent"></i>
-              </div>
-              <h4 class="text-sm font-bold text-neutral-900 dark:text-white mb-2">Early Bird Festive Discounts</h4>
-              <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                Save up to 15% on bulk family orders (5+ boxes) with complimentary customized festival greeting cards
-                with your family name.
+              <h3 class="font-bold text-sm text-neutral-900 dark:text-white mb-2">Muhurat Doorstep Delivery Guarantee</h3>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Insured express cold-chain delivery scheduled precisely for pre-puja morning arrival anywhere across India.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Festival Slot Reservation Form -->
-      <section class="py-16 bg-white dark:bg-[#1A1617] border-t border-amber-100 dark:border-neutral-800">
-        <div class="container mx-auto px-4 lg:px-8 max-w-3xl">
-          <div
-            class="bg-gradient-to-br from-amber-50 via-white to-amber-100/50 dark:from-[#201B1D] dark:via-[#1A1617] dark:to-[#171415] p-8 sm:p-10 rounded-3xl border-2 border-gold/30 shadow-xl">
-            <div class="text-center mb-8">
-              <span class="text-xs font-bold text-burgundy dark:text-gold uppercase tracking-wider block mb-1">Express
-                Festive Booking</span>
-              <h3 class="text-2xl font-bold text-neutral-900 dark:text-white">Reserve Your Festival Gifting Slots</h3>
-              <p class="text-xs text-neutral-500 mt-1">Our halwai kitchen limits festival batches to maintain 100%
-                purity. Reserve your date now.</p>
+      <!-- SECTION 6: Interactive Festive Gifting Slot Estimator & Pre-Booking -->
+      <section id="festiveEstimator" class="py-16 md:py-20 bg-gradient-to-r from-burgundy via-[#681c2d] to-burgundy-900 text-white border-t border-amber-900/40">
+        <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+          <div class="text-center mb-8">
+            <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2">Priority Halwai Reservation</span>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">Reserve Your Festival Gifting Slots</h2>
+            <p class="text-xs sm:text-sm text-neutral-200 mt-2">
+              Corporate teams and large family orders receive dedicated dispatch managers and complimentary personalized branding.
+            </p>
+          </div>
+
+          <form onsubmit="handleFestiveBooking(event)" class="bg-white/10 dark:bg-black/40 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/20 shadow-2xl space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-neutral-200 mb-1.5">Your Full Name *</label>
+                <input type="text" id="festiveName" required placeholder="e.g. Rajesh Kumar" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-gold" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-neutral-200 mb-1.5">Phone / WhatsApp Number *</label>
+                <input type="tel" id="festivePhone" required placeholder="+91 98765 43210" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-gold" />
+              </div>
             </div>
 
-            <form onsubmit="handleContactSubmit(event)" class="space-y-4 text-xs">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Your Full Name
-                    *</label>
-                  <input type="text" required placeholder="e.g. Rajesh Sharma"
-                    class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
-                </div>
-                <div>
-                  <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">WhatsApp / Phone Number
-                    *</label>
-                  <input type="tel" required placeholder="+91 98765 43210"
-                    class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold" />
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Select Upcoming
-                    Festival *</label>
-                  <select
-                    class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold">
-                    <option value="diwali">Diwali &amp; Bhai Dooj 2026</option>
-                    <option value="holi">Holi Mahotsav 2026</option>
-                    <option value="rakhi">Raksha Bandhan 2026</option>
-                    <option value="ganesh">Ganesh Chaturthi 2026</option>
-                    <option value="navratri">Navratri &amp; Dussehra 2026</option>
-                    <option value="makar">Makar Sankranti &amp; Lohri 2026</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Expected Number of Gift
-                    Boxes *</label>
-                  <select
-                    class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold">
-                    <option value="5-15">5 to 15 Boxes (Family &amp; Relatives)</option>
-                    <option value="16-50">16 to 50 Boxes (Extended Family &amp; Friends)</option>
-                    <option value="51-150">51 to 150 Boxes (Corporate / Staff)</option>
-                    <option value="150+">150+ Boxes (Grand Corporate Gifting)</option>
-                  </select>
-                </div>
-              </div>
-
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label class="block font-semibold mb-1 text-neutral-700 dark:text-neutral-300">Preferred Sweets / Custom
-                  Packaging Notes</label>
-                <textarea rows="3"
-                  placeholder="Tell us if you need custom logo sleeves, dry fruit hampers, or delivery across multiple city addresses..."
-                  class="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-burgundy dark:focus:border-gold"></textarea>
+                <label class="block text-xs font-semibold text-neutral-200 mb-1.5">Target Celebration *</label>
+                <select id="festiveFestival" required class="w-full px-4 py-2.5 rounded-xl bg-[#4A1525] border border-white/20 text-white text-xs focus:outline-none focus:border-gold">
+                  <option value="Diwali & New Year">Diwali &amp; New Year</option>
+                  <option value="Holi & Basant">Holi &amp; Basant</option>
+                  <option value="Ganesh Chaturthi">Ganesh Chaturthi</option>
+                  <option value="Raksha Bandhan">Raksha Bandhan</option>
+                  <option value="Makar Sankranti / Pongal">Makar Sankranti / Pongal</option>
+                  <option value="Corporate Annual Gifting">Corporate Annual Gifting</option>
+                </select>
               </div>
+              <div>
+                <label class="block text-xs font-semibold text-neutral-200 mb-1.5">Estimated Box Quantity *</label>
+                <select id="festiveQuantity" required class="w-full px-4 py-2.5 rounded-xl bg-[#4A1525] border border-white/20 text-white text-xs focus:outline-none focus:border-gold">
+                  <option value="1 to 10 Boxes (Family)">1 to 10 Boxes (Family)</option>
+                  <option value="11 to 50 Boxes (Celebration)">11 to 50 Boxes (Celebration)</option>
+                  <option value="51 to 200 Boxes (Corporate)">51 to 200 Boxes (Corporate)</option>
+                  <option value="200+ Boxes (Enterprise Bulk)">200+ Boxes (Enterprise Bulk)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-neutral-200 mb-1.5">Delivery City *</label>
+                <input type="text" id="festiveCity" required placeholder="e.g. Mumbai, Delhi, Bengaluru" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-gold" />
+              </div>
+            </div>
 
-              <button type="submit" class="btn-primary w-full py-3.5 text-xs font-bold shadow-lg">
-                <i class="fa-solid fa-paper-plane mr-1.5"></i> Lock In Festival Pre-Order Slot
+            <div>
+              <label class="block text-xs font-semibold text-neutral-200 mb-1.5">Special Dietary / Packaging Requests</label>
+              <textarea id="festiveNotes" rows="2" placeholder="e.g. Sugar-free assortment, personalized silver-embossed greeting card, or specific delivery date before Lakshmi Puja." class="w-full px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-gold"></textarea>
+            </div>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <span class="text-[11px] text-amber-200 flex items-center gap-1.5">
+                <i class="fa-solid fa-shield-check text-gold"></i> Guaranteed Halwai Kitchen Slot Allocation
+              </span>
+              <button type="submit" class="w-full sm:w-auto px-8 py-3 rounded-full btn-gold text-neutral-900 font-black text-xs shadow-xl hover:scale-105 transition-all">
+                Submit Festive Reservation Request →
               </button>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </section>
     </main>
@@ -619,7 +851,7 @@
             <li><a href="index.html" class="hover:text-burgundy dark:hover:text-gold transition">Home</a></li>
             <li><a href="services.html" class="hover:text-burgundy dark:hover:text-gold transition">All Delicacies</a></li>
             <li><a href="festivals.html" class="hover:text-burgundy dark:hover:text-gold transition">Festival Specials</a></li>
-            <li><a href="home-2.html" class="hover:text-burgundy dark:hover:text-gold transition">Wedding Hampers</a></li>
+            <li><a href="home-2.html" class="hover:text-burgundy dark:hover:text-gold transition">Halwai Studio (Home 2)</a></li>
             <li><a href="about.html" class="hover:text-burgundy dark:hover:text-gold transition">Our Story</a></li>
             <li><a href="contact.html" class="hover:text-burgundy dark:hover:text-gold transition">Contact Us</a></li>
           </ul>
@@ -685,8 +917,39 @@
     <!-- Master JavaScript Application -->
     <script src="js/app.js"></script>
     <script>
+      // Live Working Festive Countdown
+      function startFestiveCountdown() {
+        // Target upcoming festival: 14 days, 8 hours, 32 mins from now
+        let target = new Date();
+        target.setDate(target.getDate() + 14);
+        target.setHours(target.getHours() + 8);
+        target.setMinutes(target.getMinutes() + 32);
+
+        function update() {
+          const now = new Date();
+          const diff = Math.max(0, target - now);
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((diff / (1000 * 60)) % 60);
+          const seconds = Math.floor((diff / 1000) % 60);
+
+          const dEl = document.getElementById('countDays');
+          const hEl = document.getElementById('countHours');
+          const mEl = document.getElementById('countMinutes');
+          const sEl = document.getElementById('countSeconds');
+
+          if (dEl) dEl.textContent = String(days).padStart(2, '0');
+          if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+          if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
+          if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
+        }
+
+        update();
+        setInterval(update, 1000);
+      }
+
       document.addEventListener('DOMContentLoaded', () => {
-        initCountdown('2026-11-01T00:00:00');
+        startFestiveCountdown();
       });
 
       function filterFestivals(festival, btn) {
@@ -704,6 +967,19 @@
             card.style.display = 'none';
           }
         });
+      }
+
+      function handleFestiveBooking(e) {
+        e.preventDefault();
+        const name = document.getElementById('festiveName').value;
+        const phone = document.getElementById('festivePhone').value;
+        const festival = document.getElementById('festiveFestival').value;
+        const qty = document.getElementById('festiveQuantity').value;
+        const city = document.getElementById('festiveCity').value;
+        const notes = document.getElementById('festiveNotes').value || 'Standard Festive Assortment';
+
+        const msg = encodeURIComponent(`Hi SweetBliss, I would like to reserve festive gifting slots!%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Festival:* ${festival}%0A*Quantity:* ${qty}%0A*City:* ${city}%0A*Notes:* ${notes}`);
+        window.location.href = `contact.html?subject=${encodeURIComponent('Festive Pre-Booking: ' + festival)}&name=${encodeURIComponent(name)}&notes=${encodeURIComponent(msg)}`;
       }
     </script>
 </body>
