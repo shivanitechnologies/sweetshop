@@ -491,7 +491,6 @@ function toggleDarkMode() {
   AppState.theme = isDark ? 'dark' : 'light';
   localStorage.setItem('sweetbliss_theme', AppState.theme);
   updateThemeButtons();
-  showToast(isDark ? 'Dark mode activated' : 'Light mode activated', 'gold', 2000);
 }
 
 function updateThemeButtons() {
@@ -511,7 +510,6 @@ function toggleRTL() {
   AppState.direction = newDir;
   localStorage.setItem('sweetbliss_dir', newDir);
   updateRTLButtons();
-  showToast(`Switched layout to ${newDir.toUpperCase()}`, 'primary', 2000);
 }
 
 function updateRTLButtons() {
