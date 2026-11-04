@@ -94,10 +94,10 @@ html.dark .logo-text-secondary {
   height: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8EFE6;
+  background: transparent;
 }
 html.dark ::-webkit-scrollbar-track {
-  background: #1F1B1C;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: #D6A653;
@@ -1463,11 +1463,10 @@ html.dark #mobileMenu {
   height: 5px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.04);
-  border-radius: 9999px;
+  background: transparent;
 }
 html.dark .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: rgba(214, 166, 83, 0.5);
@@ -1597,8 +1596,7 @@ html.dark .custom-scrollbar::-webkit-scrollbar-track {
   width: 5px;
 }
 .royal-order-card::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 9999px;
+  background: transparent;
 }
 .royal-order-card::-webkit-scrollbar-thumb {
   background: rgba(214, 166, 83, 0.4);
@@ -1746,8 +1744,7 @@ html.dark .custom-scrollbar::-webkit-scrollbar-track {
   width: 4px;
 }
 .custom-select-menu::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 9999px;
+  background: transparent;
 }
 .custom-select-menu::-webkit-scrollbar-thumb {
   background: rgba(214, 166, 83, 0.4);
@@ -1848,6 +1845,8 @@ html.dark header nav .nav-link.active::after {
 
 /* Standardized Hero Banner Height for Product, About, Contact, Bulk & Corporate */
 .hero-standard-banner {
+  width: 100% !important;
+  max-width: 100% !important;
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -1874,4 +1873,5 @@ html.dark header nav .nav-link.active::after {
     padding-top: 2.25rem !important;
     padding-bottom: 2.25rem !important;
   }
+}
 }
