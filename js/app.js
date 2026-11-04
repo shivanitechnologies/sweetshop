@@ -395,6 +395,17 @@ const SWEETBLISS_PRODUCTS = [
 // ==========================================
 // 2. GLOBAL STATE & LOCALSTORAGE HELPERS
 // ==========================================
+
+function escapeHTML(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 const AppState = {
   theme: localStorage.getItem('sweetbliss_theme') || 'light',
   direction: localStorage.getItem('sweetbliss_dir') || 'ltr',
@@ -3265,6 +3276,21 @@ function enquireWishlistAll() {
 // ==========================================
 // 17. CONTACT US ENQUIRY AUTO-FILL & HIGHLIGHT
 // ==========================================
+function scrollToContactEnquiry() {
+  const formSection = document.getElementById('contactFormSection');
+  if (!formSection) return;
+  const header = document.querySelector('header');
+  const headerHeight = header ? header.offsetHeight : 80;
+  const rect = formSection.getBoundingClientRect();
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  // Offset by headerHeight + 32px breathing room so Send An Enquiry and Tell Us What You Need are fully visible
+  const targetY = rect.top + scrollTop - headerHeight - 32;
+  window.scrollTo({
+    top: Math.max(0, targetY),
+    behavior: 'smooth'
+  });
+}
+
 function initContactEnquiryAutoFill() {
   const formSection = document.getElementById('contactFormSection');
   if (!formSection) return;
@@ -3280,10 +3306,15 @@ function initContactEnquiryAutoFill() {
 
     let details = enquiryItem;
     if (weight) details += ` (${weight})`;
-    if (qty && Number(qty) > 1) details += ` × ${qty} packs`;
+    if (qty && Number(qty) > 1) details += ` • ${qty} packs`;
 
     if (messageField) {
-      messageField.value = `Hello SweetBliss Team,\n\nI would like to enquire about ordering: ${details}.\nPlease share availability, pricing, and dispatch timelines.\n\nThank you!`;
+      messageField.value = `Hello SweetBliss Team,
+
+I would like to enquire about ordering: ${details}.
+Please share availability, pricing, and dispatch timelines.
+
+Thank you!`;
     }
 
     if (typeSelect) {
@@ -3297,30 +3328,6 @@ function initContactEnquiryAutoFill() {
       }
     }
 
-    if (!document.getElementById('enquiryHighlightBanner')) {
-      const banner = document.createElement('div');
-      banner.id = 'enquiryHighlightBanner';
-      banner.className = 'mb-5 p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-700/60 flex items-center justify-between text-xs text-amber-900 dark:text-amber-200 shadow-sm animate-fade-in';
-      banner.innerHTML = `
-        <div class="flex items-center gap-2.5">
-          <div class="w-7 h-7 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
-            <i class="fa-solid fa-paper-plane text-burgundy dark:text-gold text-xs"></i>
-          </div>
-          <div>
-            <span class="font-bold block text-burgundy dark:text-gold">Active Delicacy Enquiry</span>
-            <span class="text-neutral-600 dark:text-neutral-300">Selected: <strong>${escapeHTML(enquiryItem)}</strong></span>
-          </div>
-        </div>
-        <a href="contact.html" class="text-[11px] font-semibold text-burgundy dark:text-gold hover:underline ml-2">Clear</a>
-      `;
-      const formEl = formSection.querySelector('form');
-      if (formEl) {
-        formSection.insertBefore(banner, formEl);
-      }
-    }
-
-    setTimeout(() => {
-      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 250);
+    setTimeout(scrollToContactEnquiry, 200);
   }
 }

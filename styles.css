@@ -1914,3 +1914,12 @@ html.dark header nav .nav-link.active::after {
   display: none !important;
 }
 
+/* Scroll offset to prevent fixed header from covering section anchors */
+#contactFormSection,
+#bulkEnquiryForm,
+.scroll-mt-header,
+[id="contactFormSection"],
+[id="bulkEnquiryForm"] {
+  scroll-margin-top: 110px !important;
+}
+
