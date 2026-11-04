@@ -118,66 +118,114 @@
 
     <!-- Mobile Drawer Menu Navigation (Mobile Only) -->
     <div id="mobileMenuBackdrop" onclick="closeMobileMenu()"
-      class="lg:hidden fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+      class="lg:hidden fixed inset-0 bg-black/75 z-50 hidden backdrop-blur-sm transition-opacity"></div>
     <aside id="mobileMenu"
-      class="lg:hidden fixed top-0 left-0 bottom-0 w-80 max-w-[85%] bg-white dark:bg-[#1C1819] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-5 sm:p-6 overflow-y-auto">
-      <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
-        <a href="index.html" class="flex items-center gap-2">
-          <img src="assets/logo.svg" alt="SweetBliss" class="h-8 sm:h-9 w-auto" />
+      class="lg:hidden fixed top-0 left-0 bottom-0 w-80 max-w-[85%] bg-[#160B12] text-white z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-5 overflow-y-auto border-r border-white/10">
+      
+      <!-- Top Brand Header -->
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-gold/20 border border-gold/40 flex items-center justify-center text-gold shadow-md">
+            <i class="fa-solid fa-cake-candles text-base"></i>
+          </div>
+          <span class="font-playfair text-xl font-bold tracking-tight text-white">Sweet<span class="text-gold">Bliss</span></span>
         </a>
         <button onclick="closeMobileMenu()"
-          class="mobile-menu-close w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white flex items-center justify-center transition"
+          class="mobile-menu-close w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-neutral-300 hover:text-white flex items-center justify-center transition cursor-pointer"
           aria-label="Close menu">
-          <i class="fa-solid fa-xmark"></i>
+          <i class="fa-solid fa-xmark text-sm"></i>
         </button>
       </div>
 
-      <!-- Quick Utilities Row for Mobile -->
-      <div class="flex items-center gap-2 py-3 border-b border-neutral-100 dark:border-neutral-800">
-        <button onclick="toggleRTL()"
-          class="rtl-toggle-btn text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition flex items-center gap-1.5">
-          <i class="fa-solid fa-language text-gold"></i> RTL Mode
-        </button>
-      </div>
+      <!-- Navigation Accordion & Links -->
+      <div class="py-4 space-y-2 text-sm font-semibold">
+        <!-- Home Accordion Card -->
+        <div class="rounded-2xl bg-[#23121D] border border-white/10 p-2 overflow-hidden shadow-inner">
+          <button type="button" onclick="toggleMobileSubmenu('mobileHomeSubmenu', this)"
+            class="w-full flex items-center justify-between px-3 py-2 text-sm font-bold text-neutral-100 hover:text-gold transition rounded-xl">
+            <span>Home</span>
+            <i class="fa-solid fa-chevron-up text-xs text-neutral-400 transition-transform duration-200"></i>
+          </button>
+          <div id="mobileHomeSubmenu" class="space-y-1 pt-1">
+            <a href="index.html"
+              class="block px-3.5 py-2.5 rounded-xl bg-[#3B1E2E] text-white hover:text-gold text-sm font-semibold transition border border-gold/20 flex items-center justify-between">
+              <span>Home 1 (Classic Store)</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-gold/20 text-gold font-bold">ACTIVE</span>
+            </a>
+            <a href="home-2.html"
+              class="block px-3.5 py-2.5 rounded-xl text-neutral-300 hover:text-white hover:bg-white/5 text-sm font-medium transition flex items-center justify-between">
+              <span>Home 2 (Halwai Studio)</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-neutral-400 font-medium">MODERN</span>
+            </a>
+          </div>
+        </div>
 
-      <!-- Navigation Links Matching Navbar -->
-      <div class="py-4 space-y-2.5 font-semibold text-sm">
-        <a href="index.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
-          <span>Classic Store (Home 1)</span>
-          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        <a href="about.html" class="block px-3.5 py-2.5 text-neutral-200 hover:text-gold hover:bg-white/5 rounded-xl transition text-sm">
+          About Us
         </a>
-        <a href="home-2.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
-          <span>Halwai Studio (Home 2)</span>
-          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        <a href="services.html" class="block px-3.5 py-2.5 text-neutral-200 hover:text-gold hover:bg-white/5 rounded-xl transition text-sm flex items-center justify-between">
+          <span>Packages &amp; Delicacies</span>
+          <span class="text-[10px] bg-gold/20 text-gold px-2 py-0.5 rounded-full font-bold">19 Sweets</span>
         </a>
-        <a href="services.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
-          <span>Products</span>
-          <span class="text-[10px] bg-burgundy/10 dark:bg-gold/20 text-burgundy dark:text-gold px-2 py-0.5 rounded-full font-bold">19 Delicacies</span>
-        </a>
-        <a href="festivals.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
+        <a href="festivals.html" class="block px-3.5 py-2.5 text-neutral-200 hover:text-gold hover:bg-white/5 rounded-xl transition text-sm flex items-center justify-between">
           <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span> Festival Specials</span>
           <span class="text-[10px] bg-gold/20 text-gold px-2 py-0.5 rounded-full font-bold">Diwali 2026</span>
         </a>
-        <a href="pricing.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
-          <span>Bulk &amp; Corporate</span>
-          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        <a href="weddings.html" class="block px-3.5 py-2.5 text-neutral-200 hover:text-gold hover:bg-white/5 rounded-xl transition text-sm">
+          Weddings &amp; Shagun
         </a>
-        <a href="about.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
-          <span>About Us</span>
-          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        <a href="pricing.html" class="block px-3.5 py-2.5 text-neutral-200 hover:text-gold hover:bg-white/5 rounded-xl transition text-sm">
+          Bulk &amp; Corporate
         </a>
-        <a href="contact.html" class="block py-1.5 text-neutral-700 dark:text-neutral-200 hover:text-burgundy dark:hover:text-gold transition flex items-center justify-between">
-          <span>Contact</span>
-          <i class="fa-solid fa-chevron-right text-[10px] text-neutral-400"></i>
+        <a href="contact.html" class="block px-3.5 py-2.5 text-neutral-200 hover:text-gold hover:bg-white/5 rounded-xl transition text-sm">
+          Contact
         </a>
 
-        <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800 space-y-2">
-          <a href="services.html" class="btn-primary w-full text-xs text-center py-2.5 block rounded-xl font-bold">Explore All Delicacies</a>
-          <a href="contact.html" class="btn-outline w-full text-xs text-center py-2.5 block rounded-xl font-bold">Send Quick Enquiry</a>
+        <!-- Dashboard Accordion Card -->
+        <div class="rounded-2xl bg-[#23121D] border border-white/10 p-2 overflow-hidden shadow-inner">
+          <button type="button" onclick="toggleMobileSubmenu('mobileDashboardSubmenu', this)"
+            class="w-full flex items-center justify-between px-3 py-2 text-sm font-bold text-neutral-200 hover:text-gold transition rounded-xl">
+            <span>Dashboard &amp; Orders</span>
+            <i class="fa-solid fa-chevron-down text-xs text-neutral-400 transition-transform duration-200"></i>
+          </button>
+          <div id="mobileDashboardSubmenu" class="hidden space-y-1 pt-1">
+            <a href="track-order.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
+              <i class="fa-solid fa-truck-fast text-gold text-xs"></i> Track Order
+            </a>
+            <a href="dashboard.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
+              <i class="fa-solid fa-user-circle text-gold text-xs"></i> Customer Dashboard
+            </a>
+            <a href="blog.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
+              <i class="fa-solid fa-newspaper text-gold text-xs"></i> Halwai Journal
+            </a>
+          </div>
         </div>
       </div>
-      <div class="mt-auto pt-4 border-t border-neutral-100 dark:border-neutral-800 text-xs text-neutral-400">
-        <p>© 2026 SweetBliss Traditional Mithai &amp; Snacks.</p>
+
+      <!-- Bottom Controls Row: RTL & Theme Circular Buttons -->
+      <div class="mt-auto pt-4 border-t border-white/10 flex flex-col items-center gap-4">
+        <div class="flex items-center justify-center gap-4 w-full">
+          <button type="button" onclick="toggleRTL()"
+            class="rtl-toggle-btn rtl-icon-btn mobile-drawer-btn-rtl"
+            title="Toggle RTL Mode" aria-label="Toggle RTL Mode">
+            <i class="fa-solid fa-arrow-right-arrow-left text-gold text-base"></i>
+          </button>
+          <button type="button" onclick="toggleDarkMode()"
+            class="theme-toggle-btn mobile-drawer-btn-theme"
+            title="Toggle Theme" aria-label="Toggle Theme">
+            <i class="fa-solid fa-sun text-neutral-900 text-base"></i>
+          </button>
+        </div>
+
+        <!-- Full-Width Order Now Action Pill CTA -->
+        <a href="services.html"
+          class="w-full py-3 px-6 rounded-full bg-gradient-to-r from-burgundy via-[#8B1E3F] to-burgundy hover:brightness-110 text-white font-bold text-center block shadow-lg shadow-burgundy/40 transition flex items-center justify-center gap-2 text-sm tracking-wide">
+          <i class="fa-solid fa-bag-shopping text-gold"></i> Order Now
+        </a>
+
+        <p class="text-[11px] text-center text-neutral-400">
+          Pure Desi Ghee &bull; 100% Vegetarian &bull; Fresh Daily
+        </p>
       </div>
     </aside>
 
@@ -189,8 +237,8 @@
 
         <div class="container mx-auto px-4 lg:px-8 text-center max-w-4xl relative z-10">
           <div
-            class="hero-festive-badge inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-gold/20 border border-gold/40 text-gold text-xs font-bold uppercase tracking-widest mb-3 h-8">
-            <i class="fa-solid fa-headset"></i> Flagship Store &bull; Wedding Tasting &bull; VIP Concierge
+            class="hero-festive-badge inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-gold/20 border border-gold/40 text-gold text-[10px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest mb-3 h-auto min-h-[28px] sm:h-8 max-w-[92vw]">
+            <i class="fa-solid fa-headset text-[10px] sm:text-xs text-gold"></i> <span>Flagship Store <span class="hidden sm:inline">&bull; Wedding Tasting</span> &bull; VIP Concierge</span>
           </div>
           <h1 class="text-3xl sm:text-4xl lg:text-[44px] font-black mb-3 text-white leading-tight whitespace-normal lg:whitespace-nowrap">
             We'd Love to Sweeten Your Day

@@ -1136,11 +1136,52 @@ html.dark .mega-menu-card.featured-card .mega-menu-subtitle {
   z-index: 9999 !important;
   pointer-events: none !important;
   visibility: hidden !important;
-  background-color: #FFFFFF;
+  background-color: #160B12 !important;
+  color: #FFFFFF !important;
 }
 
 html.dark #mobileMenu {
-  background-color: #1C1819 !important;
+  background-color: #160B12 !important;
+  color: #FFFFFF !important;
+}
+
+/* CakeBloom-style Mobile Navigation Drawer Utilities */
+.mobile-drawer-btn-rtl {
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 9999px !important;
+  border: 2px solid rgba(214, 166, 83, 0.75) !important;
+  background-color: #23121D !important;
+  color: #D6A653 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.05rem !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease !important;
+  cursor: pointer !important;
+}
+.mobile-drawer-btn-rtl:active {
+  transform: scale(0.92) !important;
+}
+
+.mobile-drawer-btn-theme {
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  background-color: #FBBF24 !important;
+  color: #180E15 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.05rem !important;
+  box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35) !important;
+  transition: transform 0.15s ease, background-color 0.2s ease !important;
+  cursor: pointer !important;
+}
+.mobile-drawer-btn-theme:active {
+  transform: scale(0.92) !important;
 }
 
 [dir="rtl"] #mobileMenu {
@@ -1881,23 +1922,29 @@ html.dark header nav .nav-link.active::after {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  max-width: 100%;
+  max-width: calc(100% - 24px) !important;
   box-sizing: border-box;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-radius: 9999px !important;
 }
 
 @media (max-width: 639px) {
   .hero-festive-badge {
     font-size: 10.5px !important;
-    letter-spacing: 0.03em !important;
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
+    letter-spacing: 0.04em !important;
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
     height: auto !important;
     min-height: 28px !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
     text-align: center !important;
     line-height: 1.35 !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    max-width: calc(100% - 24px) !important;
+    border-radius: 9999px !important;
+    box-sizing: border-box !important;
   }
 }
 
