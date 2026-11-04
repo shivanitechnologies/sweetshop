@@ -1822,7 +1822,7 @@ html:not(.dark) select option {
 
 
 /* ==========================================================================
-   NAVIGATION ACTIVE & HOVER UNDERLINE INDICATOR
+   NAVIGATION ACTIVE & HOVER STYLING (CLEAN LUXURY STYLE - NO UNDERLINE)
    ========================================================================== */
 header nav .nav-link {
   position: relative;
@@ -1830,58 +1830,55 @@ header nav .nav-link {
   align-items: center;
   gap: 0.375rem;
   padding-top: 0.25rem;
-  padding-bottom: 0.45rem;
-  transition: color 0.25s ease;
+  padding-bottom: 0.25rem;
+  transition: color 0.2s ease;
   white-space: nowrap;
 }
 
-/* Subtle hover underline for navigation links */
 header nav .nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2.5px;
-  background-color: #7B263A;
-  border-radius: 9999px;
-  transform: translateX(-50%);
-  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
+  display: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
-html.dark header nav .nav-link::after {
-  background-color: #D6A653;
+header nav .nav-link:hover {
+  color: #7B263A !important;
 }
 
-header nav .nav-link:hover::after {
-  width: 80%;
+html.dark header nav .nav-link:hover {
+  color: #D6A653 !important;
 }
 
-/* Persistent Active Page Underline Indicator */
+/* Persistent Active Page Indicator - Clean Typography */
 header nav .nav-link.nav-link-active,
 header nav .nav-link.active {
   color: #7B263A !important;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 html.dark header nav .nav-link.nav-link-active,
 html.dark header nav .nav-link.active {
   color: #D6A653 !important;
+  font-weight: 700 !important;
 }
 
 header nav .nav-link.nav-link-active::after,
 header nav .nav-link.active::after {
-  width: 100% !important;
-  height: 3px;
-  background-color: #7B263A !important;
-  box-shadow: 0 1px 4px rgba(123, 38, 58, 0.3);
+  display: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  box-shadow: none !important;
 }
 
 html.dark header nav .nav-link.nav-link-active::after,
 html.dark header nav .nav-link.active::after {
-  background-color: #D6A653 !important;
-  box-shadow: 0 1px 4px rgba(214, 166, 83, 0.4);
+  display: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  box-shadow: none !important;
 }
 
 /* Standardized Hero Banner Height for Product, About, Contact, Bulk & Corporate */
