@@ -1845,3 +1845,33 @@ html.dark header nav .nav-link.active::after {
   background-color: #D6A653 !important;
   box-shadow: 0 1px 4px rgba(214, 166, 83, 0.4);
 }
+
+/* Standardized Hero Banner Height for Product, About, Contact, Bulk & Corporate */
+.hero-standard-banner {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .hero-standard-banner {
+    height: 380px !important;
+    min-height: 380px !important;
+    max-height: 380px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-standard-banner {
+    min-height: 430px !important;
+    height: auto !important;
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+}
