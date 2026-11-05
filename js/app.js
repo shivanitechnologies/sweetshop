@@ -352,7 +352,7 @@ const SWEETBLISS_PRODUCTS = [
   },
   {
     id: 'sb-18',
-    name: 'The Royal Velvet Wedding Shagun Hamper',
+    name: 'The Royal Velvet Celebration Hamper',
     category: 'giftboxes',
     categoryName: 'Gift Boxes & Hampers',
     basePrice: 1850,
@@ -361,9 +361,9 @@ const SWEETBLISS_PRODUCTS = [
     fallbackImage: 'assets/images/imperial_velvet_shagun_trunk_1793442028061.jpg',
     rating: 5.0,
     reviews: 73,
-    badge: 'Wedding Keepsake',
+    badge: 'Celebration Keepsake',
     badgeType: 'badge-bestseller',
-    description: 'Opulent hand-stitched velvet keepsake trunk with antique brass clasp, custom gold foil couple monogram, containing 4 curated signature sweets and slow-roasted dry fruits.',
+    description: 'Opulent hand-stitched velvet keepsake trunk with antique brass clasp, custom gold foil monogram, containing 4 curated signature sweets and slow-roasted dry fruits.',
     ingredients: 'Assorted pure ghee sweets, roasted cashews, Afghani almonds, saffron vial.',
     allergens: 'Tree nuts, Dairy, Gluten.',
     shelfLife: '20 Days.',
@@ -372,7 +372,7 @@ const SWEETBLISS_PRODUCTS = [
   },
   {
     id: 'sb-19',
-    name: 'Curated Wedding Tasting Sample Box (5 Delicacies)',
+    name: 'Curated Festive Tasting Sample Box (5 Delicacies)',
     category: 'giftboxes',
     categoryName: 'Gift Boxes & Hampers',
     basePrice: 299,
@@ -383,7 +383,7 @@ const SWEETBLISS_PRODUCTS = [
     reviews: 120,
     badge: 'Taste Before Ordering',
     badgeType: 'badge-tag bg-emerald-100 text-emerald-900',
-    description: 'Doorstep tasting sample box featuring mini portions of our 5 signature wedding sweets. Cost fully adjusted against final bulk wedding orders.',
+    description: 'Doorstep tasting sample box featuring mini portions of our 5 signature delicacies. Cost fully adjusted against final bulk festive orders.',
     ingredients: 'Kaju Katli, Saffron Motichoor, Ghee Mysore Pak, Anjeer Barfi, Jumbo Salted Cashews.',
     allergens: 'Tree nuts, Dairy.',
     shelfLife: '15 Days.',
@@ -1669,12 +1669,6 @@ const OCCASION_DATA = {
     badge: 'Festival Special',
     items: ['sb-01', 'sb-03', 'sb-02', 'sb-14']
   },
-  weddings: {
-    title: 'Luxury Weddings & Shagun',
-    desc: 'Opulent velvet hampers, artisanal dry fruit sweets, and traditional Mathura pedas crafted to honor new beginnings.',
-    badge: 'Royal Shagun',
-    items: ['sb-10', 'sb-06', 'sb-12', 'sb-01']
-  },
   teatime: {
     title: 'Evening Chai & Teatime Adda',
     desc: 'Irresistible crispy savories, crunchy clove-infused Ratlami sev, and golden cocktail samosas that make every evening lively.',
@@ -2225,9 +2219,6 @@ function injectSharedMobileMenuDrawer() {
           <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span> Festival Specials</span>
           <span class="text-[10px] bg-gold/20 text-gold px-2 py-0.5 rounded-full font-bold">Diwali 2026</span>
         </a>
-        <a href="weddings.html" class="block px-3.5 py-2.5 text-neutral-200 hover:text-gold hover:bg-white/5 rounded-xl transition text-sm">
-          Weddings &amp; Shagun
-        </a>
         <a href="pricing.html" class="block px-3.5 py-2.5 text-neutral-200 hover:text-gold hover:bg-white/5 rounded-xl transition text-sm">
           Bulk &amp; Corporate
         </a>
@@ -2243,9 +2234,6 @@ function injectSharedMobileMenuDrawer() {
             <i class="fa-solid fa-chevron-down text-xs text-neutral-400 transition-transform duration-200"></i>
           </button>
           <div id="mobileDashboardSubmenu" class="hidden space-y-1 pt-1">
-            <a href="track-order.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
-              <i class="fa-solid fa-truck-fast text-gold text-xs"></i> Track Order
-            </a>
             <a href="dashboard.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
               <i class="fa-solid fa-user-circle text-gold text-xs"></i> Customer Dashboard
             </a>
@@ -2881,7 +2869,6 @@ function initActiveNavigationIndicators() {
       'services.html': 'products',
       'service-details.html': 'products',
       'festivals.html': 'festivals',
-      'weddings.html': 'home',
       'pricing.html': 'pricing',
             'about.html': 'about',
       'contact.html': 'contact',
@@ -3288,7 +3275,7 @@ const SWEETBLISS_POLICIES = {
           <p>Dry fruit and ghee sweets maintain full freshness for 15–20 days at room temperature. Milk and mawa sweets have a 4–7 day shelf life and should be refrigerated upon unboxing.</p>
         </div>
         <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-neutral-800/70 border border-amber-200/60 dark:border-neutral-700">
-          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-handshake-angle text-gold"></i>Wedding &amp; Bespoke Bulk Gifting</h4>
+          <h4 class="font-bold text-neutral-900 dark:text-white mb-1 flex items-center gap-2"><i class="fa-solid fa-handshake-angle text-gold"></i>Celebration &amp; Bespoke Bulk Gifting</h4>
           <p>Custom ribbon branding, foil gold invitation tags, and personalized cards are confirmed with a digital proof prior to kitchen batch production.</p>
         </div>
       </div>
@@ -3400,8 +3387,8 @@ Thank you!`;
 
     if (typeSelect) {
       const lower = enquiryItem.toLowerCase();
-      if (lower.includes('wedding') || lower.includes('shagun') || lower.includes('trunk')) {
-        typeSelect.value = 'wedding';
+      if (lower.includes('celebration') || lower.includes('shagun') || lower.includes('trunk') || lower.includes('hamper')) {
+        typeSelect.value = 'celebration';
       } else if (lower.includes('corporate') || lower.includes('bulk') || lower.includes('darbar')) {
         typeSelect.value = 'corporate';
       } else {
