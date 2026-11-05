@@ -62,7 +62,7 @@
       </a>
       <div class="flex items-center gap-3">
         <button onclick="toggleRTL()" class="rtl-toggle-btn text-xs font-bold px-3 py-1.5 rounded-full border border-white/20 text-neutral-200 hover:border-gold">RTL</button>
-        <button onclick="toggleDarkMode()" class="theme-toggle-btn w-8 h-8 rounded-full bg-white/10 text-gold flex items-center justify-center text-xs">
+        <button onclick="toggleDarkMode()" class="theme-toggle-btn hidden sm:flex w-8 h-8 rounded-full bg-white/10 text-gold items-center justify-center text-xs">
           <i class="fa-solid fa-moon"></i>
         </button>
         <a href="index.html" class="text-xs font-semibold text-neutral-300 hover:text-gold transition hidden sm:inline">
@@ -140,22 +140,6 @@
           Contact
         </a>
 
-        <!-- Dashboard Accordion Card -->
-        <div class="rounded-2xl bg-[#23121D] border border-white/10 p-2 overflow-hidden shadow-inner">
-          <button type="button" onclick="toggleMobileSubmenu('mobileDashboardSubmenu', this)"
-            class="w-full flex items-center justify-between px-3 py-2 text-sm font-bold text-neutral-200 hover:text-gold transition rounded-xl">
-            <span>Dashboard &amp; Orders</span>
-            <i class="fa-solid fa-chevron-down text-xs text-neutral-400 transition-transform duration-200"></i>
-          </button>
-          <div id="mobileDashboardSubmenu" class="hidden space-y-1 pt-1">
-            <a href="dashboard.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
-              <i class="fa-solid fa-user-circle text-gold text-xs"></i> Customer Dashboard
-            </a>
-            <a href="blog.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
-              <i class="fa-solid fa-newspaper text-gold text-xs"></i> Halwai Journal
-            </a>
-          </div>
-        </div>
       </div>
 
       <!-- Bottom Controls Row: RTL & Theme Circular Buttons -->

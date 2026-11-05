@@ -90,11 +90,11 @@
       <div class="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 shrink-0">
         <!-- RTL Toggle (Desktop / Tablet) -->
         <button onclick="toggleRTL()"
-          class="rtl-toggle-btn hidden sm:inline-flex text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition">RTL</button>
+          class="rtl-toggle-btn hidden lg:inline-flex text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-full border border-amber-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-amber-50 dark:hover:bg-neutral-800 transition">RTL</button>
 
         <!-- Theme Toggle -->
         <button onclick="toggleDarkMode()"
-          class="theme-toggle-btn w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold hover:scale-105 transition flex items-center justify-center text-xs sm:text-sm shadow-sm"
+          class="theme-toggle-btn hidden lg:flex w-10 h-10 rounded-full bg-amber-50 dark:bg-neutral-800 text-burgundy dark:text-gold hover:scale-105 transition items-center justify-center text-sm shadow-sm"
           aria-label="Toggle dark mode">
           <i class="fa-solid fa-moon"></i>
         </button>
@@ -178,22 +178,6 @@
           Contact
         </a>
 
-        <!-- Dashboard Accordion Card -->
-        <div class="rounded-2xl bg-[#23121D] border border-white/10 p-2 overflow-hidden shadow-inner">
-          <button type="button" onclick="toggleMobileSubmenu('mobileDashboardSubmenu', this)"
-            class="w-full flex items-center justify-between px-3 py-2 text-sm font-bold text-neutral-200 hover:text-gold transition rounded-xl">
-            <span>Dashboard &amp; Orders</span>
-            <i class="fa-solid fa-chevron-down text-xs text-neutral-400 transition-transform duration-200"></i>
-          </button>
-          <div id="mobileDashboardSubmenu" class="hidden space-y-1 pt-1">
-            <a href="dashboard.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
-              <i class="fa-solid fa-user-circle text-gold text-xs"></i> Customer Dashboard
-            </a>
-            <a href="blog.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
-              <i class="fa-solid fa-newspaper text-gold text-xs"></i> Halwai Journal
-            </a>
-          </div>
-        </div>
       </div>
 
       <!-- Bottom Controls Row: RTL & Theme Circular Buttons -->

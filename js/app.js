@@ -2226,22 +2226,6 @@ function injectSharedMobileMenuDrawer() {
           Contact
         </a>
 
-        <!-- Dashboard Accordion Card -->
-        <div class="rounded-2xl bg-[#23121D] border border-white/10 p-2 overflow-hidden shadow-inner">
-          <button type="button" onclick="toggleMobileSubmenu('mobileDashboardSubmenu', this)"
-            class="w-full flex items-center justify-between px-3 py-2 text-sm font-bold text-neutral-200 hover:text-gold transition rounded-xl">
-            <span>Dashboard &amp; Orders</span>
-            <i class="fa-solid fa-chevron-down text-xs text-neutral-400 transition-transform duration-200"></i>
-          </button>
-          <div id="mobileDashboardSubmenu" class="hidden space-y-1 pt-1">
-            <a href="dashboard.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
-              <i class="fa-solid fa-user-circle text-gold text-xs"></i> Customer Dashboard
-            </a>
-            <a href="blog.html" class="block px-3.5 py-2 text-neutral-300 hover:text-white hover:bg-white/5 text-xs font-medium rounded-lg transition flex items-center gap-2">
-              <i class="fa-solid fa-newspaper text-gold text-xs"></i> Halwai Journal
-            </a>
-          </div>
-        </div>
       </div>
 
       <!-- Bottom Controls Row: RTL & Theme Circular Buttons -->

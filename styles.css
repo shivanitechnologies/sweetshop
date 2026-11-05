@@ -1272,7 +1272,9 @@ html.dark #mobileMenu {
     margin-left: auto !important;
   }
   /* Action buttons */
-  .sticky-header .theme-toggle-btn,
+  .sticky-header .theme-toggle-btn {
+    display: none !important;
+  }
   .sticky-header button[onclick*="openWishlistDrawer"] {
     width: 2.15rem !important;
     height: 2.15rem !important;
@@ -1335,7 +1337,6 @@ html.dark #mobileMenu {
   .sticky-header .container > div:last-child {
     gap: 0.55rem !important;
   }
-  .sticky-header .theme-toggle-btn,
   .sticky-header button[onclick*="openWishlistDrawer"],
   #mobileMenuToggle {
     width: 2.35rem !important;
